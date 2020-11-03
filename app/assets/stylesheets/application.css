@@ -13,18 +13,39 @@
  *= require_tree .
  *= require_self
  */
-
+/* common */
+@media screen and (min-width:768px) {
+  .common__pc-only {
+    display: block;
+  }
+  .co.common__sp-only {
+    display: none;
+  }
+}
+@media screen and (max-width:767px) {
+  .common__pc-only {
+    display: none;
+  }
+  .co.common__sp-only {
+    display: block;
+  }
+}
  /* header */
 header {
    width:100%;
-   margin-bottom: 50px;
-}
- .container {
-   height: 50px;
+   height: 70px;
    position: fixed;
    top: 0;
+}
+ .container {
+   height: auto;
+   background-color: bisque;
  }
 .link {
   padding: 10px 20px;
   display: inline-block;
+}
+/*body*/
+body {
+  margin-top: 70px;
 }

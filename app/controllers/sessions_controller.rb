@@ -4,7 +4,14 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: params[:session][:email].downcase)
+    auth = request.env['omniauth.auth']
+    if auth.present?
+      user = User.find_or_create_from_auth(auth)
+      log_in (user)
+      current_user
+      redirect_to root_url
+    else
+      @user = User.find_by(email: params[:session][:email].downcase)
       if @user && !!@user.authenticate(params[:session][:password])
         log_in (@user)
         current_user
@@ -13,6 +20,7 @@ class SessionsController < ApplicationController
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
+    end
   end
 
   def destroy

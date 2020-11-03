@@ -33,14 +33,19 @@
  /* header */
 header {
    width:100%;
-   margin-bottom: 50px;
-}
- .container {
-   height: 50px;
+   height: 70px;
    position: fixed;
    top: 0;
+}
+ .container {
+   height: auto;
+   background-color: bisque;
  }
 .link {
   padding: 10px 20px;
   display: inline-block;
+}
+/*body*/
+body {
+  margin-top: 70px;
 }

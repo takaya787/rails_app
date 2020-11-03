@@ -1,0 +1,14 @@
+<header>
+  <div class="container">
+    <ul>
+      <li class="link"><%= link_to "Home", root_path %></li>
+      <li class="link"><%= link_to "Users", users_path  %></li>
+      <% if logged_in? %>
+        <li class="link"><%= link_to "Log out",       logout_path, method: :post %></li>
+      <% else %>
+        <li class="link"><%= link_to "Sign up",       new_user_path %></li>
+        <li class="link"><%= link_to "Log in", login_path  %></li>
+      <% end %>
+    </ul>
+  </div>
+</header>

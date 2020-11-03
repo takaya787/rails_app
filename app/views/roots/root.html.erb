@@ -1,5 +1,10 @@
-Hello world
-<%= link_to "Sign up", new_user_path %>
-aaaaaa
-bbbbbb
-cccccc
+<h1>Home</h1>
+<h3 style="margin-top:30px;">
+<% if logged_in? %>
+  <%= "Welcome to App! Mr #{@current_user.name}" %>
+  <%= link_to "Log out", logout_path , method: :post %>
+<% else %>
+  <%= link_to "Sign up", new_user_path %>
+  <%= link_to "Log in", login_path %>
+<% end %>
+  </h3>

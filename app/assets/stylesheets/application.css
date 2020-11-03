@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+ /* header */
+header {
+   width:100%;
+   margin-bottom: 50px;
+}
+ .container {
+   height: 50px;
+   position: fixed;
+   top: 0;
+ }
+.link {
+  padding: 10px 20px;
+  display: inline-block;
+}

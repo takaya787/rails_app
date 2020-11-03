@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'roots#root'
  # sns認証用
-  get 'auth/:provider/callback' => "sessions#create"
+  get 'auth/:provider/callback', to: "sessions#create"
  #sessions(users resource) 関連
   get '/login' => "sessions#new"
   post '/login' => "sessions#create"

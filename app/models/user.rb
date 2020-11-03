@@ -13,13 +13,15 @@ class User < ApplicationRecord
     uid = auth[:uid]
     name = auth[:info][:name]
     email = auth[:info][:email]
-    if User.sns_credits.find_by(provider: provider, uid: uid)
-      user = User.find_by(id: sns.user_id)
+    sns = SnsCredit.find_by(provider: provider, uid: uid)
+    if sns
+      user = User.find_by(id: sns.user_id )
       user.name = name
       user.email = email
+      return user
     else
-      user = User.new(name: name, email: email, password: password, password_confirmation: password)
-      user.sns_credits.create(uid: uid, provider: provider) if user.save
+      user = User.create(name: name, email: email, password: password, password_confirmation: password)
+      user.sns_credits.create(uid: uid, provider: provider)
       return user
     end
   end

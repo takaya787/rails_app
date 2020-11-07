@@ -6,20 +6,17 @@ class Signup extends React.Component {
     this.state = {
       isModalOpen: false,
       user_name: '',
-      email: '',
-      password: '',
-      password_confirmation: ''
-    }
+      user_email: '',
+      user_password: '',
+      user_password_confirmation: '',
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(event) {
     this.setState({
-      user_name: event.target.user_name,
-      email: event.target.email,
-      password: event.target.password,
-      password_confirmation: event.target.password_confirmation
-    })
+      [event.target.id]: event.target.value,
+    });
   }
 
   handleSubmit(event) {
@@ -29,19 +26,21 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} action="/users" accept-charset="UTF-8" method="post">
-        <label>Name:
-           <input className="form" type="text" name="user[name]" value={this.state.user_name} onChange={this.handleChange} />
-        </label>
+      <form onSubmit={this.handleSubmit}
+        action={this.props.url} acceptCharset="UTF-8" method="post">
 
-        <label for="user_email">Email:</label>
-        <input className="form" type="email" name="user[email]" id="user_email" value={this.state.email} onChange={this.handleChange} />
-        <label>password
-          <input className="form" type="password" name="user[password]" value={this.state.password} onChange={this.handleChange} />
-        </label>
-        <label>password_confirmation
-          <input className="form" type="password" name="user[password_confirmation]" value={this.state.password_confirmation} onChange={this.handleChange} />
-        </label>
+        <input type="hidden" name="authenticity_token"
+          value={this.props.authenticityToken} />
+
+        <label htmlFor="user_name">Name:</label>
+        <input className="form" type="text" name="user[name]" id="user_name" value={this.state.user_name} onChange={this.handleChange} />
+
+        <label htmlFor="user_email">Email:</label>
+        <input className="form" type="text" name="user[email]" id="user_email" value={this.state.user_email} onChange={this.handleChange} />
+        <label htmlFor="user_password">password</label>
+        <input className="form" type="password" name="user[password]" id="user_password" value={this.state.user_password} onChange={this.handleChange} />
+        <label htmlFor="user_password_confirmation">password_confirmation</label>
+        <input className="form" type="password" name="user[password_confirmation]" id="user_password_confirmation" value={this.state.user_password_confirmation} onChange={this.handleChange} />
 
         <input className="form_submit" type="submit" name="submit" value="Submit" />
       </form>
@@ -49,4 +48,8 @@ class Signup extends React.Component {
   }
 }
 
+Signup.propTypes = {
+  url: PropTypes.string,
+  authenticity_Token: PropTypes.string
+};
 export default Signup

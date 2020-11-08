@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import './signup.scss'
 class Signup extends React.Component {
   constructor(props) {
     super(props);
@@ -37,7 +38,8 @@ class Signup extends React.Component {
         <form
           className="form"
           onSubmit={this.handleSubmit}
-          action={this.props.url} acceptCharset="UTF-8" method="post">
+          action={this.props.url} acceptCharset="UTF-8" method="post"
+          remote="true">
           <button onClick={this.modalcontroll}>✕</button>
 
           <input type="hidden" name="authenticity_token"

@@ -1,12 +1,12 @@
 <h1 style="margin:30px 0;">Home</h1>
-<h3 style="margin-top:30px;">
-  <% if logged_in? %>
-    <%= react_component("HelloWorld", {greeting: @current_user.name}) %>
-    <%= "Welcome to App! Mr #{@current_user.name}" %>
-    <%= link_to "Log out", logout_path , method: :post %>
-  <% else %>
-    <%= react_component("HelloWorld", greeting:"ご利用ありがとうございます。") %>
-    <%= link_to "Sign up", new_user_path %>
-    <%= link_to "Log in", login_path %>
-  <% end %>
-</h3>
+<% if logged_in? %>
+  <%= react_component("HelloWorld", {greeting: @current_user.name}) %>
+  <%= "Welcome to App! Mr #{@current_user.name}" %>
+  <%= link_to "Log out", logout_path , method: :post %>
+<% else %>
+  <%= react_component("Signup", {
+  url: users_url,
+  authenticityToken: form_authenticity_token,}) %>
+  <%= link_to "Sign up", new_user_path %>
+  <%= link_to "Log in", login_path %>
+<% end %>

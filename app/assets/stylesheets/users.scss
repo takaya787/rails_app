@@ -1,3 +1,24 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+//new page
+@keyframes slidein {
+  0%{
+    opacity: 0;
+    transform:translateX(-64)
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.form {
+  animation: slidein 2s;
+  &_submit {
+    display: block;
+    margin-top: 15px;
+  }
+  a {
+    margin-right: 15px;
+  }
+}

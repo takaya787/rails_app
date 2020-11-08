@@ -30,11 +30,12 @@ class UsersController < ApplicationController
     @user.email.downcase
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to root_url, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
         log_in (@user)
         current_user
       else
+        #format.html { render 'controller/name' }でもいける
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end

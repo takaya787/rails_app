@@ -1,6 +1,19 @@
 <h1>New User</h1>
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-<%= render 'form', user: @user %>
-
-<%= link_to "GoogleでSign in","/auth/google_oauth2" %>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= react_component("Signup", {
+  url: users_url,
+  authenticityToken: form_authenticity_token,
+}) %>
+<!--<%= link_to "GoogleでSign in","/auth/google_oauth2" %>
 <%= link_to 'Back', root_path %>
+-->

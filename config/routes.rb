@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  #reviews関連
+
+
   root 'roots#root'
  # sns認証用
   get 'auth/:provider/callback', to: "sessions#create"
@@ -7,6 +10,7 @@ Rails.application.routes.draw do
   post '/login' => "sessions#create"
   post '/logout'=> "sessions#destroy"
 
+  resources :reviews
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

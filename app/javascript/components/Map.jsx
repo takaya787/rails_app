@@ -1,39 +1,34 @@
 import React from "react"
 import PropTypes from "prop-types"
+//{yarn add dotenv}でダウンロードし、.envにkeyを追加したが、rails側からpropsとしてkeyを与える方が良い
+require('dotenv').config()
 //{yarn add google-map-react}をコンテナ内で入力して、packageをダウンロードする必要がある
 import GoogleMapReact from 'google-map-react'
-
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const API_KEY = process.env.GOOGLE_API_KEY
 class Map extends React.Component {
   //set the default props
   static defaultProps = {
     center: {
-      lat: 59.95,
-      lng: 30.33
+      lat: 34.4111,
+      lng: 135.3112
     },
-    zoom: 11
+    zoom: 8
   };
-
   render() {
     return (
       // Important! Always set the container height explicitly
       <div style={{ height: '100vh', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{
-            key: "AIzaSyBnfz30Q1Hz0Q16Ku_gHOhLpwLW1tr6XGI"
+            key: API_KEY
           }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
-          <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
-            text="My Marker"
-          />
+
         </GoogleMapReact>
       </div>
     );
   }
 }
-
 export default Map

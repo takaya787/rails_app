@@ -1,5 +1,13 @@
 <div class="title">
   <h1>あなたの海外経験をシェアをしよう！</h1>
-  <h2></h2>
 </div>
+<%= form_with( url: check_place_path, local: true) do |f| %>
+  <div class="field">
+    <%= f.text_field :keyword, :placeholder => "場所を入力してください" %>
+  </div>
+   <div class="actions">
+    <%= f.submit value="検索" %>
+  </div>
+<% end %>
+<%= "latitude=#{session[:lat]}"+"   lon=#{session[:lon]}" if session[:lat] && session[:lon] %>
 <%= react_component("Map") %>

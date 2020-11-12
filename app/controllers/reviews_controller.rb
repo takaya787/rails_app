@@ -3,16 +3,16 @@ class ReviewsController < ApplicationController
   end
 
   def new
+
   end
 
   def check
     result = Geocoder.search(params[:keyword])
-    if result
+    if !result.empty?
       puts result
-      debugger
       @result = result.first.coordinates
       session[:lat] = @result[0]
-      session[:lon] = @result[1]
+      session[:lng] = @result[1]
       flash[:success]="地図を変更しました"
       redirect_to "/reviews/new"
     else

@@ -9,5 +9,11 @@
     <%= f.submit value="検索" %>
   </div>
 <% end %>
-<%= "latitude=#{session[:lat]}"+"   lon=#{session[:lon]}" if session[:lat] && session[:lon] %>
-<%= react_component("Map") %>
+<% if session[:lat] && session[:lng] %>
+  <%= "session[:lat]=#{session[:lat]} " + " session[:lng]=#{session[:lng]}" %>
+  <%= react_component("Map", {
+      center: { lat: session[:lat], lng: session[:lng] } }) %>
+<% else %>
+  <%= react_component("Map", {
+      center: { lat: session[:lat], lng: session[:lng]} }) %>
+<% end %>

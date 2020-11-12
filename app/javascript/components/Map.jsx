@@ -14,7 +14,7 @@ class Map extends React.Component {
       lat: 34.4111,
       lng: 135.3112
     },
-    zoom: 8
+    zoom: 10
   };
   render() {
     return (
@@ -33,4 +33,7 @@ class Map extends React.Component {
     );
   }
 }
+Map.propTypes = {
+  center: PropTypes.object
+};
 export default Map

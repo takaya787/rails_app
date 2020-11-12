@@ -49,3 +49,15 @@ header {
 body {
   margin-top: 70px;
 }
+.flash {
+  padding: 10px;
+}
+.success {
+  background-color: greenyellow;
+}
+.danger {
+  background-color: red;
+}
+.notice {
+  background-color: yellowgreen;
+}

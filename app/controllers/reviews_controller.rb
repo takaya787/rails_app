@@ -3,7 +3,6 @@ class ReviewsController < ApplicationController
   end
 
   def new
-
   end
 
   def check
@@ -16,8 +15,9 @@ class ReviewsController < ApplicationController
       flash[:success]="地図を変更しました"
       redirect_to "/reviews/new"
     else
-      flash[:danger]="検索した場所は見つかりませんでした"
       render 'reviews/new'
+      flash[:danger]="検索した場所は見つかりませんでした"
+
     end
   end
 end

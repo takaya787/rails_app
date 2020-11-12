@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
       @result = result.first.coordinates
       session[:lat] = @result[0]
       session[:lng] = @result[1]
-      flash[:success]="地図を変更しました"
+      flash[:success]="検索した場所に移動します"
       redirect_to "/reviews/new"
     else
       render 'reviews/new'

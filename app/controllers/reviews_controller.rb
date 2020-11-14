@@ -3,6 +3,8 @@ class ReviewsController < ApplicationController
   end
 
   def new
+    @lat = session[:lat]
+    @lng = session[:lng]
   end
 
   def check
@@ -17,7 +19,6 @@ class ReviewsController < ApplicationController
     else
       render 'reviews/new'
       flash[:danger]="検索した場所は見つかりませんでした"
-
     end
   end
 end

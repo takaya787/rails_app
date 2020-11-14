@@ -1,7 +1,11 @@
 <div class="title">
   <h1>あなたの海外経験をシェアをしよう！</h1>
 </div>
-<%= form_with( url: check_place_path, local: true) do |f| %>
+<% unless session[:lat].nil? or session[:lng].nil? %>
+    <p> <%= "lat=#{@lat}  lng=#{@lng}" %>
+    </p>
+<% end %>
+<%= form_with( url: check_place_path, remote: true) do |f| %>
   <div class="field" style="display:inline-block;" >
     <%= f.text_field :keyword, :placeholder => "場所を入力してください" , class:"window" %>
   </div>
@@ -9,11 +13,4 @@
     <%= f.submit value="検索" %>
   </div>
 <% end %>
-<% if session[:lat].nil? or session[:lng].nil? %>
-  <%= react_component("Map", {
-     center: { lat:34.4111, lng:135.3112}
-  }) %>
-<% else %>
-  <%= react_component("Map", {
-      center: { lat: session[:lat], lng: session[:lng]} }) %>
-<% end %>
+<%= render partial: "googlemap" , locals: { lat: session[:lat], lng: session[:lng] } %>

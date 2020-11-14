@@ -31,7 +31,7 @@ Hoverpin.propTypes = {
   // GoogleMap pass $hover props to hovered components
   // to detect hover it uses internal mechanism, explained in x_distance_hover example
   $hover: PropTypes.bool,
-  $onMouseAllow: PropTypes.bool,
+  //$onMouseAllow: PropTypes.bool,
   //text: PropTypes.string
 };
 export default Hoverpin

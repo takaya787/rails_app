@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
         format.js
       else
         format.html { render :new }
-        format.json { render "reviews/new" }
+        format.js { render "reviews/new" }
         flash[:danger]="検索した場所は見つかりませんでした"
       end
     end

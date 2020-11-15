@@ -9,4 +9,12 @@
     <%= f.submit value="検索" %>
   </div>
 <% end %>
-<%= render partial: "googlemap" , locals: { lat: session[:lat], lng: session[:lng] } %>
+<div>
+  <p id="center-number">
+    <%= "lat: #{session[:lat]}, lng: #{session[:lng]} "%>
+  </p>
+  <div id="google-map">
+    <%= react_component("Map", {
+        center: { lat:34.7036838, lng:135.4857281} })  %>
+  </div>
+</div>

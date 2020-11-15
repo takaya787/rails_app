@@ -2,14 +2,14 @@ import React from "react"
 import PropTypes from "prop-types"
 
 const markerStyle = {
-  height: 20,
-  width: 20,
+  height: 15,
+  width: 15,
   backgroundColor: 'red',
   cursor: 'pointer'
 };
 const hoverStyle = {
-  height: 15,
-  width: 15,
+  height: 20,
+  width: 20,
   backgroundColor: 'blue',
   cursor: 'pointer',
 };

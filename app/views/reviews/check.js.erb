@@ -1,3 +1,10 @@
 var center = <%= raw @center.to_json %>
-console.log( center )
-console.log( `lat=${center["lat"]}, lng=${center["lng"]}` )
+console.log( <%= @center["lat"]%> );
+console.log( <%= @center["lng"] %>);
+console.log( `lat=${center["lat"]}, lng=${center["lng"]}` );
+//id="center-number"を更新
+$('#center-number').html(`lat=${center["lat"]}, lng=${center["lng"]}`);
+
+//id="google-map"を更新
+/* jqueryではつまくいかない
+$("#google-map").html("<%= escape_javascript( react_component("Map", { center: { lat:0, lng:0} }) ) %>");　*/

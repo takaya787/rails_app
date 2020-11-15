@@ -1,6 +1,5 @@
 <div class="title">
   <h1>あなたの海外経験をシェアをしよう！</h1>
-  <p>lat=<%= session[:lat]%> , lng=<%= session[:lng] %></p>
 </div>
 <%= form_with( url: check_place_path, remote: true) do |f| %>
   <div class="field" style="display:inline-block;" >

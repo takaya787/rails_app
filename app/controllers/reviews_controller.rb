@@ -12,10 +12,9 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if !result.empty?
         puts result
-        @result = result.first.coordinates
-        @center = { lat: @result[0], lng: @result[1] }
-        session[:lat] = @result[0]
-        session[:lng] = @result[1]
+        result = result.first.coordinates
+        @center = { "lat" => result[0], "lng" => result[1] }
+        #@center["lat"], @center["lng"]
         flash[:success]="検索した場所に移動します"
         format.html { redirect_to new_review_url}
         format.js

@@ -11,7 +11,7 @@
 <% end %>
 <div>
   <p id="center-number">
-    <%= "lat: #{session[:lat]}, lng: #{session[:lng]} "%>
+    <%= "lat: #{@center["lat"]} lng: #{@center["lng"]} " if @center %>
   </p>
   <div id="google-map">
     <%= react_component("Map", {

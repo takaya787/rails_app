@@ -29,8 +29,9 @@ class ReviewsController < ApplicationController
         format.json { geography }
         #format.js {flash[:success]= "検索した場所は見つかりませんでした"}
       else
+        flash[:danger]="検索した場所が見つかりませんでした"
         format.html { render :new }
-        format.json { }
+        format.json {　geography　}
         #format.js { flash[:danger]= "検索した場所は見つかりませんでした"}
       end
     end

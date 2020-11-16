@@ -1,20 +1,23 @@
 <div class="title">
   <h1>あなたの海外経験をシェアをしよう！</h1>
 </div>
+ <!-- 検索formもreactに内蔵
 <%= form_with( url: check_place_path, remote: true) do |f| %>
-  <div class="field" style="display:inline-block;" >
+ <div class="field" style="display:inline-block;" >
     <%= f.text_field :keyword, :placeholder => "場所を入力してください" , class:"window" %>
   </div>
    <div class="actions" style="display:inline-block;">
     <%= f.submit value="検索" %>
   </div>
 <% end %>
+-->
 <div>
   <p id="center-number">
     <%= "lat: #{@center["lat"]} lng: #{@center["lng"]} " if @center %>
   </p>
   <div id="google-map">
     <%= react_component("Map", {
-        center: { lat:34.7036838, lng:135.4857281} })  %>
+      authenticityToken: form_authenticity_token,
+    })  %>
   </div>
 </div>

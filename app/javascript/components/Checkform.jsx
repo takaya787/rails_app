@@ -17,7 +17,7 @@ class Checkform extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(this.event.state)
+    console.log(this.state.keyword)
     event.preventDefault();
   }
 

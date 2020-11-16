@@ -12,9 +12,6 @@
 <% end %>
 -->
 <div>
-  <p id="center-number">
-    <%= "lat: #{@center["lat"]} lng: #{@center["lng"]} " if @center %>
-  </p>
   <div id="google-map">
     <%= react_component("Map", {
       authenticityToken: form_authenticity_token,

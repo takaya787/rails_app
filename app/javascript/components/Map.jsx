@@ -20,17 +20,16 @@ class Map extends React.Component {
     super(props);
     this.state = {
       error: null,
-      lat: null,
-      center: { lat: null, lng: null },
+      center: { center: { lat: 0, lng: 0 } },
     };
     //bind(this)はthisを固定してどの関数で呼び出しても同じthisになる
     // this.fetchUrl = this.fetchUrl.bind(this);
   }
   static defaultProps = {
-    center: {
+    /*center: {
       lat: 34.4111,
       lng: 135.3112
-    },
+    },*/
     zoom: 10
   };
   /*fetchUrl() {
@@ -56,8 +55,7 @@ class Map extends React.Component {
       .then(
         (result) => {
           this.setState({
-            lat: result.lat,
-            lng: result.lng,
+            center: { lat: result.lat, lng: result.lng }
           });
         },
         (error) => {
@@ -76,8 +74,8 @@ class Map extends React.Component {
 
         // Important! Always set the container height explicitly
         <div className="Googlemap" style={{ height: '90vh' }}>
-          <div> {this.state.lat}</div>
-          <div> {this.state.lng}</div>
+          <div> {this.state.center.lat}</div>
+          <div> {this.state.center.lng}</div>
 
           <Checkform //子のcheckformがsubmitされるたびに子コンポーネントがmountされるのでcomponentdidMountも自動的にMountされる
             url="http://127.0.0.1:3000/reviews/check"
@@ -87,13 +85,14 @@ class Map extends React.Component {
             bootstrapURLKeys={{
               key: API_KEY
             }}
-            defaultCenter={this.props.center}
-            defaultZoom={this.props.zoom}
+            //defaultCenter・defaultZoomは値が固定されるので避けるべき
+            center={this.state.center}
+            zoom={this.props.zoom}
             yesIWantToUseGoogleMapApiInternals
           >
             <Hoverpin
-              lat={this.props.center.lat}
-              lng={this.props.center.lng}
+              lat={this.state.center.lat}
+              lng={this.state.center.lng}
             />
           </GoogleMapReact>
         </div>

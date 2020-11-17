@@ -10,7 +10,7 @@ import './Map.scss'
 
 //Hoverpin.jsxをimport
 import Hoverpin from './Hoverpin.jsx'
-
+//Checkform.jsxをimport
 import Checkform from './Checkform.jsx'
 
 //map parent component
@@ -23,16 +23,17 @@ class Map extends React.Component {
       center: { center: { lat: 0, lng: 0 } },
     };
     //bind(this)はthisを固定してどの関数で呼び出しても同じthisになる
-    // this.fetchUrl = this.fetchUrl.bind(this);
+    this.fetchCenter = this.fetchCenter.bind(this);
   }
   static defaultProps = {
-    /*center: {
+    /* propsはMapでは使われないが念の為おいておく
+    center: {
       lat: 34.4111,
       lng: 135.3112
     },*/
     zoom: 10
   };
-  /*fetchUrl() {
+  fetchCenter() {
     fetch("http://127.0.0.1:3000/reviews/new.json")
       .then(res => res.json())
       .then(
@@ -48,7 +49,7 @@ class Map extends React.Component {
           })
         }
       )
-  }*/
+  };
   componentDidMount() {
     fetch("http://127.0.0.1:3000/reviews/new.json")
       .then(res => res.json())
@@ -71,7 +72,6 @@ class Map extends React.Component {
     }
     else {
       return (
-
         // Important! Always set the container height explicitly
         <div className="Googlemap" style={{ height: '90vh' }}>
           <div> {this.state.center.lat}</div>
@@ -80,6 +80,7 @@ class Map extends React.Component {
           <Checkform //子のcheckformがsubmitされるたびに子コンポーネントがmountされるのでcomponentdidMountも自動的にMountされる
             url="http://127.0.0.1:3000/reviews/check"
             authenticityToken={this.props.authenticityToken}
+            parentMethod={this.fetchCenter}
           />
           <GoogleMapReact
             bootstrapURLKeys={{

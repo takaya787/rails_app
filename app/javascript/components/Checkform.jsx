@@ -48,7 +48,7 @@ class Checkform extends React.Component {
         //parentMethodでmapを再fetchする
         onSubmit={this.handleSubmit}
         action={this.props.url} acceptCharset="UTF-8"
-        method="post" data-remote="true"
+        method="post" dataremote="true"
       >
 
         <input type="hidden" name="authenticity_token"

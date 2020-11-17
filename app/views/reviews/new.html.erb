@@ -1,5 +1,6 @@
 <div class="title">
   <h1>あなたの海外経験をシェアをしよう！</h1>
+  <p><%= "current_user :#{@current_user.name}" %></p>
 </div>
  <!-- 検索formもreactに内蔵
 <%= form_with( url: check_place_path, remote: true) do |f| %>
@@ -11,10 +12,8 @@
   </div>
 <% end %>
 -->
-<div>
-  <div id="google-map">
-    <%= react_component("Map", {
-      authenticityToken: form_authenticity_token,
-    })  %>
-  </div>
+<div id="google-map">
+  <%= react_component("Map", {
+    authenticityToken: form_authenticity_token,
+  })  %>
 </div>

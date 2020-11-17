@@ -44,19 +44,19 @@ class Reviewform extends React.Component {
           />
           {/* ここまで隠し要素*/}
           <label htmlFor="review_reason">目的</label>
-          <input className="form" type="text" name="reason" id="review_reason" value={this.state.review_reason} onChange={this.handleChange} />
+          <input className="form" type="text" name="review[reason]" id="review_reason" value={this.state.review_reason} onChange={this.handleChange} />
 
-          <label htmlFor="duration">期間</label>
-          <input className="form" type="number" name="duration" id="review_duration" value={this.state.review_duration} onChange={this.handleChange} />
+          <label htmlFor="review_duration">期間</label>
+          <input className="form" type="number" name="review[duration]" id="review_duration" value={this.state.review_duration} onChange={this.handleChange} />
 
-          <label htmlFor="good">Good:</label>
+          <label htmlFor="review_good">Good:</label>
           <textarea className="form textarea" name="
-          good" id="review_good" value={this.state.review_good} onChange={this.handleChange} />
+          review[good]" id="review_good" value={this.state.review_good} onChange={this.handleChange} />
 
           <label htmlFor="review_bad">Bad:</label>
-          <textarea className="form textarea" name="bad" id="review_bad" value={this.state.review_bad} onChange={this.handleChange} />
-          <label htmlFor="advice">次に来る人へのアドバイス</label>
-          <textarea className="form textarea" name="advice" id="review_advice" value={this.state.review_advice} onChange={this.handleChange} />
+          <textarea className="form textarea" name="review[bad]" id="review_bad" value={this.state.review_bad} onChange={this.handleChange} />
+          <label htmlFor="review_advice">次に来る人へのアドバイス</label>
+          <textarea className="form textarea" name="review[advice]" id="review_advice" value={this.state.review_advice} onChange={this.handleChange} />
 
           <input className="form_submit" type="submit" name="submit" value="Submit" />
         </form>

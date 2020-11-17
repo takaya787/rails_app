@@ -4,10 +4,11 @@ class Reviewform extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user_name: '',
-      user_email: '',
-      user_password: '',
-      user_password_confirmation: '',
+      review_reason: '',
+      review_duration: 0,
+      review_good: '',
+      review_bad: '',
+      review_advice: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,21 +30,33 @@ class Reviewform extends React.Component {
         <form
           className="draft_form"
           onSubmit={this.handleSubmit}
-          action={this.props.url} acceptCharset="UTF-8" method="post"
-          remote="true">
-
+          action={this.props.url} acceptCharset="UTF-8" method="post">
+          <h3>reviewを入力してください</h3>
+          {/* ここでまとめて隠し要素設置*/}
           <input type="hidden" name="authenticity_token"
-            value={this.props.authenticityToken} />
+            value={this.props.authenticityToken}
+          />
+          <input type="hidden" name="lat"
+            value={this.props.lat}
+          />
+          <input type="hidden" name="lng"
+            value={this.props.lng}
+          />
+          {/* ここまで隠し要素*/}
+          <label htmlFor="review_reason">目的</label>
+          <input className="form" type="text" name="reason" id="review_reason" value={this.state.review_reason} onChange={this.handleChange} />
 
-          <label htmlFor="user_name">Name:</label>
-          <input className="form" type="text" name="user[name]" id="user_name" value={this.state.user_name} onChange={this.handleChange} />
+          <label htmlFor="duration">期間</label>
+          <input className="form" type="number" name="duration" id="review_duration" value={this.state.review_duration} onChange={this.handleChange} />
 
-          <label htmlFor="user_email">Email:</label>
-          <input className="form" type="text" name="user[email]" id="user_email" value={this.state.user_email} onChange={this.handleChange} />
-          <label htmlFor="user_password">password</label>
-          <input className="form" type="password" name="user[password]" id="user_password" value={this.state.user_password} onChange={this.handleChange} />
-          <label htmlFor="user_password_confirmation">password_confirmation</label>
-          <input className="form" type="password" name="user[password_confirmation]" id="user_password_confirmation" value={this.state.user_password_confirmation} onChange={this.handleChange} />
+          <label htmlFor="good">Good:</label>
+          <textarea className="form textarea" name="
+          good" id="review_good" value={this.state.review_good} onChange={this.handleChange} />
+
+          <label htmlFor="review_bad">Bad:</label>
+          <textarea className="form textarea" name="bad" id="review_bad" value={this.state.review_bad} onChange={this.handleChange} />
+          <label htmlFor="advice">次に来る人へのアドバイス</label>
+          <textarea className="form textarea" name="advice" id="review_advice" value={this.state.review_advice} onChange={this.handleChange} />
 
           <input className="form_submit" type="submit" name="submit" value="Submit" />
         </form>
@@ -57,5 +70,7 @@ Reviewform.propTypes = {
   url: PropTypes.string,
   authenticityToken: PropTypes.string,
   formClose: PropTypes.func,
+  lat: PropTypes.number,
+  lng: PropTypes.number,
 };
 export default Reviewform

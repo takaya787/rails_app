@@ -39,6 +39,8 @@ class Hoverpin extends React.Component {
               url="url"
               authenticityToken={this.props.authenticityToken}
               formclose={this.Formcontroll}
+              lat={this.props.lat}
+              lng={this.props.lng}
             />
           </div>
           <div className="marker" style={style} onClick={this.Formcontroll}>

@@ -2,14 +2,14 @@ import React from "react"
 import PropTypes from "prop-types"
 
 const markerStyle = {
-  height: 20,
-  width: 20,
+  height: 15,
+  width: 15,
   backgroundColor: 'red',
   cursor: 'pointer'
 };
 const hoverStyle = {
-  height: 15,
-  width: 15,
+  height: 20,
+  width: 20,
   backgroundColor: 'blue',
   cursor: 'pointer',
 };
@@ -31,7 +31,7 @@ Hoverpin.propTypes = {
   // GoogleMap pass $hover props to hovered components
   // to detect hover it uses internal mechanism, explained in x_distance_hover example
   $hover: PropTypes.bool,
-  $onMouseAllow: PropTypes.bool,
+  //$onMouseAllow: PropTypes.bool,
   //text: PropTypes.string
 };
 export default Hoverpin

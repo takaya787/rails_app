@@ -1,0 +1,12 @@
+<div>
+  <p id="center-number"><%= "lat: #{session[:lat]}, lng: #{session[:lng]} "%>
+  <% if session[:lat].nil? or session[:lng].nil? %>
+    <%= react_component("Map", {
+      center: { lat:34.4111, lng:135.3112}
+    }) %>
+  <% else %>
+    <%= react_component("Map", {
+        center: { lat: session[:lat], lng: session[:lng]}
+    } ) %>
+  <% end %>
+</div>

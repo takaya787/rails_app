@@ -1,3 +1,6 @@
+button {
+  cursor: pointer;
+}
 .Googlemap {
   max-width: 1300px;
   margin: 0 auto;
@@ -28,4 +31,27 @@
   background: #fff;
   border-radius: 50%;
   box-sizing: border-box;
+}
+.draft {
+  position: relative;
+  &_button {
+    position: absolute;
+    top: -240px;
+    right: 10px;
+    z-index: 4;
+    background-color: white;
+    border: none;
+  }
+  &_form {
+    background-color: white;
+    padding: 30px;
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+    box-shadow: 2px 3px 6px black;
+    position: absolute;
+    top: -250px;
+    right: 0;
+    z-index: 3;
+  }
 }

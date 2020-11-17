@@ -94,6 +94,7 @@ class Map extends React.Component {
             <Hoverpin
               lat={this.state.center.lat}
               lng={this.state.center.lng}
+              authenticityToken={this.props.authenticityToken}
             />
           </GoogleMapReact>
         </div>

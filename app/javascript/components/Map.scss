@@ -1,3 +1,6 @@
+button {
+  cursor: pointer;
+}
 .Googlemap {
   max-width: 1300px;
   margin: 0 auto;
@@ -28,4 +31,52 @@
   background: #fff;
   border-radius: 50%;
   box-sizing: border-box;
+}
+.draft {
+  position: relative;
+  &_button {
+    position: absolute;
+    top: -240px;
+    right: 30px;
+    z-index: 4;
+    background-color: #f3f3f3;
+    border: none;
+    animation: slideInTop 1.0s;
+  }
+  &_form {
+    background-color: #f3f3f3;
+    padding: 30px;
+    height: 400px;
+    width: 200px;
+    border-radius: 20px;
+    box-shadow: 2px 3px 6px black;
+    position: absolute;
+    top: -250px;
+    right: 20px;
+    z-index: 3;
+    animation: slideInTop 1.0s;
+    .form {
+      width: 100%;
+      line-height: 12px;
+      padding: 5px;
+      margin-bottom: 10px;
+      &_submit {
+        cursor: pointer;
+        text-align: left;
+      }
+    }
+    .textarea{
+      height: 40px;
+    }
+  }
+  @keyframes slideInTop {
+    from {
+      opacity: 0;
+      transform:  translateY(150px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }

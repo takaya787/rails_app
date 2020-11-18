@@ -1,9 +1,14 @@
 class ReviewsController < ApplicationController
-  def index
+  before_action:current_user
 
+  def index
+    @reviews = Review.all
+    @spots = Spot.all
   end
 
   def new
+    @review = Review.new
+    @current_user
     if session[:lat] && session[:lng]
       @center = { "lat" => session[:lat], "lng" => session[:lng]}
     else
@@ -14,6 +19,25 @@ class ReviewsController < ApplicationController
       format.json { render :json => @center}
     end
   end
+
+  def create
+    @review = @current_user.reviews.new(review_params)
+    respond_to do |format|
+      if @review.save
+        result = Geocoder.search([params[:lat].to_i, params[:lng].to_i ]).first.address
+        # has_manyとhas_oneでコードが変わる(former: has_many, latter: has_one)
+        # spot = @review.spot.create(:address => result )
+        spot = @review.create_spot(:address => result )
+        # byebug #debug用
+        flash[:success]="redirectします"
+        format.html { redirect_to reviews_url }
+      else
+        flash[:danger]="reviewを作成できませんでした。"
+        format.html { render :new }
+      end
+    end
+  end
+
 
   def check
     result = Geocoder.search(params[:keyword])
@@ -36,4 +60,9 @@ class ReviewsController < ApplicationController
       end
     end
   end
+
+  private
+    def review_params
+      params.require(:review).permit(:reason, :duration, :good, :bad, :advice)
+    end
 end

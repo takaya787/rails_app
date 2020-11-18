@@ -2,8 +2,14 @@ class ReviewsController < ApplicationController
   before_action:current_user
 
   def index
-    @reviews = Review.all
+    #loadの回数を減らすためにincludeメソッドでデータを予め取得する
+    #またjbuilderで関連modelの情報を表示させることができる
+    @reviews = Review.includes(:spot, :user)
     @spots = Spot.all
+    # respond_to do |format|
+    #   format.html
+    #   format.json { render :json => @reviews }
+    # end
   end
 
   def new
@@ -24,11 +30,11 @@ class ReviewsController < ApplicationController
     @review = @current_user.reviews.new(review_params)
     respond_to do |format|
       if @review.save
-        result = Geocoder.search([params[:lat].to_i, params[:lng].to_i ]).first.address
+        result = Geocoder.search([ params[:lat], params[:lng] ]).first.address
         # has_manyとhas_oneでコードが変わる(former: has_many, latter: has_one)
         # spot = @review.spot.create(:address => result )
         spot = @review.create_spot(:address => result )
-        # byebug #debug用
+        #byebug #debug用
         flash[:success]="redirectします"
         format.html { redirect_to reviews_url }
       else

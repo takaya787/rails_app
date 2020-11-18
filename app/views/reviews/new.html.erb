@@ -2,16 +2,17 @@
   <h1>あなたの海外経験をシェアをしよう！</h1>
   <p><%= "current_user :#{@current_user.name}" %></p>
 </div>
- <!-- 検索formもreactに内蔵
-<%= form_with( url: check_place_path, remote: true) do |f| %>
- <div class="field" style="display:inline-block;" >
-    <%= f.text_field :keyword, :placeholder => "場所を入力してください" , class:"window" %>
-  </div>
-   <div class="actions" style="display:inline-block;">
-    <%= f.submit value="検索" %>
+<% if @review.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@review.errors.count, "error") %>
+    <br>reviewを投稿できませんでした。</h2>
+    <ul>
+      <% @review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
   </div>
 <% end %>
--->
 <div id="google-map">
   <%= react_component("Map", {
     authenticityToken: form_authenticity_token,

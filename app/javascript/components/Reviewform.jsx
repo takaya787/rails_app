@@ -5,7 +5,7 @@ class Reviewform extends React.Component {
     super(props);
     this.state = {
       review_reason: '',
-      review_duration: 0,
+      review_duration: 1,
       review_good: '',
       review_bad: '',
       review_advice: '',
@@ -43,15 +43,14 @@ class Reviewform extends React.Component {
             value={this.props.lng}
           />
           {/* ここまで隠し要素*/}
-          <label htmlFor="review_reason">目的</label>
-          <input className="form" type="text" name="review[reason]" id="review_reason" value={this.state.review_reason} onChange={this.handleChange} />
+          <label htmlFor="review_reason">滞在理由</label>
+          <input className="form" type="text" name="review[reason]" id="review_reason" value={this.state.review_reason} onChange={this.handleChange} required />
 
           <label htmlFor="review_duration">期間</label>
-          <input className="form" type="number" name="review[duration]" id="review_duration" value={this.state.review_duration} onChange={this.handleChange} />
+          <input className="form" type="number" name="review[duration]" id="review_duration" value={this.state.review_duration} onChange={this.handleChange} required />
 
           <label htmlFor="review_good">Good:</label>
-          <textarea className="form textarea" name="
-          review[good]" id="review_good" value={this.state.review_good} onChange={this.handleChange} />
+          <textarea className="form textarea" name="review[good]" id="review_good" value={this.state.review_good} onChange={this.handleChange} />
 
           <label htmlFor="review_bad">Bad:</label>
           <textarea className="form textarea" name="review[bad]" id="review_bad" value={this.state.review_bad} onChange={this.handleChange} />

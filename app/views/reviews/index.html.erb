@@ -1,2 +1,36 @@
-<h1>Reviews#index</h1>
-<p>Find me in app/views/reviews/index.html.erb</p>
+<h1>Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>reason</th>
+      <th>duration</th>
+      <th>good</th>
+      <th>bad</th>
+      <th>advice</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.id %></td>
+        <td><%= review.reason %></td>
+        <td><%= review.duration %></td>
+        <td><%= review.good %></td>
+        <td><%= review.bad %></td>
+        <td><%= review.advice %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <ul>
+    <% @spots.each do |spot| %>
+      <li>address: <%= spot.address %></li>
+      <li>lat: <%= spot.lat %></li>
+      <li>lon: <%= spot.lon %></li>
+      <li>review_id: <%= spot.review_id %></li>
+    <% end %>
+  </ul>
+</table>

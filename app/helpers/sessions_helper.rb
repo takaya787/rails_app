@@ -28,7 +28,11 @@ module SessionsHelper
     !current_user.nil?
   end
 
-
+  def back_login
+    unless logged_in?
+      redirect_to root_url
+    end
+  end
 
 
 end

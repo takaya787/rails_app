@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action:current_user
+  before_action:back_login
 
   def index
     #loadの回数を減らすためにincludeメソッドでデータを予め取得する

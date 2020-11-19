@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action:current_user
   before_action:back_login
-
+  skip_before_action:verify_authenticity_token
   def index
     #loadの回数を減らすためにincludeメソッドでデータを予め取得する
     #またjbuilderで関連modelの情報を表示させることができる
@@ -50,19 +50,19 @@ class ReviewsController < ApplicationController
     result = Geocoder.search(params[:keyword])
     respond_to do |format|
       if !result.empty?
-        geography= result.first.coordinates
-        session[:lat] = geography[0]
-        session[:lng] = geography[1]
+        @center= result.first.coordinates
+        session[:lat] = @center[0]
+        session[:lng] = @center[1]
         #@center["lat"], @center["lng"]
         flash[:success]="検索した場所に移動します"
         format.html { redirect_to new_review_url}
-        format.json { geography }
-        #format.js {flash[:success]= "検索した場所は見つかりませんでした"}
+        format.json { @center }
+        format.js
       else
         flash[:danger]="検索した場所が見つかりませんでした"
         format.html { render :new }
-        format.json {　geography　}
-        #format.js { flash[:danger]= "検索した場所は見つかりませんでした"}
+        format.json {　@center　}
+        format.js { render "reviews/new" }
       end
     end
   end

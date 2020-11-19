@@ -41,14 +41,17 @@ class Map extends React.Component {
     },*/
     zoom: 10
   };
+  //new.jsonからcenter情報を取得して、stateのcenterを更新する
   fetchCenter() {
     fetch("http://127.0.0.1:3000/reviews/new.json")
       .then(res => res.json())
       .then(
         (result) => {
           this.setState({
-            lat: result.lat,
-            lng: result.lng,
+            center: {
+              lat: result.lat,
+              lng: result.lng
+            }
           });
         },
         (error) => {
@@ -59,20 +62,8 @@ class Map extends React.Component {
       )
   };
   componentDidMount() {
-    fetch("http://127.0.0.1:3000/reviews/new.json")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            center: { lat: result.lat, lng: result.lng }
-          });
-        },
-        (error) => {
-          this.setState({
-            error: error
-          })
-        }
-      )
+    //立ち上げ時に情報を更新
+    this.fetchCenter()
   }
 
   render() {
@@ -82,7 +73,6 @@ class Map extends React.Component {
     else {
       return (
         // Important! Always set the container height explicitly
-        //子のcheckformがsubmitされるたびに子コンポーネントがmountされるのでcomponentdidMountも自動的にMountされる
         <div className="Googlemap" style={{ height: '90vh' }}>
           <GoogleMapReact
             bootstrapURLKeys={{

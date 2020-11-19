@@ -1,5 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
+
+//react-iconsをダウンロード
+import { SiGooglemaps } from 'react-icons/si';
+import { GiMagnifyingGlass } from 'react-icons/gi';
 class Checkform extends React.Component {
   constructor(props) {
     super(props);
@@ -43,21 +47,24 @@ class Checkform extends React.Component {
 
   render() {
     return (
-      <form
-        className="form"
-        //parentMethodでmapを再fetchする
-        onSubmit={this.handleSubmit}
-        action={this.props.url} acceptCharset="UTF-8"
-        method="post" dataremote="true"
-      >
-
-        <input type="hidden" name="authenticity_token"
-          value={this.props.authenticityToken} />
-
-        <input className="form" type="text" name="keyword" id="keyword" value={this.state.keyword} placeholder="場所を入力してください" onChange={this.handleChange} />
-
-        <button className="form_submit" type="submit" name="submit">検索</button>
-      </form>
+      <div id="check">
+        <form
+          id="check_form"
+          //parentMethodでmapを再fetchする
+          onSubmit={this.handleSubmit}
+          action={this.props.url} acceptCharset="UTF-8"
+          method="post" dataremote="true"
+        >
+          <input type="hidden" name="authenticity_token"
+            value={this.props.authenticityToken}
+          />
+          <input
+            className="checkform" type="search" name="keyword" id="keyword" value={this.state.keyword} placeholder="場所を入力してください" onChange={this.handleChange}
+          />
+          <button className="form_submit" type="submit" name="submit"><GiMagnifyingGlass />
+          </button>
+        </form>
+      </div>
     );
   }
 }

@@ -55,14 +55,19 @@ class Checkform extends React.Component {
           action={this.props.url} acceptCharset="UTF-8"
           method="post" dataremote="true"
         >
-          <input type="hidden" name="authenticity_token"
-            value={this.props.authenticityToken}
-          />
-          <input
-            className="checkform" type="search" name="keyword" id="keyword" value={this.state.keyword} placeholder="場所を入力してください" onChange={this.handleChange}
-          />
-          <button className="form_submit" type="submit" name="submit"><GiMagnifyingGlass />
-          </button>
+          <div className="check">
+            <input type="hidden" name="authenticity_token"
+              value={this.props.authenticityToken}
+            />
+            <div className="check_icon">
+              <SiGooglemaps size={16} />
+            </div>
+            <input
+              className="check_form" type="search" name="keyword" id="keyword" value={this.state.keyword} placeholder="場所を入力してください" onChange={this.handleChange}
+            />
+            <button className="check_submit" type="submit" name="submit"><GiMagnifyingGlass size={16} />
+            </button>
+          </div>
         </form>
       </div>
     );

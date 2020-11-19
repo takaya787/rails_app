@@ -1,5 +1,17 @@
-<h1>Users</h1>
-
+<h1>Reviews</h1>
+<h3 style="margin-bottom: 0;">spotデータ</h3>
+<div class="spot" style="display: flex;
+       flex-direction: row;
+       flex-wrap: wrap;">
+  <% @spots.each do |spot| %>
+      <ul>
+        <li>address: <%= spot.address %></li>
+        <li>lat: <%= spot.lat %></li>
+        <li>lon: <%= spot.lon %></li>
+        <li>review_id: <%= spot.review_id %></li>
+      </ul>
+  <% end %>
+</div>
 <table>
   <thead>
     <tr>
@@ -9,6 +21,7 @@
       <th>good</th>
       <th>bad</th>
       <th>advice</th>
+      <th>address</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,15 +35,8 @@
         <td><%= review.good %></td>
         <td><%= review.bad %></td>
         <td><%= review.advice %></td>
+        <td><%= review.spot.address %></td>
       </tr>
     <% end %>
   </tbody>
-  <ul>
-    <% @spots.each do |spot| %>
-      <li>address: <%= spot.address %></li>
-      <li>lat: <%= spot.lat %></li>
-      <li>lon: <%= spot.lon %></li>
-      <li>review_id: <%= spot.review_id %></li>
-    <% end %>
-  </ul>
 </table>

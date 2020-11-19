@@ -1,17 +1,25 @@
 import React from "react"
 import PropTypes from "prop-types"
+
+//cssはmap.scssに共通で書いて反映させる
+import './Map.scss';
+
 //{yarn add dotenv}でダウンロードし、.envにkeyを追加
 require('dotenv').config()
 const API_KEY = process.env.GOOGLE_API_KEY
+
 //{yarn add google-map-react}をコンテナ内で入力して、packageをダウンロードする必要がある
 import GoogleMapReact from 'google-map-react'
-
-import './Map.scss'
 
 //Hoverpin.jsxをimport
 import Hoverpin from './Hoverpin.jsx'
 //Checkform.jsxをimport
 import Checkform from './Checkform.jsx'
+
+//fullscreen解除用
+const defaultMapOptions = {
+  fullscreenControl: false,
+};
 
 //map parent component
 class Map extends React.Component {
@@ -66,6 +74,7 @@ class Map extends React.Component {
         }
       )
   }
+
   render() {
     if (this.state.error) {
       return (<div>Error: {this.state.error.message}</div>)
@@ -73,15 +82,8 @@ class Map extends React.Component {
     else {
       return (
         // Important! Always set the container height explicitly
+        //子のcheckformがsubmitされるたびに子コンポーネントがmountされるのでcomponentdidMountも自動的にMountされる
         <div className="Googlemap" style={{ height: '90vh' }}>
-          <div> {this.state.center.lat}</div>
-          <div> {this.state.center.lng}</div>
-
-          <Checkform //子のcheckformがsubmitされるたびに子コンポーネントがmountされるのでcomponentdidMountも自動的にMountされる
-            url="http://127.0.0.1:3000/reviews/check"
-            authenticityToken={this.props.authenticityToken}
-            parentMethod={this.fetchCenter}
-          />
           <GoogleMapReact
             bootstrapURLKeys={{
               key: API_KEY
@@ -90,13 +92,20 @@ class Map extends React.Component {
             center={this.state.center}
             zoom={this.props.zoom}
             yesIWantToUseGoogleMapApiInternals
+            defaultOptions={defaultMapOptions}
           >
             <Hoverpin
               lat={this.state.center.lat}
               lng={this.state.center.lng}
               authenticityToken={this.props.authenticityToken}
+              key="Hoverpin"
             />
           </GoogleMapReact>
+          <Checkform
+            url="http://127.0.0.1:3000/reviews/check"
+            authenticityToken={this.props.authenticityToken}
+            parentMethod={this.fetchCenter}
+          />
         </div>
       );
     }

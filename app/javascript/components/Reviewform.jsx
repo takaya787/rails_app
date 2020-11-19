@@ -46,7 +46,7 @@ class Reviewform extends React.Component {
           <label htmlFor="review_reason">滞在理由</label>
           <input className="form" type="text" name="review[reason]" id="review_reason" value={this.state.review_reason} onChange={this.handleChange} required />
 
-          <label htmlFor="review_duration">期間</label>
+          <label htmlFor="review_duration">期間(月)</label>
           <input className="form" type="number" name="review[duration]" id="review_duration" value={this.state.review_duration} onChange={this.handleChange} required />
 
           <label htmlFor="review_good">Good:</label>

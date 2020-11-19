@@ -57,7 +57,7 @@ class ReviewsController < ApplicationController
         flash[:success]="検索した場所に移動します"
         format.html { redirect_to new_review_url}
         format.json { @center }
-        format.js
+        format.js { render "reviews/new"}
       else
         flash[:danger]="検索した場所が見つかりませんでした"
         format.html { render :new }

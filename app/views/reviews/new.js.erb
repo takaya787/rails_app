@@ -1,3 +1,8 @@
-
-/* jqueryではつまくいかない
-$("#google-map").html("<%= escape_javascript( react_component("Map", { center: { lat:0, lng:0} }) ) %>");　*/
+<%# jqueryを用いてflash messageを表示させる %>
+if($("#flash_messages").hasClass("flash")){
+  $("#flash_messages").removeClass()
+}
+<% flash.each do |type, message| %>
+  $("#flash_messages").addClass("flash <%= type %>")
+  $("#flash_messages").html("<%= message.html_safe %>")
+<% end %>

@@ -50,7 +50,6 @@ class ReviewsController < ApplicationController
     result = Geocoder.search(params[:keyword])
     respond_to do |format|
       if !result.empty?
-        puts result
         geography= result.first.coordinates
         session[:lat] = geography[0]
         session[:lng] = geography[1]

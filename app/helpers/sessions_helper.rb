@@ -30,6 +30,7 @@ module SessionsHelper
 
   def back_login
     unless logged_in?
+      flash[:notice]="login していません。まずはloginをお願いします"
       redirect_to root_url
     end
   end

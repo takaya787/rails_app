@@ -1,0 +1,11 @@
+<% if review.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(review.errors.count, "error") %>
+    <br>reviewを投稿できませんでした。</h2>
+    <ul>
+      <% review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

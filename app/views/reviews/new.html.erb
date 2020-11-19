@@ -1,16 +1,9 @@
 <div class="title">
   <h1>あなたの海外経験をシェアをしよう！</h1>
 </div>
-<% if @review.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@review.errors.count, "error") %>
-    <br>reviewを投稿できませんでした。</h2>
-    <ul>
-      <% @review.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
+
+<% if @review %>
+  <%= render 'errors',  review: @review %>
 <% end %>
 <div id="google-map">
   <%= react_component("Map", {

@@ -3,13 +3,7 @@ import PropTypes from "prop-types"
 class Eachreview extends React.Component {
   render() {
     return (
-      <div>
-        <ul>
-          <li>reason = {this.props.reason}</li>
-          <li>duration = {this.props.duration}ヶ月</li>
-          <li>reason = {this.props.reason}</li>
-          <li> spot = {this.props.address} </li>
-        </ul>
+      <div className="marker" >
       </div>
     );
   }
@@ -22,6 +16,6 @@ Eachreview.propTypes = {
   advice: PropTypes.string,
   address: PropTypes.string,
   lat: PropTypes.number,
-  lon: PropTypes.number,
+  lng: PropTypes.number,
 };
 export default Eachreview

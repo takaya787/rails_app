@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 //Eachreview.jsxをimport
 import Eachreview from './Eachreview.jsx'
 
-class Reviewpins extends React.Component {
+class Allreviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -57,7 +57,7 @@ class Reviewpins extends React.Component {
     );
   }
 }
-Reviewpins.propTypes = {
+Allreviews.propTypes = {
   url: PropTypes.string,
 };
-export default Reviewpins
+export default Allreviews

@@ -15,6 +15,8 @@ import GoogleMapReact from 'google-map-react'
 import Hoverpin from './Hoverpin.jsx'
 //Checkform.jsxをimport
 import Checkform from './Checkform.jsx'
+//Allreviews.jsxをimport
+import Eachreview from './Eachreview.jsx'
 
 //fullscreen解除用
 const defaultMapOptions = {
@@ -27,11 +29,12 @@ class Map extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: null,
       center: { center: { lat: 0, lng: 0 } },
+      reviews: [],
     };
     //bind(this)はthisを固定してどの関数で呼び出しても同じthisになる
     this.fetchCenter = this.fetchCenter.bind(this);
+    this.MapfetchReviews = this.MapfetchReviews.bind(this);
   }
   static defaultProps = {
     /* propsはMapでは使われないが念の為おいておく
@@ -61,12 +64,49 @@ class Map extends React.Component {
         }
       )
   };
+  //index.jsonから作成されているreviewデータを取得する
+  MapfetchReviews() {
+    fetch("/reviews.json")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`${res.status} ${res.statusText}`);
+        }
+        return res.json();
+      })
+      .then(
+        (data) => {
+          console.log(data)
+          this.setState(
+            { reviews: data }
+          );
+        }
+      )
+  };
   componentDidMount() {
     //立ち上げ時に情報を更新
+    //centerの情報を取得して、
     this.fetchCenter()
+    //reviewsのデータを取得する
+    this.MapfetchReviews()
   }
 
   render() {
+    //stateのreviews配列のデータからEachreviewcomponentを作成する関数
+    const buildEachreview = this.state.reviews.map((review) => (
+      <Eachreview
+        key={review.id}
+        reason={review.reason}
+        duration={review.duration}
+        good={review.good}
+        bad={review.bad}
+        advice={review.advice}
+        address={review.address}
+        lat={review.lat}
+        lng={review.lon}
+      />
+    ));
+    //ここまで
+
     if (this.state.error) {
       return (<div>Error: {this.state.error.message}</div>)
     }
@@ -88,8 +128,9 @@ class Map extends React.Component {
               lat={this.state.center.lat}
               lng={this.state.center.lng}
               authenticityToken={this.props.authenticityToken}
-              key="Hoverpin"
             />
+            {/* この関数でEachreviews componentを全て作成 */}
+            {buildEachreview}
           </GoogleMapReact>
           <Checkform
             url="/reviews/check"

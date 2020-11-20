@@ -1,17 +1,9 @@
+
+<%= react_component("Reviewpins", {
+    url: "/reviews.json",
+  })  %>
+
 <h1>Reviews</h1>
-<h3 style="margin-bottom: 0;">spotデータ</h3>
-<div class="spot" style="display: flex;
-       flex-direction: row;
-       flex-wrap: wrap;">
-  <% @spots.each do |spot| %>
-      <ul>
-        <li>address: <%= spot.address %></li>
-        <li>lat: <%= spot.lat %></li>
-        <li>lon: <%= spot.lon %></li>
-        <li>review_id: <%= spot.review_id %></li>
-      </ul>
-  <% end %>
-</div>
 <table>
   <thead>
     <tr>

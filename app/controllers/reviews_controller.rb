@@ -6,11 +6,12 @@ class ReviewsController < ApplicationController
     #loadの回数を減らすためにincludeメソッドでデータを予め取得する
     #またjbuilderで関連modelの情報を表示させることができる
     @reviews = Review.includes(:spot, :user)
-    @spots = Spot.all
-    # respond_to do |format|
-    #   format.html
-    #   format.json { render :json => @reviews }
-    # end
+
+    #jsonではindex.json.jbuilderが表示されるようにする
+    respond_to do |format|
+      format.html #index.html.erb
+      format.json { render :index } #index.json.jbuilder
+    end
   end
 
   def new

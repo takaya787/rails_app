@@ -55,11 +55,13 @@ class Hoverpin extends React.Component {
     };
   }
 }
+// latとlonの型宣言が抜けているので、後で直す
 Hoverpin.propTypes = {
   // GoogleMap pass $hover props to hovered components
   // to detect hover it uses internal mechanism, explained in x_distance_hover example
   $hover: PropTypes.bool,
   authenticityToken: PropTypes.string,
+
   //$onMouseAllow: PropTypes.bool,
   //text: PropTypes.string
 };

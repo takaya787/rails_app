@@ -43,7 +43,7 @@ class Map extends React.Component {
   };
   //new.jsonからcenter情報を取得して、stateのcenterを更新する
   fetchCenter() {
-    fetch("http://127.0.0.1:3000/reviews/new.json")
+    fetch("/reviews/new.json")
       .then(res => res.json())
       .then(
         (result) => {
@@ -92,7 +92,7 @@ class Map extends React.Component {
             />
           </GoogleMapReact>
           <Checkform
-            url="http://127.0.0.1:3000/reviews/check"
+            url="/reviews/check"
             authenticityToken={this.props.authenticityToken}
             parentMethod={this.fetchCenter}
           />

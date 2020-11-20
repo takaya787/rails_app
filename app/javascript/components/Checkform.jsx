@@ -24,7 +24,7 @@ class Checkform extends React.Component {
     // console.log()を通して、initial statueを行いformの値が送信されている
     console.log(this.state);
     event.preventDefault();
-    fetch('http://127.0.0.1:3000/reviews/check', {
+    fetch(this.props.url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

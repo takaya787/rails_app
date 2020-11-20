@@ -36,7 +36,7 @@ class Hoverpin extends React.Component {
         <div>
           <div>
             <Reviewform
-              url="http://127.0.0.1:3000/reviews"
+              url="/reviews"
               authenticityToken={this.props.authenticityToken}
               formclose={this.Formcontroll}
               lat={this.props.lat}

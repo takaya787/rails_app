@@ -102,7 +102,7 @@ class Map extends React.Component {
         advice={review.advice}
         address={review.address}
         lat={review.lat}
-        lng={review.lon}
+        lng={review.lng}
       />
     ));
     //ここまで

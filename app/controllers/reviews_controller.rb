@@ -37,7 +37,7 @@ class ReviewsController < ApplicationController
         # spot = @review.spot.create(:address => result )
         spot = @review.create_spot(:address => result )
         #byebug #debug用
-        flash[:success]="redirectします"
+        flash[:success]="reviewを作成しました。"
         format.html { redirect_to reviews_url }
       else
         flash[:danger]="reviewを作成できませんでした。"

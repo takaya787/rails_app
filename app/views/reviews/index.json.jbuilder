@@ -4,6 +4,6 @@
 json.array! @reviews do |review|
   json.extract! review, :id, :reason, :duration, :good, :bad, :advice, :user_id
   json.lat review.spot.lat
-  json.lon review.spot.lon
+  json.lng review.spot.lng
   json.address review.spot.address
 end

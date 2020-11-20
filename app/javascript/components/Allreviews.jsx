@@ -47,7 +47,7 @@ class Allreviews extends React.Component {
         advice={review.advice}
         address={review.address}
         lat={review.lat}
-        lon={review.lon}
+        lng={review.lng}
       />
     ));
     return (

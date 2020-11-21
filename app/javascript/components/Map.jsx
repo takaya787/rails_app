@@ -31,18 +31,19 @@ class Map extends React.Component {
     this.state = {
       center: { center: { lat: 0, lng: 0 } },
       reviews: [],
+      zoom: 10,
     };
     //bind(this)はthisを固定してどの関数で呼び出しても同じthisになる
     this.fetchCenter = this.fetchCenter.bind(this);
     this.MapfetchReviews = this.MapfetchReviews.bind(this);
+    this.zoomin = this.zoomin.bind(this);
   }
-  static defaultProps = {
-    /* propsはMapでは使われないが念の為おいておく
-    center: {
-      lat: 34.4111,
-      lng: 135.3112
-    },*/
-    zoom: 10
+  //checkformで検索zoomを上げる
+  zoomin() {
+    this.setState({
+      zoom: 12,
+    });
+    console.log(this.state.zoom);
   };
   //new.jsonからcenter情報を取得して、stateのcenterを更新する
   fetchCenter() {
@@ -53,8 +54,8 @@ class Map extends React.Component {
           this.setState({
             center: {
               lat: result.lat,
-              lng: result.lng
-            }
+              lng: result.lng,
+            },
           });
         },
         (error) => {
@@ -121,7 +122,7 @@ class Map extends React.Component {
             }}
             //defaultCenter・defaultZoomは値が固定されるので避けるべき
             center={this.state.center}
-            zoom={this.props.zoom}
+            zoom={this.state.zoom}
             yesIWantToUseGoogleMapApiInternals
             defaultOptions={defaultMapOptions}
           >
@@ -136,7 +137,8 @@ class Map extends React.Component {
           <Checkform
             url="/reviews/check"
             authenticityToken={this.props.authenticityToken}
-            parentMethod={this.fetchCenter}
+            movetoCenter={this.fetchCenter}
+            parentzoomin={this.zoomin}
           />
         </div>
       );

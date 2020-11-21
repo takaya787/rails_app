@@ -8,8 +8,13 @@
         <li class="link"><%= link_to "map", new_review_path %></li>
         <li class="link"><%= link_to "reviews", reviews_path %></li>
       <% else %>
-        <li class="link"><%= link_to "Sign up",       new_user_path %></li>
-        <li class="link"><%= link_to "Log in", login_path  %></li>
+        <li class="link reactheader" >
+          <%= react_component("Signup", {
+            signup: users_path,
+            login: login_path,
+            authenticityToken: form_authenticity_token } )
+          %>
+        </li>
       <% end %>
     </ul>
   </div>

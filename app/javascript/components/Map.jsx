@@ -116,6 +116,7 @@ class Map extends React.Component {
         <div className="Googlemap" style={{ height: '90vh' }}>
           <GoogleMapReact
             bootstrapURLKeys={{
+              //API_KEYは絶対に直接入力しない　過去のものは変更済み
               key: API_KEY
             }}
             //defaultCenter・defaultZoomは値が固定されるので避けるべき

@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 class Eachreview extends React.Component {
   render() {
     return (
-      <div className="marker" >
+      <div className="eachreview" >
       </div>
     );
   }

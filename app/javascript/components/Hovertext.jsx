@@ -5,7 +5,7 @@ class Hovertext extends React.Component {
     return (
       <div id="pop">
         <div className="text">
-          <p>Clickして投稿しよう！</p>
+          <p>Clickしてみよう！</p>
         </div>
       </div>
     );

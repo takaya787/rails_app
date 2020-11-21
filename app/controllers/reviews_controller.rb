@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action:current_user
   before_action:back_login
-  skip_before_action:verify_authenticity_token
+  #skip_before_action:verify_authenticity_token
   def index
     #loadの回数を減らすためにincludeメソッドでデータを予め取得する
     #またjbuilderで関連modelの情報を表示させることができる
@@ -24,6 +24,7 @@ class ReviewsController < ApplicationController
     end
     respond_to do |format|
       format.html
+      format.js { render "reviews/new" }
       format.json { render :json => @center}
     end
   end
@@ -36,12 +37,13 @@ class ReviewsController < ApplicationController
         # has_manyとhas_oneでコードが変わる(former: has_many, latter: has_one)
         # spot = @review.spot.create(:address => result )
         spot = @review.create_spot(:address => result )
-        #byebug #debug用
         flash[:success]="reviewを作成しました。"
         format.html { redirect_to reviews_url }
+        format.js { render "reviews/new" }
       else
         flash[:danger]="reviewを作成できませんでした。"
         format.html { render :new }
+        format.js { render "reviews/new" }
       end
     end
   end

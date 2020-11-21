@@ -43,6 +43,7 @@ class Hoverpin extends React.Component {
               formclose={this.Formcontroll}
               lat={this.props.lat}
               lng={this.props.lng}
+              parentFetchreviews={this.props.parentFetchreviews}
             />
           )}
         </div>
@@ -66,6 +67,7 @@ Hoverpin.propTypes = {
   // to detect hover it uses internal mechanism, explained in x_distance_hover example
   $hover: PropTypes.bool,
   authenticityToken: PropTypes.string,
+  parentFetchreviews: PropTypes.func,
   //$onMouseAllow: PropTypes.bool,
   //text: PropTypes.string
 };

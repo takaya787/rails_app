@@ -130,6 +130,7 @@ class Map extends React.Component {
               lat={this.state.center.lat}
               lng={this.state.center.lng}
               authenticityToken={this.props.authenticityToken}
+              parentFetchreviews={this.MapfetchReviews}
             />
             {/* この関数でEachreviews componentを全て作成 */}
             {buildEachreview}

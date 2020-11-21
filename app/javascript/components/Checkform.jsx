@@ -28,11 +28,11 @@ class Checkform extends React.Component {
     fetch(this.props.url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': this.props.authenticityToken,
       },
       body: JSON.stringify({
         keyword: this.state.keyword,
-        authenticityToken: this.props.authenticityToken,
       })
     }).then(
       //checkformからcenterが変更されたらcenterを更新する
@@ -51,6 +51,7 @@ class Checkform extends React.Component {
           method="post" data-remote="true"
         >
           <div className="check">
+            {/* html通信ように設定しておく */}
             <input type="hidden" name="authenticity_token"
               value={this.props.authenticityToken}
             />

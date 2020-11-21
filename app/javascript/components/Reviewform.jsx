@@ -20,8 +20,30 @@ class Reviewform extends React.Component {
     });
   }
   handleSubmit(event) {
-    console.log(this.event.state)
+    console.log(this.state);
     event.preventDefault();
+    fetch(this.props.url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': this.props.authenticityToken,
+      },
+      body: JSON.stringify({
+        /* reviewのストロングパラメーターを設定する */
+        review: {
+          reason: this.state.review_reason,
+          duration: this.state.review_duration,
+          good: this.state.review_good,
+          bad: this.state.review_bad,
+          advice: this.state.review_advice,
+        },
+        lat: this.props.lat,
+        lng: this.props.lng,
+      })
+    }).then(
+      //reviewformをpostした後indexからjson読み込んでstateを更新
+      this.props.parentFetchreviews
+    )
   }
   render() {
     return (
@@ -30,7 +52,7 @@ class Reviewform extends React.Component {
         <form
           className="draft_form"
           onSubmit={this.handleSubmit}
-          action={this.props.url} acceptCharset="UTF-8" method="post">
+          action={this.props.url} acceptCharset="UTF-8" method="post" data-remote="true">
           <h3>reviewを入力してください</h3>
           {/* ここでまとめて隠し要素設置*/}
           <input type="hidden" name="authenticity_token"
@@ -69,6 +91,7 @@ Reviewform.propTypes = {
   url: PropTypes.string,
   authenticityToken: PropTypes.string,
   formClose: PropTypes.func,
+  parentFetchreviews: PropTypes.func,
   lat: PropTypes.number,
   lng: PropTypes.number,
 };

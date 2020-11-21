@@ -24,6 +24,7 @@ class ReviewsController < ApplicationController
     end
     respond_to do |format|
       format.html
+      format.js { render "reviews/new" }
       format.json { render :json => @center}
     end
   end

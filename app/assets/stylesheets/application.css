@@ -34,20 +34,33 @@
 header {
    width:100%;
    height: 70px;
+   margin: 0 auto;
    position: absolute;
    top: 0;
 }
- .container {
-   height: auto;
-   background-color: bisque;
- }
+.container {
+  height: auto;
+  background-color: bisque;
+}
+ul {
+  display: flex;
+  flex-direction: row;
+}
 .link {
   padding: 10px 20px;
   display: inline-block;
+  vertical-align: middle;
+}
+.reactheader {
+  margin-left: auto;
+  margin-right: 50px;
 }
 /*body*/
 body {
   margin-top: 70px;
+}
+.wrapper {
+  margin: 33px;
 }
 .flash {
   padding: 10px;

@@ -12,6 +12,21 @@
 button {
   cursor: pointer;
 }
+//最初のボタン
+.initial {
+  display: inline;
+  width: 70px;
+  height: 30px;
+  color: white;
+  background-color: red;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  opacity: 1.0;
+  &:hover {
+    opacity: 0.6;
+  }
+}
 //clickで表示した時のmodal
 .modal {
   display: block;
@@ -49,6 +64,15 @@ button {
       &:hover{
         opacity: 1;
       }
+    }
+    .login {
+        position: static;
+        max-width: 240px;
+        width: 60%;
+        height: 24px;
+        margin: 0 auto 10px;
+        border: 1px solid black;
+        border-radius: 10px;
     }
     label {
       color:black;
@@ -91,6 +115,7 @@ button {
       width: 60%;
       cursor: pointer;
       margin: 5px auto;
+      padding-top: 5px;
       padding-left: 10px;
       height: 24px;
       border: 1px solid black;
@@ -103,11 +128,13 @@ button {
       }
       .description {
         position: absolute;
-        top: 0;
         left: 40px;
         height: 24px;
       }
     }
+  }
+  #login-modal {
+    height: 350px;
   }
 }
 

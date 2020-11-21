@@ -5,8 +5,7 @@
   <%= link_to "Log out", logout_path , method: :post %>
 <% else %>
   <%= react_component("Signup", {
-  url: users_path,
+  signup: users_path,
+  login: login_path,
   authenticityToken: form_authenticity_token,}) %>
-  <%= link_to "Sign up", new_user_path %>
-  <%= link_to "Log in", login_path %>
 <% end %>

@@ -113,7 +113,7 @@ class Map extends React.Component {
     else {
       return (
         // Important! Always set the container height explicitly
-        <div className="Googlemap" style={{ height: '90vh' }}>
+        <div className="Googlemap">
           <GoogleMapReact
             bootstrapURLKeys={{
               //API_KEYは絶対に直接入力しない　過去のものは変更済み

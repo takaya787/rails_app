@@ -3,15 +3,15 @@ button {
   cursor: pointer;
 }
 @keyframes slideInTop {
-    from {
-      opacity: 0;
-      transform:  translateY(150px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(150px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 //map.jsxのcomponent
 .Googlemap {
   max-width: 1300px;
@@ -92,7 +92,7 @@ button {
   }
 }
 
-//checkform.jsxの
+//checkform.jsx part
 #check {
   &_form {
     position: absolute;
@@ -130,6 +130,27 @@ button {
           filter: brightness(80%);
         }
       }
+    }
+  }
+}
+
+//hoverpin.jsx part
+#pop {
+  position: relative;
+  .text {
+    height: 20px;
+    width: 180px;
+    padding: 10px;
+    background-color: skyblue;
+    color: whitesmoke;
+    border-radius: 5px;
+    position: absolute;
+    top: -50px;
+    left: -20px;
+    animation: slideInTop 1.0s;
+    p {
+      margin-top: 0;
+      font-size: 16px;
     }
   }
 }

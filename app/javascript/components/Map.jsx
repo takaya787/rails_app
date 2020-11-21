@@ -37,14 +37,67 @@ class Map extends React.Component {
     this.fetchCenter = this.fetchCenter.bind(this);
     this.MapfetchReviews = this.MapfetchReviews.bind(this);
     this.zoomin = this.zoomin.bind(this);
+    this.Goup = this.Goup.bind(this);
+    this.Godown = this.Godown.bind(this);
+    this.Goright = this.Goright.bind(this);
+    this.Goleft = this.Goleft.bind(this);
   }
-  //checkformで検索zoomを上げる
+  //checkformで検索後拡大する
   zoomin() {
     this.setState({
       zoom: 12,
     });
-    console.log(this.state.zoom);
   };
+  /*ここからHoverpinを移動させるためのの関数４つ続く*/
+  //1  上に行く
+  Goup() {
+    let latitude = this.state.center.lat;
+    latitude += 0.025
+    this.setState({
+      center: {
+        lat: latitude,
+        lng: this.state.center.lng,
+      }
+    });
+    console.log({ latitude });
+  };
+  //2  下に行く
+  Godown() {
+    let latitude = this.state.center.lat;
+    latitude -= 0.025
+    this.setState({
+      center: {
+        lat: latitude,
+        lng: this.state.center.lng,
+      }
+    });
+    console.log({ latitude });
+  };
+  //3  右に行く
+  Goright() {
+    let longitude = this.state.center.lng;
+    longitude += 0.025
+    this.setState({
+      center: {
+        lat: this.state.center.lat,
+        lng: longitude,
+      }
+    });
+    console.log({ longitude });
+  };
+  //4  左に行く
+  Goleft() {
+    let longitude = this.state.center.lng;
+    longitude -= 0.025
+    this.setState({
+      center: {
+        lat: this.state.center.lat,
+        lng: longitude,
+      }
+    });
+    console.log({ longitude });
+  };
+  /*ここまでHoverpinを移動させる関数*/
   //new.jsonからcenter情報を取得して、stateのcenterを更新する
   fetchCenter() {
     fetch("/reviews/new.json")
@@ -131,6 +184,10 @@ class Map extends React.Component {
               lng={this.state.center.lng}
               authenticityToken={this.props.authenticityToken}
               parentFetchreviews={this.MapfetchReviews}
+              MapGoup={this.Goup}
+              MapGodown={this.Godown}
+              MapGoright={this.Goright}
+              MapGoleft={this.Goleft}
             />
             {/* この関数でEachreviews componentを全て作成 */}
             {buildEachreview}

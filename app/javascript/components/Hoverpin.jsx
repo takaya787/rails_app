@@ -23,31 +23,49 @@ class Hoverpin extends React.Component {
       isFormOpen: false,
     };
     this.Formcontroll = this.Formcontroll.bind(this);
+    this.Menucontroll = this.Menucontroll.bind(this);
   }
   Formcontroll(event) {
     this.setState({
       isFormOpen: !this.state.isFormOpen,
+      isMenuOpen: false,
     });
   }
-
+  Menucontroll(event) {
+    this.setState({
+      isMenuOpen: !this.state.isMenuOpen,
+      isFormOpen: false,
+    })
+  }
   render() {
     const style = this.props.$hover ? hoverStyle : markerStyle;
     return (
       <div>
-        {/*click表示のreview-fromを表示*/}
-        <div id="review_form">
-          {this.state.isFormOpen && (
-            <Reviewform
-              url="/reviews"
-              authenticityToken={this.props.authenticityToken}
-              formclose={this.Formcontroll}
-              lat={this.props.lat}
-              lng={this.props.lng}
-              parentFetchreviews={this.props.parentFetchreviews}
-            />
-          )}
-        </div>
-        {/*ここまでreview-from*/}
+        {/*click表示のreview-menuを表示*/}
+        {this.state.isMenuOpen && (
+          <div id="review_menu">
+            <div className="menus">
+              <button className="post" onClick={this.Formcontroll}>この場所に投稿</button>
+              <button className="menu" onClick={this.props.MapGoup}>上に移動</button>
+              <button className="menu" onClick={this.props.MapGoright}>右に移動</button>
+              <button className="menu" onClick={this.props.MapGoleft}>左に移動</button>
+              <button className="menu" onClick={this.props.MapGodown}>下に移動</button>
+            </div>
+          </div>
+        )}
+        {/*click表示のreview-formを表示*/}
+        {this.state.isFormOpen && (
+          <Reviewform
+            url="/reviews"
+            authenticityToken={this.props.authenticityToken}
+            formclose={this.Formcontroll}
+            lat={this.props.lat}
+            lng={this.props.lng}
+            parentFetchreviews={this.props.parentFetchreviews}
+            movetoCenter={this.props.movetoCenter}
+          />
+        )}
+        {/*ここまでreview-form*/}
         {/* hover-text start */}
         <div>
           {this.props.$hover && (
@@ -55,7 +73,7 @@ class Hoverpin extends React.Component {
           )}
         </div>
         {/* ここまで*/}
-        <div className="marker" style={style} onClick={this.Formcontroll}>
+        <div className="marker" style={style} onClick={this.Menucontroll}>
         </div>
       </div>
     );
@@ -67,8 +85,12 @@ Hoverpin.propTypes = {
   // to detect hover it uses internal mechanism, explained in x_distance_hover example
   $hover: PropTypes.bool,
   authenticityToken: PropTypes.string,
+  //indexからreview情報を取得
   parentFetchreviews: PropTypes.func,
-  //$onMouseAllow: PropTypes.bool,
-  //text: PropTypes.string
+  //Mapのcenterを動かす
+  MapGoup: PropTypes.func,
+  MapGodown: PropTypes.func,
+  MapGoright: PropTypes.func,
+  MapGoleft: PropTypes.func,
 };
 export default Hoverpin

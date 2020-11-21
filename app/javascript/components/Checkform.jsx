@@ -35,7 +35,7 @@ class Checkform extends React.Component {
         keyword: this.state.keyword,
       })
     }).then(
-      //checkformからcenterが変更されたらcenterを更新する
+      //checkformからcenterが変更されたらcenterを更新する( Mp.jsxのfetchCenter)
       this.props.movetoCenter
     )
   }

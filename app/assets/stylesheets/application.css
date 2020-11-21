@@ -61,6 +61,7 @@ body {
 }
 .wrapper {
   margin: 33px;
+  margin-bottom: 10px;
 }
 .flash {
   padding: 10px;

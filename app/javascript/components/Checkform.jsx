@@ -22,6 +22,7 @@ class Checkform extends React.Component {
 
   handleSubmit(event) {
     // console.log()を通して、initial statueを行いformの値が送信されている
+    this.props.parentzoomin();
     console.log(this.state);
     event.preventDefault();
     fetch(this.props.url, {
@@ -35,7 +36,7 @@ class Checkform extends React.Component {
       })
     }).then(
       //checkformからcenterが変更されたらcenterを更新する
-      this.props.parentMethod
+      this.props.movetoCenter
     )
   }
 
@@ -71,7 +72,8 @@ class Checkform extends React.Component {
 Checkform.propTypes = {
   url: PropTypes.string,
   authenticityToken: PropTypes.string,
-  parentMethod: PropTypes.func,
+  movetoCenter: PropTypes.func,
+  parentzoomin: PropTypes.func,
 };
 
 export default Checkform

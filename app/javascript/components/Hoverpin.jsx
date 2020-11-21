@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Reviewform from "./Reviewform.jsx"
+import Hovertext from "./Hovertext.jsx"
 const markerStyle = {
   height: 15,
   width: 15,
@@ -31,10 +32,11 @@ class Hoverpin extends React.Component {
 
   render() {
     const style = this.props.$hover ? hoverStyle : markerStyle;
-    if (this.state.isFormOpen) {
-      return (
-        <div>
-          <div>
+    return (
+      <div>
+        {/*click表示のreview-fromを表示*/}
+        <div id="review_form">
+          {this.state.isFormOpen && (
             <Reviewform
               url="/reviews"
               authenticityToken={this.props.authenticityToken}
@@ -42,17 +44,20 @@ class Hoverpin extends React.Component {
               lat={this.props.lat}
               lng={this.props.lng}
             />
-          </div>
-          <div className="marker" style={style} onClick={this.Formcontroll}>
-          </div>
+          )}
         </div>
-      );
-    } else {
-      return (
+        {/*ここまでreview-from*/}
+        {/* hover-text start */}
+        <div>
+          {this.props.$hover && (
+            <Hovertext />
+          )}
+        </div>
+        {/* ここまで*/}
         <div className="marker" style={style} onClick={this.Formcontroll}>
         </div>
-      );
-    };
+      </div>
+    );
   }
 }
 
@@ -61,7 +66,6 @@ Hoverpin.propTypes = {
   // to detect hover it uses internal mechanism, explained in x_distance_hover example
   $hover: PropTypes.bool,
   authenticityToken: PropTypes.string,
-
   //$onMouseAllow: PropTypes.bool,
   //text: PropTypes.string
 };

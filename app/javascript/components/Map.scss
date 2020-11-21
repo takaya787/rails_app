@@ -25,6 +25,7 @@ button {
     width: 100%;
   }
 }
+//hoverpin.jsx part
 //hoverpin.jsxのclass="marker"部分
 .marker {
   display: inline-block;
@@ -32,15 +33,14 @@ button {
   color: #333;
   line-height: 1;
   position: relative;
-  width: 1.2em;
-  height: 1.2em;
+  width: 1.8em;
+  height: 1.8em;
   background: currentColor;
   border: 0.1em solid currentColor;
   border-radius: 40% 60% 0% 100% / 40% 100% 0% 60%;
   box-sizing: content-box;
   transform: rotate(45deg);
 }
-
 .marker::before {
   content: '';
   position: absolute;
@@ -70,6 +70,7 @@ button {
       margin: 0 auto;
       padding: 5px;
       border: solid 1px white;
+      border-radius: 5px 5px 0 0;
       filter: brightness(100%);
       &:hover {
         filter: brightness(80%);
@@ -88,9 +89,17 @@ button {
         filter: brightness(80%);
       }
     }
+    .left {
+      border-radius: 0 0 0 5px;
+    }
+    .down {
+      border-radius: 0 0 5px 0;
+    }
   }
 }
-//reviewform.jsxのdraft part
+//hoverpin.jsx part finish
+
+//reviewform.jsx part
 .draft {
   position: relative;
   &_button {
@@ -190,5 +199,29 @@ button {
       margin-top: 0;
       font-size: 16px;
     }
+  }
+}
+//Eachreview.jsx part
+.eachreview {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0;
+  padding: 0 5px;
+  width: 18px;
+  height: 18px;
+  line-height: 17px;
+  text-align: center;
+  background-color: green;
+  border-radius: 50%;
+  box-sizing: border-box;
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 65%;
+    margin-left: -10px;
+    border: 7px solid transparent;
+    border-top: 7px solid green;
+    z-index: 0;
   }
 }

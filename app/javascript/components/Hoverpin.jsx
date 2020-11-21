@@ -3,14 +3,14 @@ import PropTypes from "prop-types"
 import Reviewform from "./Reviewform.jsx"
 import Hovertext from "./Hovertext.jsx"
 const markerStyle = {
-  height: 15,
-  width: 15,
+  height: 20,
+  width: 20,
   backgroundColor: 'red',
   cursor: 'pointer'
 };
 const hoverStyle = {
-  height: 15,
-  width: 15,
+  height: 20,
+  width: 20,
   backgroundColor: 'blue',
   cursor: 'pointer',
 };
@@ -48,8 +48,8 @@ class Hoverpin extends React.Component {
               <button className="post" onClick={this.Formcontroll}>この場所に投稿</button>
               <button className="menu" onClick={this.props.MapGoup}>上に移動</button>
               <button className="menu" onClick={this.props.MapGoright}>右に移動</button>
-              <button className="menu" onClick={this.props.MapGoleft}>左に移動</button>
-              <button className="menu" onClick={this.props.MapGodown}>下に移動</button>
+              <button className="menu left" onClick={this.props.MapGoleft}>左に移動</button>
+              <button className="menu down" onClick={this.props.MapGodown}>下に移動</button>
             </div>
           </div>
         )}

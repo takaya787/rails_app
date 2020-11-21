@@ -52,7 +52,7 @@ class Map extends React.Component {
   //1  上に行く
   Goup() {
     let latitude = this.state.center.lat;
-    latitude += 0.025
+    latitude += 0.015
     this.setState({
       center: {
         lat: latitude,
@@ -64,7 +64,7 @@ class Map extends React.Component {
   //2  下に行く
   Godown() {
     let latitude = this.state.center.lat;
-    latitude -= 0.025
+    latitude -= 0.015
     this.setState({
       center: {
         lat: latitude,
@@ -76,7 +76,7 @@ class Map extends React.Component {
   //3  右に行く
   Goright() {
     let longitude = this.state.center.lng;
-    longitude += 0.025
+    longitude += 0.015
     this.setState({
       center: {
         lat: this.state.center.lat,
@@ -88,7 +88,7 @@ class Map extends React.Component {
   //4  左に行く
   Goleft() {
     let longitude = this.state.center.lng;
-    longitude -= 0.025
+    longitude -= 0.015
     this.setState({
       center: {
         lat: this.state.center.lat,

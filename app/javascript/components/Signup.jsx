@@ -88,6 +88,7 @@ class Signup extends React.Component {
       );
     }
     else if (this.state.isLoginOpen && !this.state.isSignupOpen) {
+      //nameタグだけscopeの都合で変更する必要がある
       return (
         <div className="modal">
           <form
@@ -102,11 +103,11 @@ class Signup extends React.Component {
               value={this.props.authenticityToken} />
 
             <label htmlFor="user_email">Eメール</label>
-            <input className="form_input" type="text" name="user[email]" id="user_email" value={this.state.user_email} onChange={this.handleChange} />
+            <input className="form_input" type="text" name="session[email]" id="user_email" value={this.state.user_email} onChange={this.handleChange} />
             <label htmlFor="user_password">パスワード</label>
-            <input className="form_input" type="password" name="user[password]" id="user_password" value={this.state.user_password} onChange={this.handleChange} />
+            <input className="form_input" type="password" name="session[password]" id="user_password" value={this.state.user_password} onChange={this.handleChange} />
             <label htmlFor="user_password_confirmation">パスワード確認用</label>
-            <input className="form_input" type="password" name="user[password_confirmation]" id="user_password_confirmation" value={this.state.user_password_confirmation} onChange={this.handleChange} />
+            <input className="form_input" type="password" name="session[password_confirmation]" id="user_password_confirmation" value={this.state.user_password_confirmation} onChange={this.handleChange} />
 
             <input className="form_submit" type="submit" name="submit" value="Loginする" />
             <button className="login" onClick={this.signupcontroll}>

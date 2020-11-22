@@ -17,8 +17,8 @@ class SessionsController < ApplicationController
         current_user
         redirect_to root_url
       else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        flash.now[:danger] = "Invalid email or password combination"
+        render "new"
       end
     end
   end

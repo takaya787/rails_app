@@ -268,3 +268,30 @@ button {
     }
   }
 }
+//Each reviewのclickページ　Reviewfullcontent.jsk
+.contents {
+  position: relative;
+  .button {
+    position: absolute;
+    top: -220px;
+    right: 30px;
+    z-index: 4;
+    background-color: #f3f3f3;
+    border: none;
+    animation: slideInTop 1.0s;
+    z-index: 10;
+  }
+  .content {
+    background-color: #f3f3f3;
+    padding: 30px;
+    height: 400px;
+    width: 200px;
+    border-radius: 20px;
+    box-shadow: 2px 3px 6px black;
+    position: absolute;
+    top: -230px;
+    right: 20px;
+    z-index: 9;
+    animation: slideInTop 1.0s;
+  }
+}

@@ -16,14 +16,11 @@ button {
 .Googlemap {
   max-width: 1300px;
   margin: 0 auto;
-  height: 80vw;
+  height: 90vh;
   width: 90%;
   position: relative;
 }
 @media screen and ( max-width: 767px ){
-  .Googlemap {
-    width: 100%;
-  }
 }
 //hoverpin.jsx part
 //hoverpin.jsxのclass="marker"部分
@@ -40,6 +37,7 @@ button {
   border-radius: 40% 60% 0% 100% / 40% 100% 0% 60%;
   box-sizing: content-box;
   transform: rotate(45deg);
+  z-index: 3;
 }
 .marker::before {
   content: '';
@@ -62,6 +60,7 @@ button {
     width: 300px;
     border: none;
     border-radius: 5px;
+    z-index: 5;
     .post {
       color: white;
       background-color: yellowgreen;
@@ -97,6 +96,27 @@ button {
     }
   }
 }
+//hoverpin.jsx の　hover part (hovertext.jsx)
+#pop {
+  position: relative;
+  .text {
+    height: 20px;
+    width: 180px;
+    padding: 10px;
+    background-color: skyblue;
+    color: whitesmoke;
+    border-radius: 5px;
+    position: absolute;
+    top: 30px;
+    left: -20px;
+    animation: slideInTop 1.0s;
+    z-index: 3;
+    p {
+      margin-top: 0;
+      font-size: 16px;
+    }
+  }
+}
 //hoverpin.jsx part finish
 
 //reviewform.jsx part
@@ -110,6 +130,7 @@ button {
     background-color: #f3f3f3;
     border: none;
     animation: slideInTop 1.0s;
+    z-index: 7;
   }
   &_form {
     background-color: #f3f3f3;
@@ -177,51 +198,40 @@ button {
           filter: brightness(80%);
         }
       }
+      @media screen and ( max-width: 767px ){
+        &_submit {
+        position: absolute;
+        top:10px;
+        left: 170px;
+      }
+      }
     }
   }
 }
 
-//hoverpin.jsx part
-#pop {
-  position: relative;
-  .text {
-    height: 20px;
-    width: 180px;
-    padding: 10px;
-    background-color: skyblue;
-    color: whitesmoke;
-    border-radius: 5px;
-    position: absolute;
-    top: 30px;
-    left: -20px;
-    animation: slideInTop 1.0s;
-    p {
-      margin-top: 0;
-      font-size: 16px;
-    }
-  }
-}
 //Eachreview.jsx part
 .eachreview {
   position: relative;
   display: inline-block;
   margin: 1.5em 0;
   padding: 0 5px;
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   line-height: 17px;
   text-align: center;
   background-color: green;
   border-radius: 50%;
   box-sizing: border-box;
+  box-shadow:  0px 3px 6px #00000029 ;
+  z-index: 1;
   &:before {
     content: '';
     position: absolute;
-    bottom: -10px;
-    left: 65%;
+    bottom: -8px;
+    right: 17%;
     margin-left: -10px;
-    border: 7px solid transparent;
-    border-top: 7px solid green;
+    border: 5px solid transparent;
+    border-top: 5px solid green;
     z-index: 0;
   }
 }

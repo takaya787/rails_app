@@ -12,6 +12,14 @@ button {
     transform: translateY(0);
   }
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 //map.jsxのcomponent
 .Googlemap {
   max-width: 1300px;
@@ -60,7 +68,7 @@ button {
     width: 300px;
     border: none;
     border-radius: 5px;
-    z-index: 5;
+    z-index: 7;
     .post {
       color: white;
       background-color: yellowgreen;
@@ -101,7 +109,8 @@ button {
   position: relative;
   .text {
     height: 20px;
-    width: 180px;
+    width: 160px;
+    margin: 0 auto;
     padding: 10px;
     background-color: skyblue;
     color: whitesmoke;
@@ -110,10 +119,10 @@ button {
     top: 30px;
     left: -20px;
     animation: slideInTop 1.0s;
-    z-index: 3;
+    z-index: 5;
     p {
       margin-top: 0;
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 }
@@ -130,7 +139,7 @@ button {
     background-color: #f3f3f3;
     border: none;
     animation: slideInTop 1.0s;
-    z-index: 7;
+    z-index: 10;
   }
   &_form {
     background-color: #f3f3f3;
@@ -142,7 +151,7 @@ button {
     position: absolute;
     top: -230px;
     right: 20px;
-    z-index: 3;
+    z-index: 9;
     animation: slideInTop 1.0s;
     .form {
       width: 100%;
@@ -161,6 +170,7 @@ button {
 }
 
 //checkform.jsx part
+//これはiframe内に入っていないので、z-index関係ない
 #check {
   &_form {
     position: absolute;
@@ -193,7 +203,7 @@ button {
         border-radius: 5px;
         position: absolute;
         top:10px;
-        left: 175px;
+        left: 180px;
         &:hover {
           filter: brightness(80%);
         }
@@ -202,7 +212,7 @@ button {
         &_submit {
         position: absolute;
         top:10px;
-        left: 170px;
+        left: 175px;
       }
       }
     }
@@ -211,10 +221,9 @@ button {
 
 //Eachreview.jsx part
 .eachreview {
+  cursor: pointer;
   position: relative;
   display: inline-block;
-  margin: 1.5em 0;
-  padding: 0 5px;
   width: 14px;
   height: 14px;
   line-height: 17px;
@@ -224,7 +233,7 @@ button {
   box-sizing: border-box;
   box-shadow:  0px 3px 6px #00000029 ;
   z-index: 1;
-  &:before {
+  &::before {
     content: '';
     position: absolute;
     bottom: -8px;
@@ -233,5 +242,29 @@ button {
     border: 5px solid transparent;
     border-top: 5px solid green;
     z-index: 0;
+  }
+}
+//Eachreview.jsxのhover text
+.windowinfo {
+  position: relative;
+  &_text {
+    background-color: white;
+    width: 200px;
+    padding: 5px;
+    text-align: left;
+    border-radius: 5px;
+    font-size: 12px;
+    position: absolute;
+    top: 20px;
+    left: -60px;
+    animation: fadeIn 1.0s;
+    z-index: 5;
+    p {
+      padding: none;
+      margin: 5px 0;
+    }
+    .blue {
+      color: blue;
+    }
   }
 }

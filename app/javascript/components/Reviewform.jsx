@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+//hoverpin.jsxの子コンポーネント
 class Reviewform extends React.Component {
   constructor(props) {
     super(props);

@@ -59,7 +59,7 @@ class Signup extends React.Component {
             className="form"
             onSubmit={this.handleSubmit}
             action={this.props.signup} acceptCharset="UTF-8" method="post"
-            remote="true">
+          >
             <button className="close" onClick={this.closemodal}>✕</button>
             <h2 className="form_title">まずはユーザー登録!</h2>
             <input type="hidden" name="authenticity_token"
@@ -96,7 +96,7 @@ class Signup extends React.Component {
             className="form"
             onSubmit={this.handleSubmit}
             action={this.props.login} acceptCharset="UTF-8" method="post"
-            remote="true">
+          >
             <button className="close" onClick={this.closemodal}>✕</button>
             <h2 className="form_title">Log inはこちら！</h2>
             <input type="hidden" name="authenticity_token"

@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+//hoverpin.jsxの子コンポーネント
 class Reviewform extends React.Component {
   constructor(props) {
     super(props);
@@ -53,7 +54,7 @@ class Reviewform extends React.Component {
           className="draft_form"
           onSubmit={this.handleSubmit}
           action={this.props.url} acceptCharset="UTF-8" method="post" data-remote="true">
-          <h3>reviewを入力してください</h3>
+          <h3>投稿内容を入力してください</h3>
           {/* ここでまとめて隠し要素設置*/}
           <input type="hidden" name="authenticity_token"
             value={this.props.authenticityToken}
@@ -65,21 +66,21 @@ class Reviewform extends React.Component {
             value={this.props.lng}
           />
           {/* ここまで隠し要素*/}
-          <label htmlFor="review_reason">滞在理由</label>
+          <label htmlFor="review_reason">滞在理由(30字以内）＊必須</label>
           <input className="form" type="text" name="review[reason]" id="review_reason" value={this.state.review_reason} onChange={this.handleChange} required />
 
-          <label htmlFor="review_duration">期間(月)</label>
+          <label htmlFor="review_duration">期間(月)　＊必須</label>
           <input className="form" type="number" name="review[duration]" id="review_duration" value={this.state.review_duration} onChange={this.handleChange} required />
 
-          <label htmlFor="review_good">Good:</label>
+          <label htmlFor="review_good">住んで良かったこと(150字以内)</label>
           <textarea className="form textarea" name="review[good]" id="review_good" value={this.state.review_good} onChange={this.handleChange} />
 
-          <label htmlFor="review_bad">Bad:</label>
+          <label htmlFor="review_bad">住んで嫌だったこと(150字以内)</label>
           <textarea className="form textarea" name="review[bad]" id="review_bad" value={this.state.review_bad} onChange={this.handleChange} />
-          <label htmlFor="review_advice">次に来る人へのアドバイス</label>
+          <label htmlFor="review_advice">次に来る人へのアドバイス(150字以内)</label>
           <textarea className="form textarea" name="review[advice]" id="review_advice" value={this.state.review_advice} onChange={this.handleChange} />
 
-          <input className="form_submit" type="submit" name="submit" value="Submit" />
+          <input className="form_submit" type="submit" name="submit" value="投稿を作成" />
         </form>
       </div>
     );

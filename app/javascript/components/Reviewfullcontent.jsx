@@ -7,17 +7,22 @@ class Reviewfullcontent extends React.Component {
       <div className="contents">
         <button className="button" onClick={this.props.Reviewcontroll}>✕</button>
         <div className="content">
-          <p>理由　{this.props.reason}</p>
-          <p>期間　{this.props.duration}ヵ月</p>
-          <p>行った良かった点　{this.props.good}</p>
-          <p>残念だった点　{this.props.bad}</p>
-          <p>アドバイス　{this.props.advice}</p>
+          <p className="content_title">理由</p>
+          <p className="content_text">{this.props.reason}</p>
+          <p className="content_title">期間</p>
+          <p className="content_text">{this.props.duration}ヵ月</p>
+          <p className="content_title">行った良かった点</p>
+          <p className="content_text">{this.props.good}</p>
+          <p className="content_title">残念だった点</p>
+          <p className="content_text">{this.props.bad}</p>
+          <p className="content_title">アドバイス</p>
+          <p className="content_text">{this.props.advice}</p>
         </div>
       </div>
     );
   }
 }
-Reviewfullcontent.PropTypes = {
+Reviewfullcontent.propTypes = {
   reason: PropTypes.string,
   duration: PropTypes.number,
   good: PropTypes.string,

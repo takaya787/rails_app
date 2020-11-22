@@ -7,7 +7,7 @@ class Reviewhoverpop extends React.Component {
       <div className="windowinfo">
         <div className="windowinfo_text">
           <p>滞在理由: {this.props.reason}</p>
-          <p>地名: {this.props.address}</p>
+          <p>住所: {this.props.address}</p>
           <p className="blue">そのままClick！</p>
         </div>
       </div>

@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   #reviews関連
   post '/reviews/check' => "reviews#check", as:"check_place"
 
-
   root 'roots#root'
  # sns認証用
   get 'auth/:provider/callback', to: "sessions#create"

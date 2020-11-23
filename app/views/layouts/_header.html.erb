@@ -10,6 +10,7 @@
       <% else %>
         <li class="link reactheader" >
           <%= react_component("Signup", {
+            key: 1,
             signup: users_path,
             login: login_path,
             authenticityToken: form_authenticity_token } )

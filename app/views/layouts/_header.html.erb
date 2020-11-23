@@ -1,6 +1,12 @@
 <header>
-  <div class="container">
-    <ul>
+  <%= react_component("Header", {
+    authenticityToken: form_authenticity_token,
+    signup: users_path,
+    login: login_path,
+  } )%>
+  <%# 元のheaderは一旦コメントアウト %>
+  <!--<div class="container">
+     <ul>
       <li class="link"><%= link_to "Home", root_path %></li>
       <li class="link"><%= link_to "Users", users_path  %></li>
       <% if logged_in? %>
@@ -19,4 +25,5 @@
       <% end %>
     </ul>
   </div>
+  -->
 </header>

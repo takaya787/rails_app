@@ -10,9 +10,9 @@
   </div>
 <% end %>
 <%= react_component("Signup", {
-  url: users_url,
-  authenticityToken: form_authenticity_token,
-}) %>
-<!--<%= link_to "GoogleでSign in","/auth/google_oauth2" %>
+  key: 3,
+  signup: users_path,
+  login: login_path,
+  authenticityToken: form_authenticity_token,}) %>
+<%= link_to "GoogleでSign in","/auth/google_oauth2" %>
 <%= link_to 'Back', root_path %>
--->

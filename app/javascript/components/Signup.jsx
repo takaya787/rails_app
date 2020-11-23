@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import './signup.scss'
 
-//react-iconsをダウンロード
+//react-iconsからダウンロード
 import { FcGoogle } from 'react-icons/fc';
 class Signup extends React.Component {
   constructor(props) {

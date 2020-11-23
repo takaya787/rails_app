@@ -1,9 +1,16 @@
 <header>
-  <%= react_component("Header", {
-    authenticityToken: form_authenticity_token,
-    signup: users_path,
-    login: login_path,
-  } )%>
+  <% if logged_in? %>
+    <%= react_component("Loginheader", {
+      authenticityToken: form_authenticity_token,
+      logout: logout_path,
+    } )%>
+  <% else %>
+    <%= react_component("Header", {
+      authenticityToken: form_authenticity_token,
+      signup: users_path,
+      login: login_path,
+    } )%>
+  <% end %>
   <%# 元のheaderは一旦コメントアウト %>
   <!--<div class="container">
      <ul>

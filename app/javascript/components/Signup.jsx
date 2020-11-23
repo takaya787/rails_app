@@ -79,10 +79,10 @@ class Signup extends React.Component {
             <button className="login" onClick={this.logincontroll}>
               Loginはこちら
             </button>
-            <a className="form_google" href="/auth/google_oauth2">
+            {/* <a className="form_google" href="/auth/google_oauth2">
               <FcGoogle size={20} />
               <span className="description" >GoogleアカウントでLog in</span>
-            </a>
+            </a> */}
           </form>
         </div>
       );
@@ -113,10 +113,10 @@ class Signup extends React.Component {
             <button className="login" onClick={this.signupcontroll}>
               Signupはこちら
             </button>
-            <a className="form_google" href="/auth/google_oauth2">
+            {/* <a className="form_google" href="/auth/google_oauth2">
               <FcGoogle size={20} />
               <span className="description" >GoogleアカウントでLogin</span>
-            </a>
+            </a> */}
           </form>
         </div>
       );

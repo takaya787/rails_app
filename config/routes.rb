@@ -6,7 +6,7 @@ Rails.application.routes.draw do
  # sns認証用
   get 'auth/:provider/callback', to: "sessions#create"
  #sessions関連
-  get '/login' => "sessions#new"
+  #get '/login' => "sessions#new" これは使う必要がない
   post '/login' => "sessions#create"
   post '/logout'=> "sessions#destroy"
 

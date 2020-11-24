@@ -1,12 +1,46 @@
-<h1 style="margin:30px 0;">Home</h1>
-<% if logged_in? %>
-  <%= react_component("HelloWorld", {greeting: @current_user.name}) %>
-  <%= "Welcome to App! Mr #{@current_user.name}" %>
-  <%= link_to "Log out", logout_path , method: :post %>
-<% else %>
-  <%= react_component("Signup", {
-  key: 2,
-  signup: users_path,
-  login: login_path,
-  authenticityToken: form_authenticity_token,}) %>
-<% end %>
+<div class="wrapper">
+  <div class="common__pc-only">
+    <%= image_tag 'roots/home_photo.png', class: "image_pc"%>
+    <div class="window">
+      <h1 class="window_title">
+        Logo
+      </h1>
+      <h3 class="window_description">気になる国や街の住み心地を<br>チェック！</h3>
+      <h3 class="window_description">留学や移住の前に<br>先輩達のレビューを見てみよう！</h3>
+      <% if logged_in? %>
+        <%= react_component("HelloWorld", {greeting: @current_user.name}) %>
+        <%= "Welcome to App! Mr #{@current_user.name}" %>
+        <%= link_to "Log out", logout_path , method: :post %>
+      <% else %>
+        <div class="window_signup">
+          <%= react_component("Signup", {
+            signup: users_path,
+            login: login_path,
+            authenticityToken: form_authenticity_token,})
+          %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="common__sp-only" >
+  </div>
+  <%# ここから下はmain%>
+  <div class="main">
+    <%= image_tag 'roots/home_icon.png', class: "main_icon"%>
+    <h1 class="main_question">住み心地.comって<br>どんなサービス？</h1>
+    <div class="main_explains">
+      <div class="explain">
+        <h2 class="explain_title">あなたの海外生活の経験を<br>その場所の評価と共に投稿しよう！</h2>
+        <div class="explain_text">
+          <p>ユーザーが自分自身の生活経験を通して、感じたその土地の生活へのレビューを<span style="font-weight: bold; color: red;">住み心地</span>という評価とともに投稿できるサービスです。</p>
+        </div>
+      </div>
+      <div class="explain">
+        <h2 class="explain_title">興味のある国や街の<br>投稿を見てみよう！</h2>
+        <div class="explain_text">
+         <p>あなたが行きたい国や留学してみたい国や街を選ぶ時に経験者の投稿を見て参考にしてみよう！</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

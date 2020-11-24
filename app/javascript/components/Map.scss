@@ -47,6 +47,7 @@ button {
   box-sizing: content-box;
   transform: rotate(45deg);
   z-index: 3;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
 }
 .marker::before {
   content: '';
@@ -58,6 +59,7 @@ button {
   background: #fff;
   border-radius: 50%;
   box-sizing: border-box;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
 }
 //hover-pinのclick-menu
 #review_menu {
@@ -66,10 +68,11 @@ button {
     position: absolute;
     top: -100px;
     left: -100px;
-    width: 300px;
+    width: 240px;
     border: none;
     border-radius: 5px;
     z-index: 7;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
     .post {
       color: white;
       background-color: yellowgreen;
@@ -148,7 +151,7 @@ button {
     height: 410px;
     width: 200px;
     border-radius: 20px;
-    box-shadow: 2px 3px 6px black;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
     position: absolute;
     top: -225px;
     right: 20px;
@@ -197,7 +200,7 @@ button {
         padding-left: 25px;
         border: 1px solid honeydew;
         border-radius: 20px;
-        box-shadow: 0px 0px 5px 5px rgba(0,0,0,.2) inset;
+        box-shadow: -3px 7px 23px 0px rgba(0,0,0,0.6);
         &:focus {
           outline: 0;
         }
@@ -236,7 +239,6 @@ button {
   background-color: green;
   border-radius: 50%;
   box-sizing: border-box;
-  box-shadow:  0px 3px 6px #00000029 ;
   z-index: 1;
   &::before {
     content: '';
@@ -292,7 +294,7 @@ button {
     height: 350px;
     width: 200px;
     border-radius: 20px;
-    box-shadow: 2px 3px 6px black;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.6);
     position: absolute;
     top: -200px;
     right: 20px;

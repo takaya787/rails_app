@@ -1,3 +1,79 @@
 // Place all the styles related to the roots controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.wrapper {
+  position: relative;
+  .image {
+    &_pc {
+      width: 100%;
+      object-fit: cover;
+    }
+    &_sp {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .window {
+    background-color: white;
+    height: 250px;
+    width: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    position: absolute;
+    top: 80px;
+    right: 10%;
+    &_title {
+      margin-bottom: 30px;
+      font-size: 30px;
+      text-align: center;
+    }
+    &_description {
+      margin-bottom: 10px;
+      font-size: 18px;
+      line-height: 25px;
+    }
+    &_signup {
+      text-align: center;
+      height: 40px;
+      .initial {
+        height: 40px;
+        width: 80px;
+      }
+    }
+  }
+  .main {
+    width: 100%;
+    max-width: 1440px;
+    height: auto;
+    text-align: center;
+    &_icon {
+      margin: 30px 0;
+      height: 50px;
+      width: auto;
+      text-align: center;
+    }
+    &_question {
+      line-height: 30px;
+      margin:0 auto 30px auto;
+      width:250px;
+      text-decoration: underline;
+    }
+    &_explains {
+      display: flex;
+      flex-direction: row;
+      margin: 0 50px;
+      text-align: left;
+      .explain {
+        width: 50%;
+        padding: 0 20px;
+        &_title {
+          line-height: 30px;
+        }
+        &_text {
+          line-height: 20px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

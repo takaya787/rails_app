@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
-  before_action:current_user
-  before_action:back_login
+  before_action :current_user
+  before_action :back_login
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
   #skip_before_action:verify_authenticity_token
   def index
     #loadの回数を減らすためにincludeメソッドでデータを予め取得する
@@ -71,6 +72,8 @@ class ReviewsController < ApplicationController
   end
 
   private
+    def set_review
+      @review = Review.find(params[:id])
     def review_params
       params.require(:review).permit(:reason, :duration, :good, :bad, :advice)
     end

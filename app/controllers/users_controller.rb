@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+  before_action :current_user
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  before_action :correct_user_for_users, only: [:edit, :update]
   # GET /users
   # GET /users.json
   def index

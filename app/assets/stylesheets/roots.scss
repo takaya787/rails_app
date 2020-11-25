@@ -33,6 +33,7 @@
       line-height: 25px;
     }
     &_signup {
+      margin-top: 20px;
       text-align: center;
       height: 40px;
       .initial {
@@ -72,6 +73,45 @@
         &_text {
           line-height: 20px;
           font-size: 16px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width:767px) {
+  .wrapper {
+    .window {
+      height: 200px;
+      width: 200px;
+      &_title {
+        margin-bottom: 20px;
+        font-size: 30px;
+        text-align: center;
+      }
+      &_description {
+        margin-bottom: 10px;
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+    .main {
+      &_explains {
+        display: flex;
+        flex-direction: column;
+        margin: 15px auto;
+        text-align: left;
+        .explain {
+          width: 80%;
+          padding: 0 20px 20px;
+          margin: 0 auto;
+          &_title {
+            line-height: 35px;
+            font-size: 25px;
+          }
+          &_text {
+            line-height: 25px;
+            font-size: 18px;
+          }
         }
       }
     }

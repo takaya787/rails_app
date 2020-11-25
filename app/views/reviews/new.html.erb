@@ -1,17 +1,19 @@
-<div class="title">
-  <h1>あなたの海外経験をシェアをしよう！</h1>
-</div>
+<div id="review_new">
+  <div class="title">
+    <h1>住み心地を投稿してみよう！</h1>
+  </div>
 
-<div id="flash_messages">
-</div>
+  <div id="flash_messages">
+  </div>
 
-<% if @review %>
-  <%= render 'errors',  review: @review %>
-<% end %>
+  <% if @review %>
+    <%= render 'errors',  review: @review %>
+  <% end %>
 
-</div>
-<div id="google-map" class="common__pc-only">
-  <%= react_component("Map", {
-    authenticityToken: form_authenticity_token,
-  })  %>
+  </div>
+  <div id="google-map">
+    <%= react_component("Map", {
+      authenticityToken: form_authenticity_token,
+    })  %>
+  </div>
 </div>

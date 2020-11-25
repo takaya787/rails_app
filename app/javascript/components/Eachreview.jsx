@@ -6,6 +6,9 @@ import Reviewhoverpop from './Reviewhoverpop.jsx'
 // Reviewfullcontent.jsxからimport
 import Reviewfullcontent from './Reviewfullcontent.jsx'
 
+// react-responsive導入
+import MediaQuery from "react-responsive"
+
 class Eachreview extends React.Component {
   constructor(props) {
     super(props);
@@ -45,14 +48,17 @@ class Eachreview extends React.Component {
             Reviewcontroll={this.Reviewcontroll}
           />
         )}
-        {/* hover時に表示*/}
-        {this.props.$hover && (
-          <Reviewhoverpop
-            reason={this.props.reason}
-            advice={this.props.advice}
-            address={this.props.address}
-          />
-        )}
+        {/*タブレット端末ではhover表示は無しにする */}
+        <MediaQuery query="(min-width: 768px)">
+          {/* hover時に表示*/}
+          {this.props.$hover && (
+            <Reviewhoverpop
+              reason={this.props.reason}
+              advice={this.props.advice}
+              address={this.props.address}
+            />
+          )}
+        </MediaQuery>
         <div className="eachreview" onClick={this.Reviewcontroll}>
         </div>
       </div>

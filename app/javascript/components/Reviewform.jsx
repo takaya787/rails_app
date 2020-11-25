@@ -22,7 +22,6 @@ class Reviewform extends React.Component {
   }
   handleSubmit(event) {
     console.log(this.state);
-    event.preventDefault();
     fetch(this.props.url, {
       method: 'POST',
       headers: {
@@ -45,6 +44,7 @@ class Reviewform extends React.Component {
       //reviewformをpostした後indexからjson読み込んでstateを更新
       this.props.parentFetchreviews
     )
+    event.preventDefault();
   }
   render() {
     return (
@@ -52,7 +52,7 @@ class Reviewform extends React.Component {
         <button className="draft_button" onClick={this.props.formclose}>✕</button>
         <form
           className="draft_form"
-          onSubmit={this.handleSubmit}
+          // onSubmit={this.handleSubmit}
           action={this.props.url} acceptCharset="UTF-8" method="post" data-remote="true">
           <h3>投稿内容を入力してください</h3>
           {/* ここでまとめて隠し要素設置*/}
@@ -80,7 +80,7 @@ class Reviewform extends React.Component {
           <label htmlFor="review_advice">次に来る人へのアドバイス(150字以内)</label>
           <textarea className="form textarea" name="review[advice]" id="review_advice" value={this.state.review_advice} onChange={this.handleChange} />
 
-          <input className="form_submit" type="submit" name="submit" value="投稿を作成" />
+          <button className="form_submit" type="button" name="submit" onClick={this.handleSubmit}>投稿を作成</button>
         </form>
       </div>
     );

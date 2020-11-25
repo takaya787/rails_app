@@ -1,10 +1,11 @@
 <div class="wrapper">
+  <!-- pc用layout -->
   <div class="common__pc-only">
-    <%= image_tag 'roots/home_photo.png', class: "image_pc"%>
+    <%= image_tag 'roots/home_photo.png', class: "image"%>
     <div class="window">
-      <h1 class="window_title">
-        Logo
-      </h1>
+      <div class="window_title">
+        <%= image_tag 'roots/logo.png', class: "image"%>
+      </div>
       <h3 class="window_description">気になる国や街の住み心地を<br>チェック！</h3>
       <h3 class="window_description">留学や移住の前に<br>レビューを見てみよう！</h3>
       <% if logged_in? %>
@@ -22,12 +23,13 @@
       <% end %>
     </div>
   </div>
+  <!-- sp用layout -->
   <div class="common__sp-only" >
-    <%= image_tag 'roots/home_photo_sp.png', class: "image_sp"%>
+    <%= image_tag 'roots/home_photo_sp.png', class: "image"%>
     <div class="window">
-      <h1 class="window_title">
-        Logo
-      </h1>
+      <div class="window_title">
+        <%= image_tag 'roots/logo.png', class: "image"%>
+      </div>
       <h3 class="window_description">気になる国や街の住み心地を<br>チェック！</h3>
       <h3 class="window_description">留学や移住の前に<br>先輩達のレビューを見てみよう！</h3>
       <% if logged_in? %>
@@ -48,7 +50,7 @@
   <%# ここから下はmain%>
   <div class="main">
     <%= image_tag 'roots/home_icon.png', class: "main_icon"%>
-    <h1 class="main_question">住み心地.comって<br>どんなサービス？</h1>
+    <h1 class="main_question"><span><%= image_tag 'roots/logo.png', class: "image", width: "200px" %></span>ってどんなサービス？</h1>
     <div class="main_explains">
       <div class="explain">
         <h2 class="explain_title">海外生活の経験を<br>その場所の評価と共に投稿しよう！</h2>

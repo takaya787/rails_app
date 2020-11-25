@@ -177,8 +177,8 @@ class Map extends React.Component {
             center={this.state.center}
             zoom={this.state.zoom}
             yesIWantToUseGoogleMapApiInternals
-            /* これをonにしたらfull画面ボタンoffになる */
-            defaultOptions={defaultMapOptions}
+          /* これをonにしたらfull画面ボタンoffになる */
+          //defaultOptions={defaultMapOptions}
           >
             <Hoverpin
               lat={this.state.center.lat}

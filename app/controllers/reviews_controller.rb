@@ -38,17 +38,33 @@ class ReviewsController < ApplicationController
         # has_manyとhas_oneでコードが変わる(former: has_many, latter: has_one)
         # spot = @review.spot.create(:address => result )
         spot = @review.create_spot(:address => result )
-        flash[:success]="reviewを作成しました。"
+        flash[:success]="投稿を作成しました。"
         format.html { redirect_to reviews_url }
         format.js { render "reviews/new" }
       else
-        flash[:danger]="reviewを作成できませんでした。"
+        flash[:danger]="投稿を作成できませんでした。"
         format.html { render :new }
         format.js { render "reviews/new" }
       end
     end
   end
 
+  def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @review.update(review_params)
+        flash[:success]="投稿を変更しました。"
+        format.html { redirect_to new_review_url}
+        format.js { render "reviews/new"}
+      else
+        flash[:danger]="投稿を変更できませんでした。"
+        format.html { render :new }
+        format.js { render "reviews/new" }
+      end
+    end
+  end
 
   def check
     result = Geocoder.search(params[:keyword])

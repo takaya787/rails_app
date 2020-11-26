@@ -14,6 +14,7 @@
   <div id="google-map">
     <%= react_component("Map", {
       authenticityToken: form_authenticity_token,
+      currentUser: @current_user.id,
     })  %>
   </div>
 </div>

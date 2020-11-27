@@ -38,17 +38,20 @@ class ReviewsController < ApplicationController
         # has_manyとhas_oneでコードが変わる(former: has_many, latter: has_one)
         # spot = @review.spot.create(:address => result )
         spot = @review.create_spot(:address => result )
-        flash.now[:success]="投稿を作成しました。"
+        flash[:success]="投稿を作成しました。"
         format.html { redirect_to reviews_url }
-         #二重送信を防ぐ処理の都合によりflash messageg¥が表示できていない
+         #二重送信を防ぐ処理の都合によりflash messageが表示できていない
         format.js { render "reviews/new" }
       else
-        flash.now[:danger]="投稿を作成できませんでした。"
+        flash[:danger]="投稿を作成できませんでした。"
         format.html { render :new }
-          #二重送信を防ぐ処理の都合によりflash messageg¥が表示できていない
+          #二重送信を防ぐ処理の都合によりflash messageが表示できていない
         format.js { render "reviews/new" }
       end
     end
+  end
+  def show
+    @user = User.find_by(id: @review.user_id)
   end
 
   def edit

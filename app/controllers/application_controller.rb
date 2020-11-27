@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def correct_user_for_reviews
+    #userにadminを加えてadminなら通すように設定しておく
     if @current_user.id != @review.user_id
       flash[:danger]="あなたは正当なユーザーではありません"
       redirect_to new_review_url

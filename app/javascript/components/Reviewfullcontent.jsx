@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Reviewform from "./Reviewform";
+// Eachreview.jsxの子コンポーネント
 class Reviewfullcontent extends React.Component {
   render() {
     return (
@@ -18,6 +19,10 @@ class Reviewfullcontent extends React.Component {
           <p className="content_title">アドバイス</p>
           <p className="content_text">{this.props.advice}</p>
         </div>
+        {/* reviewの編集ボタンはUserとcurrentUserが等しい時のみ表示*/}
+        {this.props.User == this.props.currentUser && (
+          <button onClick={this.props.Editcontroll}>投稿を編集</button>
+        )}
       </div>
     );
   }
@@ -28,7 +33,11 @@ Reviewfullcontent.propTypes = {
   good: PropTypes.string,
   bad: PropTypes.string,
   advice: PropTypes.string,
-  //address: PropTypes.string,
   Reviewcontroll: PropTypes.func,
+  //address: PropTypes.string,
+  //edit form関連
+  User: PropTypes.number,
+  currentUser: PropTypes.number,
+  Editcontroll: PropTypes.func,
 };
 export default Reviewfullcontent

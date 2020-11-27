@@ -61,7 +61,7 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.update(review_params)
         flash[:success]="投稿を変更しました。"
-        format.html { redirect_to new_review_url}
+        format.html { render :new}
         format.js { render "reviews/new"}
       else
         flash[:danger]="投稿を変更できませんでした。"

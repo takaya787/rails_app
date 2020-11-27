@@ -160,6 +160,8 @@ class Map extends React.Component {
         lng={review.lng}
         currentUser={this.props.currentUser}
         User={review.user_id}
+        authenticityToken={this.props.authenticityToken}
+        parentFetchreviews={this.MapfetchReviews}
       />
     ));
     //ここまで

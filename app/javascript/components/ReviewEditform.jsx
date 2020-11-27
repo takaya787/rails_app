@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-//hoverpin.jsxの子コンポーネント
-class Reviewform extends React.Component {
+//Eachreview.jsxの子コンポーネント
+class ReviewEditform extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,8 +22,8 @@ class Reviewform extends React.Component {
   }
   handleSubmit(event) {
     console.log(this.state);
-    fetch(this.props.url, {
-      method: 'POST',
+    fetch("/reviews/" + this.props.id, {
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
         'X-CSRF-Token': this.props.authenticityToken,
@@ -37,25 +37,24 @@ class Reviewform extends React.Component {
           bad: this.state.review_bad,
           advice: this.state.review_advice,
         },
-        lat: this.props.lat,
-        lng: this.props.lng,
       })
     }).then(
       //reviewformをpostした後indexからjson読み込んでstateを更新
       this.props.parentFetchreviews
     )
-    // event.preventDefaultは最後に置く
     event.preventDefault();
   }
+  //onClickにeditcloseとhandklesubmitを追加しておく
+
   render() {
     return (
       <div className="draft">
-        <button className="draft_button" onClick={this.props.formclose}>✕</button>
+        <button className="draft_button" onClick={this.props.Editcontroll}>✕</button>
         <form
           className="draft_form"
           // onSubmit={this.handleSubmit}
           action={this.props.url} acceptCharset="UTF-8" method="post" data-remote="true">
-          <h3>投稿内容を入力してください</h3>
+          <h3>変更内容を入力してください</h3>
           {/* ここでまとめて隠し要素設置*/}
           <input type="hidden" name="authenticity_token"
             value={this.props.authenticityToken}
@@ -70,7 +69,7 @@ class Reviewform extends React.Component {
           <label htmlFor="review_reason">滞在理由(30字以内）<span className="required">＊必須</span></label>
           <input className="form" type="text" name="review[reason]" id="review_reason" value={this.state.review_reason} onChange={this.handleChange} required />
 
-          <label htmlFor="review_duration">期間(月)　<span className="required">＊必須</span></label>
+          <label htmlFor="review_duration">期間(月)<span className="required">＊必須</span></label>
           <input className="form" type="number" name="review[duration]" id="review_duration" value={this.state.review_duration} onChange={this.handleChange} required />
 
           <label htmlFor="review_good">住んで良かったこと(150字以内)</label>
@@ -81,20 +80,24 @@ class Reviewform extends React.Component {
           <label htmlFor="review_advice">次に来る人へのアドバイス(150字以内)</label>
           <textarea className="form textarea" name="review[advice]" id="review_advice" value={this.state.review_advice} onChange={this.handleChange} />
 
-          <button className="form_submit" type="button" name="submit" onClick={this.handleSubmit}>投稿を作成</button>
+          <button className="form_submit" type="button" name="submit" onClick={this.handleSubmit}>変更する</button>
         </form>
       </div>
     );
-
   }
 }
-
-Reviewform.propTypes = {
-  url: PropTypes.string,
+ReviewEditform.propsTypes = {
+  //review内容
+  id: PropTypes.number,
+  reason: PropTypes.string,
+  duration: PropTypes.number,
+  good: PropTypes.string,
+  bad: PropTypes.string,
+  advice: PropTypes.string,
+  address: PropTypes.string,
+  // その他
   authenticityToken: PropTypes.string,
-  formClose: PropTypes.func,
   parentFetchreviews: PropTypes.func,
-  lat: PropTypes.number,
-  lng: PropTypes.number,
-};
-export default Reviewform
+  Editcontroll: PropTypes.func,
+}
+export default ReviewEditform

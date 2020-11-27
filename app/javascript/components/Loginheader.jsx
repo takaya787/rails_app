@@ -32,9 +32,8 @@ class Loginheader extends React.Component {
             </button >
             <ul className="header_menu_lists">
               <a href="/" className="link"><li className="link_part">Top</li></a>
-              <a href="/users" className="link"><li className="link_part">Users</li></a>
+              <a href={this.props.Yourpage} className="link"><li className="link_part">Your page</li></a>
               <a href="/reviews/new" className="link"><li className="link_part">Map</li></a>
-              <a href="/reviews" className="link"><li className="link_part">Reviews</li></a>
               {/* logoutのpost用 */}
               <li className="logout"><form acceptCharset="UTF-8" method="post" action={this.props.logout} >
                 <input type="hidden" name="authenticity_token"
@@ -57,5 +56,6 @@ class Loginheader extends React.Component {
 Loginheader.propTypes = {
   authenticityToken: PropTypes.string,
   logout: PropTypes.string,
+  Yourpage: PropTypes.string,
 };
 export default Loginheader

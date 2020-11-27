@@ -1,14 +1,42 @@
-<p id="notice"><%= notice %></p>
+<%= render 'top' %>
+<div id="show">
+  <h1 style="padding: 10px 10%;">Your information</h1>
+  <div style="padding-left: 10%;">
+    <p id="notice"><%= notice %></p>
+    <p>
+      <strong>Name:</strong>
+      <%= @user.name %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+    <p>
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </p>
+    <%= link_to 'Edit', edit_user_path(@user) %>
+    <h1 style="padding: 10px 0;">Your reviews</h1>
+    <div class="reviews">
+      <table>
+        <thead>
+          <tr>
+            <th>address</th>
+            <th>reason</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+        <tbody>
+          <% @reviews.each do |review| %>
+            <tr>
+              <td><%= review.spot.address %></td>
+              <td><%= review.reason %></td>
+              <td><%= link_to 'Show', review %></td>
+              <td><%= link_to 'Edit', edit_review_path(review) %></td>
+              <td><%= link_to 'Delete', review_path(review), method: :delete, data: { confirm: '本当に投稿を削除しますか？'} %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+</div>

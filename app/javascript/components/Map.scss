@@ -163,7 +163,7 @@ button {
     }
     .form {
       width: 100%;
-      line-height: 12px;
+      line-height: 16px;
       padding: 5px;
       margin-bottom: 10px;
       &_submit {
@@ -305,7 +305,6 @@ button {
   .content {
     background-color: white;
     padding: 10px;
-    height: 350px;
     width: 200px;
     border-radius: 20px;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.6);
@@ -317,11 +316,10 @@ button {
     &_title {
       font-size: 16px;
       font-weight: bold;
-      margin-bottom: 5px;
     }
     &_text {
       font-size: 12px;
-      margin-bottom: 5px;
+      // margin-bottom: 5px;
     }
   }
 }

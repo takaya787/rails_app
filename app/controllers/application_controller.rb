@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   # validates用
   def correct_user_for_users
     if @current_user
+        #userにadminを加えてadminなら通すように設定しておく
       if @current_user.id != @user.id
         flash[:danger]="あなたは正当なユーザーではありません"
         redirect_to root_url

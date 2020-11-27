@@ -39,9 +39,12 @@ class ReviewEditform extends React.Component {
         },
       })
     }).then(
-      //reviewformをpostした後indexからjson読み込んでstateを更新
+      //reviewEditformをpostした後indexからjson読み込んでstateを更新
       this.props.parentFetchreviews
     )
+    //変更を送信後にformを閉じる
+    this.props.Editcontroll();
+    // event.preventDefaultは最後に置く
     event.preventDefault();
   };
   componentDidMount() {

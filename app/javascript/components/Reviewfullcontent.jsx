@@ -19,9 +19,9 @@ class Reviewfullcontent extends React.Component {
           <p className="content_title">アドバイス</p>
           <p className="content_text">{this.props.advice}</p>
         </div>
-        {/* reviewの編集ボタンはUserとcurrentUserが等しい時のみ表示*/}
+        {/* reviewの編集ボタンはUserとcurrentUserが等しい時のみ表示 */}
         {this.props.User == this.props.currentUser && (
-          <button onClick={this.props.Editcontroll}>投稿を編集</button>
+          <button className="editbutton" onClick={this.props.Editcontroll}>編集する</button>
         )}
       </div>
     );

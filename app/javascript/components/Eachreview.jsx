@@ -54,9 +54,9 @@ class Eachreview extends React.Component {
             good={this.props.good}
             bad={this.props.bad}
             advice={this.props.advice}
-            Editcontroll={this.Editcontroll}
             authenticityToken={this.props.authenticityToken}
             parentFetchreviews={this.props.parentFetchreviews}
+            Editcontroll={this.Editcontroll}
           />
         )}
 

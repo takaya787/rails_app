@@ -19,7 +19,7 @@ class ReviewEditform extends React.Component {
     this.setState({
       [event.target.id]: event.target.value,
     });
-  }
+  };
   handleSubmit(event) {
     console.log(this.state);
     fetch("/reviews/" + this.props.id, {
@@ -43,9 +43,18 @@ class ReviewEditform extends React.Component {
       this.props.parentFetchreviews
     )
     event.preventDefault();
+  };
+  componentDidMount() {
+    //元のreviewの内容をvalueに設定
+    this.setState({
+      review_reason: this.props.reason,
+      review_duration: this.props.duration,
+      review_good: this.props.good,
+      review_bad: this.props.bad,
+      review_advice: this.props.advice,
+    });
   }
-  //onClickにeditcloseとhandklesubmitを追加しておく
-
+  //ほぼReviewform componentと同じでcssも共通
   render() {
     return (
       <div className="draft">
@@ -94,7 +103,6 @@ ReviewEditform.propsTypes = {
   good: PropTypes.string,
   bad: PropTypes.string,
   advice: PropTypes.string,
-  address: PropTypes.string,
   // その他
   authenticityToken: PropTypes.string,
   parentFetchreviews: PropTypes.func,

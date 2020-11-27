@@ -282,11 +282,25 @@ button {
     position: absolute;
     top: -190px;
     right: 30px;
-    z-index: 4;
     background-color: white;
     border: none;
     animation: slideInTop 1.0s;
     z-index: 10;
+  }
+  .editbutton {
+    height: 20px;
+    width: 70px;
+    background-color: white;
+    border: none;
+    animation: slideInTop 1.0s;
+    z-index: 10;
+    position: absolute;
+    top: -193px;
+    right: 110px;
+    color: blue;
+    &:hover {
+      text-decoration: underline;
+    }
   }
   .content {
     background-color: white;

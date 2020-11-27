@@ -52,7 +52,7 @@ class Map extends React.Component {
   //1  上に行く
   Goup() {
     let latitude = this.state.center.lat;
-    latitude += 0.015
+    latitude += 0.010
     this.setState({
       center: {
         lat: latitude,
@@ -149,6 +149,7 @@ class Map extends React.Component {
     const buildEachreview = this.state.reviews.map((review) => (
       <Eachreview
         key={review.id}
+        id={review.id}
         reason={review.reason}
         duration={review.duration}
         good={review.good}
@@ -157,6 +158,10 @@ class Map extends React.Component {
         address={review.address}
         lat={review.lat}
         lng={review.lng}
+        currentUser={this.props.currentUser}
+        User={review.user_id}
+        authenticityToken={this.props.authenticityToken}
+        parentFetchreviews={this.MapfetchReviews}
       />
     ));
     //ここまで
@@ -205,6 +210,7 @@ class Map extends React.Component {
   }
 }
 Map.propTypes = {
-  authenticityToken: PropTypes.string
+  authenticityToken: PropTypes.string,
+  currentUser: PropTypes.number,
 };
 export default Map

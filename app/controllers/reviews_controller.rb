@@ -1,6 +1,8 @@
 class ReviewsController < ApplicationController
-  before_action:current_user
-  before_action:back_login
+  before_action :current_user
+  before_action :back_login
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user_for_reviews, only: [:edit, :update, :destroy]
   #skip_before_action:verify_authenticity_token
   def index
     #loadの回数を減らすためにincludeメソッドでデータを予め取得する
@@ -37,17 +39,38 @@ class ReviewsController < ApplicationController
         # has_manyとhas_oneでコードが変わる(former: has_many, latter: has_one)
         # spot = @review.spot.create(:address => result )
         spot = @review.create_spot(:address => result )
-        flash[:success]="reviewを作成しました。"
+        flash[:success]="投稿を作成しました。"
         format.html { redirect_to reviews_url }
+         #二重送信を防ぐ処理の都合によりflash messageが表示できていない
         format.js { render "reviews/new" }
       else
-        flash[:danger]="reviewを作成できませんでした。"
+        flash[:danger]="投稿を作成できませんでした。"
+        format.html { render :new }
+          #二重送信を防ぐ処理の都合によりflash messageが表示できていない
+        format.js { render "reviews/new" }
+      end
+    end
+  end
+  def show
+    @user = User.find_by(id: @review.user_id)
+  end
+
+  def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @review.update(review_params)
+        flash[:success]="投稿を変更しました。"
+        format.html { render :new}
+        format.js { render "reviews/new"}
+      else
+        flash[:danger]="投稿を変更できませんでした。"
         format.html { render :new }
         format.js { render "reviews/new" }
       end
     end
   end
-
 
   def check
     result = Geocoder.search(params[:keyword])
@@ -71,6 +94,9 @@ class ReviewsController < ApplicationController
   end
 
   private
+    def set_review
+      @review = Review.find(params[:id])
+    end
     def review_params
       params.require(:review).permit(:reason, :duration, :good, :bad, :advice)
     end

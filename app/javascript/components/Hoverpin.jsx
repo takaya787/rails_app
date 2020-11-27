@@ -62,7 +62,6 @@ class Hoverpin extends React.Component {
             lat={this.props.lat}
             lng={this.props.lng}
             parentFetchreviews={this.props.parentFetchreviews}
-            movetoCenter={this.props.movetoCenter}
           />
         )}
         {/*ここまでreview-form*/}

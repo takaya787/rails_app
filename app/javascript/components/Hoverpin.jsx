@@ -58,7 +58,7 @@ class Hoverpin extends React.Component {
           <Reviewform
             url="/reviews"
             authenticityToken={this.props.authenticityToken}
-            formclose={this.Formcontroll}
+            formClose={this.Formcontroll}
             lat={this.props.lat}
             lng={this.props.lng}
             parentFetchreviews={this.props.parentFetchreviews}

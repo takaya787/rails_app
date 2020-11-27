@@ -43,14 +43,16 @@ class Reviewform extends React.Component {
     }).then(
       //reviewformをpostした後indexからjson読み込んでstateを更新
       this.props.parentFetchreviews
-    )
+    );
+    //投稿を送信後にformを閉じる
+    this.props.formClose();
     // event.preventDefaultは最後に置く
     event.preventDefault();
   }
   render() {
     return (
       <div className="draft">
-        <button className="draft_button" onClick={this.props.formclose}>✕</button>
+        <button className="draft_button" onClick={this.props.formClose}>✕</button>
         <form
           className="draft_form"
           // onSubmit={this.handleSubmit}
@@ -81,7 +83,7 @@ class Reviewform extends React.Component {
           <label htmlFor="review_advice">次に来る人へのアドバイス(150字以内)</label>
           <textarea className="form textarea" name="review[advice]" id="review_advice" value={this.state.review_advice} onChange={this.handleChange} />
 
-          <button className="form_submit" type="button" name="submit" onClick={this.handleSubmit}>投稿を作成</button>
+          <button className="form_submit" type="button" name="submit" onClick={this.handleSubmit}>投稿を送信</button>
         </form>
       </div>
     );

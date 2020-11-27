@@ -3,7 +3,7 @@
     <%= react_component("Loginheader", {
       authenticityToken: form_authenticity_token,
       logout: logout_path,
-      Yourpage: users_path(@current_user),
+      Yourpage: user_path(@current_user),
     } )%>
   <% else %>
     <%= react_component("Header", {

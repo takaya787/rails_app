@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @reviews = Review.where(user_id: @user.id).includes(:spot)
   end
 
   # GET /users/new

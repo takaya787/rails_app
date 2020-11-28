@@ -7,9 +7,11 @@ class ReviewEditform extends React.Component {
     this.state = {
       review_reason: '',
       review_duration: 1,
-      review_good: '',
-      review_bad: '',
+      review_food: '',
+      review_convenient: '',
+      review_favorite: '',
       review_advice: '',
+      review_score: 0,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,9 +35,11 @@ class ReviewEditform extends React.Component {
         review: {
           reason: this.state.review_reason,
           duration: this.state.review_duration,
-          good: this.state.review_good,
-          bad: this.state.review_bad,
+          food: this.state.review_food,
+          convenient: this.state.review_convenient,
+          favorite: this.state.review_favorite,
           advice: this.state.review_advice,
+          score: this.state.review_score
         },
       })
     }).then(
@@ -52,9 +56,11 @@ class ReviewEditform extends React.Component {
     this.setState({
       review_reason: this.props.reason,
       review_duration: this.props.duration,
-      review_good: this.props.good,
-      review_bad: this.props.bad,
+      review_food: this.props.food,
+      review_convenient: this.props.convenient,
+      review_favorite: this.props.favorite,
       review_advice: this.props.advice,
+      review_score: this.props.score,
     });
   }
   //ほぼReviewform componentと同じでcssも共通
@@ -65,17 +71,12 @@ class ReviewEditform extends React.Component {
         <form
           className="draft_form"
           // onSubmit={this.handleSubmit}
-          action={this.props.url} acceptCharset="UTF-8" method="post" data-remote="true">
+          //form自体は提出しないので、actionいらない
+          action="" acceptCharset="UTF-8" method="post" data-remote="true">
           <h3>変更内容を入力してください</h3>
           {/* ここでまとめて隠し要素設置*/}
           <input type="hidden" name="authenticity_token"
             value={this.props.authenticityToken}
-          />
-          <input type="hidden" name="lat"
-            value={this.props.lat}
-          />
-          <input type="hidden" name="lng"
-            value={this.props.lng}
           />
           {/* ここまで隠し要素*/}
           <label htmlFor="review_reason">滞在理由(30字以内）<span className="required">＊必須</span></label>
@@ -84,13 +85,21 @@ class ReviewEditform extends React.Component {
           <label htmlFor="review_duration">期間(月)<span className="required">＊必須</span></label>
           <input className="form" type="number" name="review[duration]" id="review_duration" value={this.state.review_duration} onChange={this.handleChange} required />
 
-          <label htmlFor="review_good">住んで良かったこと(150字以内)</label>
-          <textarea className="form textarea" name="review[good]" id="review_good" value={this.state.review_good} onChange={this.handleChange} />
+          <label htmlFor="review_food">食生活について教えてください(150字以内)</label>
+          <textarea className="form textarea" name="review[food]" id="review_food" value={this.state.review_food} onChange={this.handleChange} />
 
-          <label htmlFor="review_bad">住んで嫌だったこと(150字以内)</label>
-          <textarea className="form textarea" name="review[bad]" id="review_bad" value={this.state.review_bad} onChange={this.handleChange} />
+          <label htmlFor="review_convenient">インフラなどの利便性について教えてください(150字以内)</label>
+          <textarea className="form textarea" name="review[convenient]" id="review_convenient" value={this.state.review_convenient} onChange={this.handleChange} />
+
+          <label htmlFor="review_favorite">あなたのお気に入りについて教えてください(150字以内）</label>
+          <input className="form" type="text" name="review[favorite]" id="review_favorite" placeholder="現地のお気に入りのお店、場所、食べ物について教えてください" value={this.state.review_favorite} onChange={this.handleChange}
+          />
+
           <label htmlFor="review_advice">次に来る人へのアドバイス(150字以内)</label>
           <textarea className="form textarea" name="review[advice]" id="review_advice" value={this.state.review_advice} onChange={this.handleChange} />
+
+          <label htmlFor="review_score">住み心地はいかがでしたか？　<span className="required">＊必須</span></label>
+          <input className="form" type="number" name="review[score]" id="review_score" value={this.state.review_score} onChange={this.handleChange} required />
 
           <button className="form_submit" type="button" name="submit" onClick={this.handleSubmit}>変更する</button>
         </form>
@@ -106,6 +115,7 @@ ReviewEditform.propsTypes = {
   good: PropTypes.string,
   bad: PropTypes.string,
   advice: PropTypes.string,
+  score: PropTypes.number,
   // その他
   authenticityToken: PropTypes.string,
   parentFetchreviews: PropTypes.func,

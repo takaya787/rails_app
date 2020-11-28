@@ -1,5 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
+
+//ReactStarsRatingを用いた評価用のcomponent
+import ReactStars from './ReactStars.jsx'
 //Eachreview.jsxの子コンポーネント
 class ReviewEditform extends React.Component {
   constructor(props) {
@@ -15,6 +18,7 @@ class ReviewEditform extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.scoreChange = this.scoreChange.bind(this);
   }
 
   handleChange(event) {
@@ -51,6 +55,14 @@ class ReviewEditform extends React.Component {
     // event.preventDefaultは最後に置く
     event.preventDefault();
   };
+  //review_scoreを更新するための関数
+  scoreChange(value) {
+    //console.log(value);
+    this.setState({
+      review_score: value,
+    });
+  }
+
   componentDidMount() {
     //元のreviewの内容をvalueに設定
     this.setState({
@@ -60,7 +72,8 @@ class ReviewEditform extends React.Component {
       review_convenient: this.props.convenient,
       review_favorite: this.props.favorite,
       review_advice: this.props.advice,
-      review_score: this.props.score,
+      // ReactStarsで設定するので混乱をさけるためにコメントアウトする
+      //review_score: this.props.score,
     });
   }
   //ほぼReviewform componentと同じでcssも共通
@@ -99,7 +112,14 @@ class ReviewEditform extends React.Component {
           <textarea className="form textarea" name="review[advice]" id="review_advice" value={this.state.review_advice} onChange={this.handleChange} />
 
           <label htmlFor="review_score">住み心地はいかがでしたか？　<span className="required">＊必須</span></label>
-          <input className="form" type="number" name="review[score]" id="review_score" value={this.state.review_score} onChange={this.handleChange} required />
+          {/*ReactStarsあるから隠し要素に変更*/}
+          <input className="form" type="hidden" name="review[score]" id="review_score" value={this.state.review_score} onChange={this.handleChange} required />
+          <ReactStars
+            parentscoreChange={this.scoreChange}
+            value={this.props.score}
+            size={25}
+          // isEdit={false}
+          />
 
           <button className="form_submit" type="button" name="submit" onClick={this.handleSubmit}>変更する</button>
         </form>

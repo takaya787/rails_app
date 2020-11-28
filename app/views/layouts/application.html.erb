@@ -15,7 +15,7 @@
   </head>
 
   <body>
-    <%= render"layouts/header" %>
+    <%= render "layouts/header" %>
     <div class="body">
       <% flash.each do |key, value| %>
       <%= content_tag :div, value, class:"flash "+key %>
@@ -23,8 +23,6 @@
       <%= yield %>
       <%= debug(params) if Rails.env.development? %>
     </div>
+    <%= render "layouts/footer" %>
   </body>
-  <footer>
-      <a href="https://icons8.com/">icon8(使用)</a>
-  </footer>
 </html>

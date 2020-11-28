@@ -73,7 +73,7 @@
   }
 }
 @media screen and (max-width:767px) {
-  .wrapper {
+  #root {
     .window {
       height: 200px;
       width: 200px;
@@ -87,7 +87,11 @@
         font-size: 14px;
         line-height: 20px;
       }
+      &_signup {
+        margin-top: 10px;
+      }
     }
+
     .main {
       &_explains {
         display: flex;

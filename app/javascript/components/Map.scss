@@ -28,7 +28,7 @@ button {
   width: 90%;
   position: relative;
   @media screen and ( max-width: 767px ){
-    width: 100%;
+    width: 95%;
   }
 }
 //hoverpin.jsx part
@@ -182,7 +182,7 @@ button {
 #check {
   &_form {
     position: absolute;
-    top: 30px;
+    top: 20px;
     left: 5%;
     .check {
       position: relative;

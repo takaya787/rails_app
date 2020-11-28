@@ -9,9 +9,8 @@
       <h3 class="window_description">気になる国や街の住み心地を<br>チェック！</h3>
       <h3 class="window_description">留学や移住の前に<br>レビューを見てみよう！</h3>
       <% if logged_in? %>
-        <%= react_component("HelloWorld", {greeting: @current_user.name}) %>
-        <%= "Welcome to App! Mr #{@current_user.name}" %>
-        <%= link_to "Log out", logout_path , method: :post %>
+        <h3>Welcome!<br><%= @current_user.name %></h3>
+        <!--<%= link_to "Log out", logout_path , method: :post %> -->
       <% else %>
         <div class="window_signup">
           <%= react_component("Signup", {
@@ -31,10 +30,10 @@
         <%= image_tag 'roots/logo.png', class: "image"%>
       </div>
       <h3 class="window_description">気になる国や街の住み心地を<br>チェック！</h3>
-      <h3 class="window_description">留学や移住の前に<br>先輩達のレビューを見てみよう！</h3>
+      <h3 class="window_description">留学や移住の前に<br>レビューを見てみよう！</h3>
       <% if logged_in? %>
-        <%= react_component("HelloWorld", {greeting: @current_user.name}) %>
-        <%= link_to "Log out", logout_path , method: :post %>
+        <h3>Welcome!<br><%= @current_user.name %></h3>
+        <!--<%= link_to "Log out", logout_path , method: :post %> -->
       <% else %>
         <div class="window_signup">
           <%= react_component("Signup", {

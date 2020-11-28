@@ -149,15 +149,20 @@ class Map extends React.Component {
     const buildEachreview = this.state.reviews.map((review) => (
       <Eachreview
         key={review.id}
+        //reviewの内容
         id={review.id}
         reason={review.reason}
         duration={review.duration}
-        good={review.good}
-        bad={review.bad}
+        food={review.food}
+        convenient={review.convenient}
+        favorite={review.favorite}
+        score={review.score}
         advice={review.advice}
+        //ここから位置情報
         address={review.address}
         lat={review.lat}
         lng={review.lng}
+        //その他
         currentUser={this.props.currentUser}
         User={review.user_id}
         authenticityToken={this.props.authenticityToken}

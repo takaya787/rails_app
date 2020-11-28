@@ -8,14 +8,18 @@ class Reviewfullcontent extends React.Component {
       <div className="contents">
         <button className="button" onClick={this.props.Reviewcontroll}>✕</button>
         <div className="content">
+          <p className="content_title">住み心地</p>
+          <p className="score">{this.props.score}</p>
           <p className="content_title">理由</p>
           <p className="content_text">{this.props.reason}</p>
-          <p className="content_title">期間</p>
+          <p className="content_title">滞在期間</p>
           <p className="content_text">{this.props.duration}ヵ月</p>
-          <p className="content_title">行った良かった点</p>
-          <p className="content_text">{this.props.good}</p>
-          <p className="content_title">残念だった点</p>
-          <p className="content_text">{this.props.bad}</p>
+          <p className="content_title">食生活</p>
+          <p className="content_text">{this.props.food}</p>
+          <p className="content_title">インフラなどの利便性</p>
+          <p className="content_text">{this.props.convenient}</p>
+          <p className="content_title">お気に入り</p>
+          <p className="content_text">{this.props.favorite}</p>
           <p className="content_title">アドバイス</p>
           <p className="content_text">{this.props.advice}</p>
         </div>

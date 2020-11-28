@@ -103,6 +103,6 @@ class ReviewsController < ApplicationController
       @review = Review.find(params[:id])
     end
     def review_params
-      params.require(:review).permit(:reason, :duration, :good, :bad, :advice)
+      params.require(:review).permit(:reason, :duration, :food, :convenient, :favorite, :advice, :score)
     end
 end

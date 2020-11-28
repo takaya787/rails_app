@@ -51,8 +51,10 @@ class Eachreview extends React.Component {
             id={this.props.id}
             reason={this.props.reason}
             duration={this.props.duration}
-            good={this.props.good}
-            bad={this.props.bad}
+            food={this.props.food}
+            convenient={this.props.convenient}
+            favorite={this.props.favorite}
+            score={this.props.score}
             advice={this.props.advice}
             authenticityToken={this.props.authenticityToken}
             parentFetchreviews={this.props.parentFetchreviews}
@@ -65,8 +67,10 @@ class Eachreview extends React.Component {
           <Reviewfullcontent
             reason={this.props.reason}
             duration={this.props.duration}
-            good={this.props.good}
-            bad={this.props.bad}
+            food={this.props.food}
+            convenient={this.props.convenient}
+            favorite={this.props.favorite}
+            score={this.props.score}
             advice={this.props.advice}
             address={this.props.address}
             Reviewcontroll={this.Reviewcontroll}
@@ -99,12 +103,14 @@ Eachreview.propTypes = {
   id: PropTypes.number,
   reason: PropTypes.string,
   duration: PropTypes.number,
-  good: PropTypes.string,
-  bad: PropTypes.string,
+  food: PropTypes.string,
+  convenient: PropTypes.string,
+  favorite: PropTypes.string,
+  score: PropTypes.number,
   advice: PropTypes.string,
   address: PropTypes.string,
-  User: PropTypes.number,
   // user関連
+  User: PropTypes.number,
   currentUser: PropTypes.number,
   //位置情報
   lat: PropTypes.number,

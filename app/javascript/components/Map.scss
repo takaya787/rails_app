@@ -137,7 +137,7 @@ button {
   position: relative;
   &_button {
     position: absolute;
-    top: -220px;
+    top: -240px;
     right: 30px;
     z-index: 4;
     background-color: #f3f3f3;
@@ -147,13 +147,12 @@ button {
   }
   &_form {
     background-color: #f3f3f3;
-    padding: 10px 30px 30px 30px;
-    height: 410px;
+    padding: 10px 30px 10px 30px;
     width: 200px;
     border-radius: 20px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
     position: absolute;
-    top: -225px;
+    top: -245px;
     right: 20px;
     z-index: 9;
     animation: slideInTop 1.0s;
@@ -163,16 +162,29 @@ button {
     }
     .form {
       width: 100%;
-      line-height: 16px;
-      padding: 5px;
+      line-height: 12px;
+      padding: 3px;
       margin-bottom: 10px;
       &_submit {
         cursor: pointer;
         text-align: left;
+        margin-bottom: 0;
       }
     }
     .textarea{
-      height: 40px;
+      height: 30px;
+      line-height: 14px;
+      font-size: 12px;
+      padding: 5px;
+    }
+    .labelnumber {
+      display: inline-block;
+    }
+    .number {
+      display: inline-block;
+      height: 15px;
+      width: 60px;
+      margin-left: 20px;
     }
   }
 }
@@ -275,7 +287,7 @@ button {
     }
   }
 }
-//Each reviewのclickページ　Reviewfullcontent.jsk
+//Each reviewのclickページ　Reviewfullcontent.jsx
 .contents {
   position: relative;
   .button {
@@ -296,7 +308,7 @@ button {
     z-index: 10;
     position: absolute;
     top: -193px;
-    right: 110px;
+    right: 90px;
     color: blue;
     &:hover {
       text-decoration: underline;
@@ -316,10 +328,21 @@ button {
     &_title {
       font-size: 16px;
       font-weight: bold;
+      margin: 10px 0;
     }
     &_text {
+      line-height: 14px;
       font-size: 12px;
+      padding: 0;
+      margin: 0;
       // margin-bottom: 5px;
+    }
+    .score {
+      line-height: 18px;
+      font-size: 16px;
+      padding: 0;
+      margin: 0;
+      color: burlywood;
     }
   }
 }

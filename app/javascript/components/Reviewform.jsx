@@ -1,5 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
+//ReactStarsRatingを用いた評価を設定
+import ReactStars from './ReactStars.jsx'
+
 //hoverpin.jsxの子コンポーネント
 class Reviewform extends React.Component {
   constructor(props) {
@@ -15,6 +18,7 @@ class Reviewform extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.scoreChange = this.scoreChange.bind(this);
   }
 
   handleChange(event) {
@@ -52,6 +56,18 @@ class Reviewform extends React.Component {
     this.props.formClose();
     // event.preventDefaultは最後に置く
     event.preventDefault();
+  }
+  //review_scoreを更新するための関数
+  scoreChange(value) {
+    //console.log(value);
+    this.setState({
+      review_score: value,
+    });
+  }
+  handleChange(event) {
+    this.setState({
+      [event.target.id]: event.target.value,
+    });
   }
   render() {
     return (
@@ -93,18 +109,20 @@ class Reviewform extends React.Component {
           <label htmlFor="review_favorite">お気に入り(150字以内）</label>
           <textarea className="form textarea" name="review[favorite]" id="review_favorite" placeholder="現地でのお気に入りの物や場所について" value={this.state.review_favorite} onChange={this.handleChange}
           />
-
           <label htmlFor="review_advice">次に来る人へのアドバイス(150字以内)</label>
           <textarea className="form textarea" name="review[advice]" id="review_advice" value={this.state.review_advice} onChange={this.handleChange} placeholder="何か気をつけたほうがいいことなど" />
 
           <label htmlFor="review_score">住み心地はいかがでしたか？　<span className="required">＊必須</span></label>
-          <input className="form" type="number" name="review[score]" id="review_score" value={this.state.review_score} onChange={this.handleChange} required />
+          <ReactStars
+            parentscoreChange={this.scoreChange}
+          />
+          {/*　scoreformは隠し要素にして問題ないはず */}
+          <input className="form" type="hidden" name="review[score]" id="review_score" value={this.state.review_score} onChange={this.handleChange} required />
 
           <button className="form_submit" type="button" name="submit" onClick={this.handleSubmit}>投稿を送信</button>
         </form>
       </div>
     );
-
   }
 }
 

@@ -91,7 +91,7 @@ class ReviewEditform extends React.Component {
           <label htmlFor="review_convenient">インフラなどの利便性について教えてください(150字以内)</label>
           <textarea className="form textarea" name="review[convenient]" id="review_convenient" value={this.state.review_convenient} onChange={this.handleChange} />
 
-          <label htmlFor="review_favorite">お気に入りものについて(150字以内）</label>
+          <label htmlFor="review_favorite">お気に入り(150字以内）</label>
           <textarea className="form textarea" name="review[favorite]" id="review_favorite" placeholder="現地でのお気に入りの物やお店について" value={this.state.review_favorite} onChange={this.handleChange}
           />
 

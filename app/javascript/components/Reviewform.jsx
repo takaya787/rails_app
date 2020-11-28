@@ -90,8 +90,8 @@ class Reviewform extends React.Component {
             placeholder="インフラや公共交通機関について"
             id="review_convenient" value={this.state.review_convenient} onChange={this.handleChange} />
 
-          <label htmlFor="review_favorite">お気に入りものについて(150字以内）</label>
-          <textarea className="form textarea" name="review[favorite]" id="review_favorite" placeholder="現地でのお気に入りの物やお店について" value={this.state.review_favorite} onChange={this.handleChange}
+          <label htmlFor="review_favorite">お気に入り(150字以内）</label>
+          <textarea className="form textarea" name="review[favorite]" id="review_favorite" placeholder="現地でのお気に入りの物や場所について" value={this.state.review_favorite} onChange={this.handleChange}
           />
 
           <label htmlFor="review_advice">次に来る人へのアドバイス(150字以内)</label>

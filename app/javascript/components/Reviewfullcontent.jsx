@@ -16,7 +16,7 @@ class Reviewfullcontent extends React.Component {
           <p className="content_text">{this.props.food}</p>
           <p className="content_title">インフラなどの利便性</p>
           <p className="content_text">{this.props.convenient}</p>
-          <p className="content_title">お気に入り</p>
+          <p className="content_title">オススメ</p>
           <p className="content_text">{this.props.favorite}</p>
           <p className="content_title">アドバイス</p>
           <p className="content_text">{this.props.advice}</p>

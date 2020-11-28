@@ -82,8 +82,8 @@ class ReviewEditform extends React.Component {
           <label htmlFor="review_reason">滞在理由(30字以内）<span className="required">＊必須</span></label>
           <input className="form" type="text" name="review[reason]" id="review_reason" value={this.state.review_reason} onChange={this.handleChange} required />
 
-          <label htmlFor="review_duration">期間(月)<span className="required">＊必須</span></label>
-          <input className="form" type="number" name="review[duration]" id="review_duration" value={this.state.review_duration} onChange={this.handleChange} required />
+          <label className="labelnumber" htmlFor="review_duration">期間(月)<span className="required">＊必須</span></label>
+          <input className="form number" type="number" name="review[duration]" id="review_duration" value={this.state.review_duration} onChange={this.handleChange} required />
 
           <label htmlFor="review_food">食生活について教えてください(150字以内)</label>
           <textarea className="form textarea" name="review[food]" id="review_food" value={this.state.review_food} onChange={this.handleChange} />
@@ -91,8 +91,8 @@ class ReviewEditform extends React.Component {
           <label htmlFor="review_convenient">インフラなどの利便性について教えてください(150字以内)</label>
           <textarea className="form textarea" name="review[convenient]" id="review_convenient" value={this.state.review_convenient} onChange={this.handleChange} />
 
-          <label htmlFor="review_favorite">あなたのお気に入りについて教えてください(150字以内）</label>
-          <input className="form" type="text" name="review[favorite]" id="review_favorite" placeholder="現地のお気に入りのお店、場所、食べ物について教えてください" value={this.state.review_favorite} onChange={this.handleChange}
+          <label htmlFor="review_favorite">お気に入りものについて(150字以内）</label>
+          <textarea className="form textarea" name="review[favorite]" id="review_favorite" placeholder="現地でのお気に入りの物やお店について" value={this.state.review_favorite} onChange={this.handleChange}
           />
 
           <label htmlFor="review_advice">次に来る人へのアドバイス(150字以内)</label>

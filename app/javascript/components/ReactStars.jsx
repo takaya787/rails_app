@@ -9,6 +9,7 @@ class ReactStars extends React.Component {
     this.state = {
       value: 0,
       selectedValue: 0,
+      isEdit: true,
     };
     this.onChange = this.onChange.bind(this);
   }
@@ -19,19 +20,36 @@ class ReactStars extends React.Component {
       selectedValue: value,
     });
     //console.log(value)
-    this.props.parentscoreChange(value);
+    //propsで受け取ってなくてもerrorにならいために
+    if (this.props.parentscoreChange) {
+      this.props.parentscoreChange(value);
+    }
   }
-
+  componentDidMount() {
+    //propsで指定したら初期値や変更の有無を変えれるようにする
+    if (this.props.isEdit == false) {
+      this.setState({
+        isEdit: false,
+      })
+    }
+    if (this.props.value) {
+      this.setState({
+        value: this.props.value,
+        selectedValue: this.props.value,
+      })
+    }
+  }
   render() {
-    const { value, selectedValue } = this.state;
-
+    const { isEdit, value, selectedValue } = this.state;
     return (
-      <section>
+      <section className="stars">
         <ReactStarsRating
           onChange={this.onChange}
           // isEdit={isEdit} isEditは結果を見せる時だけfalseにする
+          isEdit={isEdit}
           value={value}
           selectedValue={selectedValue}
+          size={this.props.size}
         />
       </section>
     )
@@ -40,5 +58,7 @@ class ReactStars extends React.Component {
 ReactStars.propTypes = {
   parentscoreChange: PropTypes.func,
   value: PropTypes.number,
+  isEdit: PropTypes.bool,
+  size: PropTypes.number,
 };
 export default ReactStars

@@ -168,6 +168,7 @@ button {
       &_submit {
         cursor: pointer;
         text-align: left;
+        margin-top: 10px;
         margin-bottom: 0;
       }
     }
@@ -308,7 +309,7 @@ button {
     z-index: 10;
     position: absolute;
     top: -193px;
-    right: 90px;
+    right: 50px;
     color: blue;
     &:hover {
       text-decoration: underline;
@@ -337,12 +338,20 @@ button {
       margin: 0;
       // margin-bottom: 5px;
     }
-    .score {
+    &_score {
+      display: inline-block;
+      width: 40px;
       line-height: 18px;
       font-size: 16px;
       padding: 0;
       margin: 0;
-      color: burlywood;
+    }
+    &_star {
+      padding: 0;
+      margin: 0;
+      height: 20px;
+      width: 140px;
+      display: inline-block;
     }
   }
 }

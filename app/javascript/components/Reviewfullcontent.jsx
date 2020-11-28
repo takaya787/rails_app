@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Reviewform from "./Reviewform";
+
+//ReactStarsRatingを用いてscoreを表す
+import ReactStars from './ReactStars.jsx'
 // Eachreview.jsxの子コンポーネント
 class Reviewfullcontent extends React.Component {
   render() {
@@ -9,7 +11,8 @@ class Reviewfullcontent extends React.Component {
         <button className="button" onClick={this.props.Reviewcontroll}>✕</button>
         <div className="content">
           <p className="content_title">住み心地</p>
-          <p className="score">{this.props.score}</p>
+          <p className="content_score">{this.props.score}</p>
+          <div className="content_star"><ReactStars value={this.props.score} isEdit={false} size={20} /></div>
           <p className="content_title">理由</p>
           <p className="content_text">{this.props.reason}</p>
           <p className="content_title">滞在期間</p>

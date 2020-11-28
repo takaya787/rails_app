@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-//ReactStarsRatingを用いた評価を設定
+//ReactStarsRatingを用いた評価用のcomponent
 import ReactStars from './ReactStars.jsx'
 
 //hoverpin.jsxの子コンポーネント
@@ -64,11 +64,7 @@ class Reviewform extends React.Component {
       review_score: value,
     });
   }
-  handleChange(event) {
-    this.setState({
-      [event.target.id]: event.target.value,
-    });
-  }
+
   render() {
     return (
       <div className="draft">
@@ -115,6 +111,9 @@ class Reviewform extends React.Component {
           <label htmlFor="review_score">住み心地はいかがでしたか？　<span className="required">＊必須</span></label>
           <ReactStars
             parentscoreChange={this.scoreChange}
+            size={25}
+          // value={3}
+          // isEdit={false}
           />
           {/*　scoreformは隠し要素にして問題ないはず */}
           <input className="form" type="hidden" name="review[score]" id="review_score" value={this.state.review_score} onChange={this.handleChange} required />

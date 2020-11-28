@@ -10,9 +10,7 @@ class ApplicationController < ActionController::Base
           flash[:danger]="あなたは正当なユーザーではありません"
           redirect_to root_url
         end
-        return
       end
-      return
     else
       flash[:danger]="ユーザー登録、またはログインをしてください"
       redirect_to root_url

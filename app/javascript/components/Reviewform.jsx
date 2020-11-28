@@ -78,7 +78,7 @@ class Reviewform extends React.Component {
             placeholder="滞在した理由や目的について"
           />
 
-          <label className="labelnumber" htmlFor="review_duration">期間(月)<span className="required">＊必須</span></label>
+          <label className="labelnumber" htmlFor="review_duration">滞在期間(月)<span className="required">＊必須</span></label>
           <input className="form number" type="number" name="review[duration]" id="review_duration" value={this.state.review_duration} onChange={this.handleChange} required />
 
           <label htmlFor="review_food">食生活について(150字以内)</label>

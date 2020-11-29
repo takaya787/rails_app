@@ -1,0 +1,67 @@
+<% provide(:title, "How to use") %>
+<%= render 'users/top' %>
+<div id="beginner">
+  <div class="title">
+    <h1 class="title_main">初めて<a href="#"><span style="color: darkorange; ">住み心地.com</span></a>を<br class="common__sp-only">ご覧頂く方へ</h1>
+    <h3 class="title_text">ここでは<span style="color: darkorange; ">住み心地.com</span>の<br>ご利用方法を解説させて頂きます。</h3>
+  </div>
+  <div class="index">
+    <h3 class="index_title">【目次】</h3>
+    <ul class="index_lists">
+      <a class="hover" href="#what"><li class="list">1. <span style="color: darkorange; ">住み心地.com</span>とは?</li></a>
+      <a class="hover" href="#how"><li class="list">2. レビューを投稿をしよう！</li></a>
+    </ul>
+  </div>
+  <div id="what">
+    <h2 class="title"><span style="color: darkorange; ">住み心地.com</span>は現地の生活経験のレビューを見て、<br>移住や留学などで出発前の不安を<br>和らげてもらうためのサービスです。</h2>
+    <%= image_tag 'roots/home_photo.png',class:"image"%>
+  </div>
+  <div id="how">
+    <div class="title">
+      <h2>レビューを投稿をしよう！</h2>
+      <p>レビューを投稿する方法を簡単に説明します。<p>
+    </div>
+    <div class="explain">
+      <div class="explain_title">
+        <h2>STEP1 アカウントを作成しよう！</h2>
+      </div>
+      <div class="explain_text">
+        <p>まずは にある<span class="start">はじめる</span>をクリックしてユーザー登録を行ってください。</p>
+        <p>Googleアカウントで Log in するとユーザー登録を省略できます。</p>
+      </div>
+    </div>
+
+    <div class="explain">
+      <div class="explain_title">
+        <h2>STEP2 メニュー内のMapをClick!</h2>
+      </div>
+      <div class="explain_text">
+        <p>Mapをクリックすると、地図が表示されたページに遷移します。</p>
+        <p>この地図内でレビューの投稿、閲覧ができます。</p>
+        <%= image_tag 'roots/map_photo.png', class: "image"%>
+      </div>
+    </div>
+
+    <div class="explain">
+      <div class="explain_title">
+        <h2>STEP3 検索フォームに場所を入力</h2>
+      </div>
+      <div class="explain_text">
+        <p>検索フォームに地名や国を入力すると自動で地図が変化します</p>
+      </div>
+    </div>
+
+    <div class="explain">
+      <div class="explain_title">
+        <h2>STEP４ レビューを投稿する</h2>
+      </div>
+      <div class="explain_text">
+        <p>地図の中心に表示されている赤いピンをクリックしてメニューを表示させてください。</p>
+
+        <p>任意の場所にピンを移動させた後、<span style="font-weight: bold; font-size: 16px;">この場所に投稿 </span>をクリックすると、投稿フォームが表示されます。</p>
+        <p>フォーム内容入力後に<span style="font-weight: bold; font-size: 16px;">投稿を送信</span>をクリックすると、投稿が作成されています。
+        <%= image_tag 'roots/click_menu.png', class: "image small"%>
+      </div>
+    </div>
+  </div>
+</div>

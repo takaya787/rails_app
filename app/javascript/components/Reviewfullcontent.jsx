@@ -13,7 +13,7 @@ class Reviewfullcontent extends React.Component {
           <p className="content_title">住み心地</p>
           <p className="content_score">{this.props.score}</p>
           <div className="content_star"><ReactStars value={this.props.score} isEdit={false} size={20} /></div>
-          <p className="content_title">理由</p>
+          <p className="content_title">滞在理由</p>
           <p className="content_text">{this.props.reason}</p>
           <p className="content_title">滞在期間</p>
           <p className="content_text">{this.props.duration}ヵ月</p>

@@ -1,24 +1,46 @@
-# README
+# 住み心地.com
+***リンク***
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ユーザー登録をすることで、レビューの投稿、閲覧が可能になります。
 
-Things you may want to cover:
+## サイト概要
 
-* Ruby version
+**住み心地.com**は地図内のマップに直接その場所の生活経験を、住み心地という評価と共に投稿できるウェブサイトです。<br>
 
-* System dependencies
+## 作成理由
+自分は留学経験があるのですが、留学に出発する前は自分が知らない土地で生活することに対して、不安を感じました。<br>
+そこで、海外への不安を経験者の話を聞いて、少しでも解消で着ればと思い、今回のサイトを作成しました。
 
-* Configuration
+## 使用技術
+* Ruby 2.7.2, Rails 6.0.3
+* React.js
+* Webpacker 4.0
+* Docker, Docker-compose (開発環境)
+* AWS/本番環境 (EC2, EIP, Route53, IAM, S3)
+* Mysql (DB)
+* Google-Map API
+* Geocoding API
+* Fetch API (react内での非同期通信で使用)
+## 機能一覧
+**【機能一覧】**
 
-* Database creation
+◆　ユーザー機能 
+* 新規登録、ログイン(Google認証もあり)、ログアウト
+* マイページ、登録情報を変更
 
-* Database initialization
+◆　管理者機能 
+* ユーザーの削除、レビューの削除、ユーザー一覧確認機能
 
-* How to run the test suite
+◆　レビュー機能 
+* 新規作成、変更、削除(削除のみユーザーページからのみ可能)
 
-* Services (job queues, cache servers, search engines, etc.)
+◆　Map機能( google-map-react 使用)
+* 位置情報検索から、地図を移動( geocoding API使用)
+* レビュー新規作成、変更機能(Fetch APIで非同期送信)
+* レビューを読み込み、地図内で表示(Fetch APIで非同期で読み込み)
+* クリック時にクリックされたレビュー内容を表示
 
-* Deployment instructions
+## 苦労した点
+今回はメイン機能であるreviewの投稿、編集、閲覧機能を同一ページ内で行えるように全て非同期通信で実装しました。
 
-* ...
+react内での情報を非同期でrails側のcontrollerに送信し、完了後にreactからrails内のページ情報を読み込むことで実装しました。

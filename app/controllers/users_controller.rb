@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :current_user
+  #admin以外ユーザー一覧見れない
+  before_action :admin_user, only: [:index]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   before_action :correct_user_for_users, only: [:edit, :update, :destroy]

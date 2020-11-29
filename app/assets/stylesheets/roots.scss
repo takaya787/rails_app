@@ -136,8 +136,9 @@
     width: 80%;
     margin: 20px auto;
     .title {
-      text-align: center;
+      text-align: left;
       margin-bottom: 30px;
+      margin-left: 10%;
       h2 {
         line-height: 30px;
         margin-bottom: 10px;
@@ -157,18 +158,15 @@
       &_text {
         line-height: 20px;
         .start {
-          color: white;
-          background-color: red;
-          border-radius: 10px;
-          padding: 5px;
+         display: inline;
         }
       }
       .image {
-        width: 90%;
+        width: 60%;
         object-fit: cover;
       }
       .small {
-        width: 80%;
+        width: 60%;
         margin-top: 20px;
       }
     }

@@ -1,6 +1,7 @@
 body {
   background-color: #fff;
   color: #333;
+  min-width: 360px;
 }
 
 body, p, ol, ul, td {
@@ -14,14 +15,17 @@ pre {
   font-size: 11px; }
 
 a {
-  color: #000; }
+  color: #000;
+  text-decoration: none;
+}
 
 a:visited {
   color: #666; }
 
-a:hover {
-  color: #fff;
-  background-color: #000; }
+ a:hover {
+//   color: #fff;
+//   background-color: #000;
+}
 
 th {
   padding-bottom: 5px; }

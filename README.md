@@ -1,24 +1,16 @@
-# README
+# 住み心地.com
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ユーザー登録をすることで、レビューの投稿、閲覧が可能になります。
 
-Things you may want to cover:
+## サイト概要
 
-* Ruby version
+**住み心地.com**は地図内のマップに直接その場所の生活経験を、住み心地という評価と共に投稿できるウェブサイトです。<br>
 
-* System dependencies
+## 作成理由
+自分は留学経験があるのですが、留学に出発する前は自分が知らない土地で生活することに対して、不安を感じました。<br>
+そこで、海外への不安を経験者の話を聞いて、少しでも解消で着ればと思い、今回のサイトを作成しました。
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##　使用技術
+* Ruby 2.7.22
+* Rails 6.0.3
+* 

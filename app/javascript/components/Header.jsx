@@ -30,7 +30,7 @@ class Header extends React.Component {
             </button >
             <ul className="header_menu_lists">
               <a href="/" className="link"><li className="link_part">Home</li></a>
-              <a href="/users" className="link"><li className="link_part">Users</li></a>
+              <a href="/beginner" className="link"><li className="link_part">How to use</li></a>
               <li className="component">
                 <Signup
                   signup={this.props.signup}
@@ -42,7 +42,7 @@ class Header extends React.Component {
           </div>
         )}
         { !this.state.isHeaderOpen && (
-          < button className="header_opener" onClick={this.Menucontroll} >
+          <button className="header_opener" onClick={this.Menucontroll} >
             <AiOutlineMenu size={20} />
           </button >
         )}

@@ -16,6 +16,6 @@ test:
 
 production:
   <<: *default
-  database: rails_app_prd
-  username: app
-  password: hoge
+  database: rails_app
+  username: root
+  password: password

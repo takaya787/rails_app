@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 //ReactStarsRatingを用いた評価用のcomponent
-import ReactStars from './ReactStars.jsx'
+import ReactStars from './ReactStars.js'
 //Eachreview.jsxの子コンポーネント
 class ReviewEditform extends React.Component {
   constructor(props) {

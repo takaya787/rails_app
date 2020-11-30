@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 //ReactStarsRatingを用いてscoreを表す
-import ReactStars from './ReactStars.jsx'
+import ReactStars from './ReactStars.js'
 // Eachreview.jsxの子コンポーネント
 class Reviewfullcontent extends React.Component {
   render() {

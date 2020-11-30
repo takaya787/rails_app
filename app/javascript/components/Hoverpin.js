@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Reviewform from "./Reviewform.jsx"
-import Hovertext from "./Hovertext.jsx"
+import Reviewform from "./Reviewform.js"
+import Hovertext from "./Hovertext.js"
 const markerStyle = {
   height: 20,
   width: 20,

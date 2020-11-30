@@ -12,11 +12,11 @@ const API_KEY = process.env.GOOGLE_API_KEY
 import GoogleMapReact from 'google-map-react'
 
 //Hoverpin.jsxをimport
-import Hoverpin from './Hoverpin.jsx'
+import Hoverpin from './Hoverpin.js'
 //Checkform.jsxをimport
-import Checkform from './Checkform.jsx'
+import Checkform from './Checkform.js'
 //Allreviews.jsxをimport
-import Eachreview from './Eachreview.jsx'
+import Eachreview from './Eachreview.js'
 
 //fullscreen解除用
 const defaultMapOptions = {

@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 //ReactStarsRatingを用いた評価用のcomponent
-import ReactStars from './ReactStars.jsx'
+import ReactStars from './ReactStars.js'
 
 //hoverpin.jsxの子コンポーネント
 class Reviewform extends React.Component {

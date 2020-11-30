@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Signup from "./Signup.jsx"
+import Signup from "./Signup.js"
 //react-iconsからダウンロード
 import { AiOutlineMenu } from 'react-icons/ai';
 import { ImCross } from 'react-icons/im';

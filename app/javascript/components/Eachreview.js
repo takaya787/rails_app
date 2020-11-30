@@ -1,12 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 // Reviewhover.jsxからimport
-import Reviewhoverpop from './Reviewhoverpop.jsx'
+import Reviewhoverpop from './Reviewhoverpop.js'
 
 // Reviewfullcontent.jsxからimport
-import Reviewfullcontent from './Reviewfullcontent.jsx'
+import Reviewfullcontent from './Reviewfullcontent.js'
 //ReviewEditform.jsxからimport
-import ReviewEditform from './ReviewEditform.jsx'
+import ReviewEditform from './ReviewEditform.js'
 // react-responsive導入
 import MediaQuery from "react-responsive"
 

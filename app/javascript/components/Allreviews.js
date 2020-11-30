@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 //Eachreview.jsxをimport
-import Eachreview from './Eachreview.jsx'
+import Eachreview from './Eachreview.js'
 
 class Allreviews extends React.Component {
   constructor(props) {

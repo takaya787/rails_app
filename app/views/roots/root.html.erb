@@ -9,7 +9,8 @@
       <h3 class="window_description">気になる国や街の住み心地を<br>チェック！</h3>
       <h3 class="window_description">留学や移住の前に<br>レビューを見てみよう！</h3>
       <% if logged_in? %>
-        <h3>Welcome!<br><%= @current_user.name %></h3>
+        <h2 style="margin-bottom: 10px;">Welcome!</h2>
+        <h2> <%= @current_user.name %></h2>
         <!--<%= link_to "Log out", logout_path , method: :post %> -->
       <% else %>
         <div class="window_signup">

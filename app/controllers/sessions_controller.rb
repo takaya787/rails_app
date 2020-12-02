@@ -9,12 +9,14 @@ class SessionsController < ApplicationController
       user = User.find_or_create_from_auth(auth)
       log_in (user)
       current_user
+      flash[:success]="Login しました。"
       redirect_to root_url
     else
       @user = User.find_by(email: params[:session][:email].downcase)
       if @user && !!@user.authenticate(params[:session][:password])
         log_in (@user)
         current_user
+        flash[:success]="Login しました。"
         redirect_to root_url
       else
         flash.now[:danger] = "メールアドレスかパスワードが正しくありません"

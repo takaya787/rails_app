@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
     if session[:lat] && session[:lng]
       @center = { "lat" => session[:lat], "lng" => session[:lng]}
     else
-      @center = { "lat" => 34.6937249, "lng" => 135.5022535 }
+      @center = { "lat" => 10.3154, "lng" => 123.886 }
     end
     respond_to do |format|
       format.html

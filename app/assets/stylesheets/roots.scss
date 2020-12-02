@@ -168,6 +168,8 @@
       .small {
         width: 60%;
         margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
   }
@@ -216,4 +218,15 @@
     }
   }
   // root.erb ends
+  // beginner.erb starts
+  #beginner {
+    #how {
+      .explain {
+        .image {
+          width: 90%;
+        }
+      }
+    }
+  }
+  // beginner.erb starts
 }

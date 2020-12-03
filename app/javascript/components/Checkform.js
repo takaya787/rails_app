@@ -59,7 +59,7 @@ class Checkform extends React.Component {
               <SiGooglemaps size={16} />
             </div>
             <input
-              className="check_form" type="search" name="keyword" id="keyword" value={this.state.keyword} placeholder="場所を入力してください" onChange={this.handleChange}
+              className="check_form" type="search" name="keyword" id="keyword" value={this.state.keyword} placeholder="ここで検索" onChange={this.handleChange}
             />
             <button className="check_submit" type="submit" name="submit"><GiMagnifyingGlass size={16} />
             </button>

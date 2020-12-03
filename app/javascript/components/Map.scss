@@ -190,6 +190,20 @@ button {
       margin-left: 20px;
     }
   }
+  //ここからreviewform.jsx part and revieweditfrom.jsxのresponsive(position変更用)
+  //タブレットはパソコン側のサイズで見せたい
+  @media screen and ( max-width: 650px ){
+    &_button {
+      position: absolute;
+      top: -220px;
+      right: -130px;
+    }
+    &_form {
+      position: absolute;
+      top: -225px;
+      right: -140px;
+    }
+  }
 }
 
 //checkform.jsx part
@@ -204,14 +218,15 @@ button {
       &_icon {
         color: blue;
         position: absolute;
-        top: 12px;
+        top: 7px;
         left: 5px;
       }
       &_form {
         line-height: 20px;
-        height: 40px;
+        font-size: 14px;
+        height: 30px;
         width: 210px;
-        padding: 10px;
+        padding: 5px;
         padding-left: 25px;
         border: 1px solid honeydew;
         border-radius: 20px;
@@ -225,8 +240,8 @@ button {
         border: none;
         border-radius: 5px;
         position: absolute;
-        top:10px;
-        left: 185px;
+        top: 6px;
+        left: 173px;
         &:hover {
           filter: brightness(80%);
         }
@@ -234,7 +249,7 @@ button {
       @media screen and ( max-width: 767px ){
         &_submit {
         position: absolute;
-        top:10px;
+        top: 6px;
         left: 168px;
         }
       }
@@ -295,7 +310,7 @@ button {
   position: relative;
   .button {
     position: absolute;
-    top: -190px;
+    top: -150px;
     right: 30px;
     background-color: white;
     border: none;
@@ -310,7 +325,7 @@ button {
     animation: slideInTop 1.0s;
     z-index: 10;
     position: absolute;
-    top: -193px;
+    top: -153px;
     right: 50px;
     color: blue;
     &:hover {
@@ -324,7 +339,7 @@ button {
     border-radius: 20px;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.6);
     position: absolute;
-    top: -200px;
+    top: -160px;
     right: 20px;
     z-index: 9;
     animation: slideInTop 1.0s;
@@ -354,6 +369,22 @@ button {
       height: 20px;
       width: 140px;
       display: inline-block;
+    }
+  }
+  //ここからReviewfullcontent.jsx partのresponsive(position変更用)
+  //タブレットはパソコン側のサイズで見せたい
+  @media screen and ( max-width: 650px ){
+    .button {
+      position: absolute;
+      right: -120px;
+    }
+    .editbutton {
+      position: absolute;
+      right: -100px;
+    }
+    .content {
+      position: absolute;
+      right: -130px;
     }
   }
 }

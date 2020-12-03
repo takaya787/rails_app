@@ -1,5 +1,5 @@
 # 住み心地.com
-***リンク***
+***https://www.sumigokochi2020.com/***
 
 ユーザー登録をすることで、レビューの投稿、閲覧が可能になります。
 
@@ -13,11 +13,12 @@
 
 ## 使用技術
 * Ruby 2.7.2, Rails 6.0.3
+* nginx
 * node 10.21.0
 * React.js
 * Webpacker 4.0
 * Docker, Docker-compose (開発環境)
-* AWS/本番環境 (EC2, EIP, Route53, IAM, S3)
+* AWS/本番環境 (EC2, EIP, Route53, IAM, ACM, ALB)
 * Mysql (DB)
 * Google-Map API
 * Geocoding API

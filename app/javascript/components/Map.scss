@@ -286,7 +286,7 @@ button {
   position: relative;
   &_text {
     background-color: white;
-    width: 200px;
+    width: 300px;
     padding: 5px;
     text-align: left;
     border-radius: 5px;
@@ -296,13 +296,24 @@ button {
     left: -60px;
     animation: fadeIn 1.0s;
     z-index: 5;
+    .inline {
+      display: inline-block;
+      width: 120px;
+      margin: 0 10px;
+    }
+    .answer {
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .blue {
+      color: blue;
+      float: right;
+    }
     p {
       padding: none;
       margin: 5px 0;
     }
-    .blue {
-      color: blue;
-    }
+
   }
 }
 //Each reviewのclickページ　Reviewfullcontent.jsx
@@ -349,8 +360,8 @@ button {
       margin: 10px 0;
     }
     &_text {
-      line-height: 14px;
-      font-size: 12px;
+      line-height: 16px;
+      font-size: 14px;
       padding: 0;
       margin: 0;
       // margin-bottom: 5px;

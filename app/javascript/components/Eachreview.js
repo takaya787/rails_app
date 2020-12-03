@@ -88,7 +88,7 @@ class Eachreview extends React.Component {
             <Reviewhoverpop
               reason={this.props.reason}
               advice={this.props.advice}
-              address={this.props.address}
+              score={this.props.score}
             />
           )}
         </MediaQuery>

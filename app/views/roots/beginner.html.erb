@@ -5,7 +5,7 @@
     <h1 class="title_main">初めて<a href="#"><span style="color: darkorange; ">住み心地.com</span></a>を<br class="common__sp-only">ご覧頂く方へ</h1>
     <h3 class="title_text">ここでは<span style="color: darkorange; ">住み心地.com</span>の<br>ご利用方法を解説させて頂きます。</h3>
   </div>
-  <div class="index">
+  <div id="index">
     <h3 class="index_title">【目次】</h3>
     <ul class="index_lists">
       <a class="hover" href="#what"><li class="list">1. <span style="color: darkorange; ">住み心地.com</span>とは?</li></a>
@@ -40,11 +40,12 @@
 
     <div class="explain">
       <div class="explain_title">
-        <h2>STEP2 メニュー内のMapをClick!</h2>
+        <h2>STEP2 Mapページを開く</h2>
       </div>
       <div class="explain_text">
-        <p>Mapをクリックすると、地図が表示されたページに遷移します。</p>
-        <p>この地図内でレビューの投稿、閲覧ができます。</p>
+        <p><span class="bold">右上にあるボタン</span>をクリックしてから<span class="bold">Map</span>をクリックするか、<br><span class="bold">このページの最後</span>にある<span class="bold" style="color: red;">レビューを投稿する</span>をクリックすると、<br>
+        地図が表示されたページに遷移します。</p>
+        <p>※この写真はMap pageの見本です。</p>
         <%= image_tag 'roots/map_photo.png', class: "image"%>
       </div>
     </div>
@@ -54,23 +55,23 @@
         <h2>STEP3 検索フォームに場所を入力</h2>
       </div>
       <div class="explain_text">
-        <p>検索フォームに地名や国を入力すると自動で地図が変化します</p>
+        <p>検索フォームに地名や国を入力して、虫眼鏡アイコンを押すと地図が変化します</p>
       </div>
     </div>
     <div class="explain">
       <div class="explain_title">
-        <h2>STEP4 メニューを表示する</h2>
+        <h2>STEP4 メニューを表示</h2>
         <div class="explain_text">
           <p>地図の中心に表示されている赤いピンをクリックしてメニューを表示させてください。</p>
           <%= image_tag 'roots/click_menu.png', class: "image small"%>
-          <p style="font-weight: bold; color: red;">メニューから、ピンを移動させることと、レビューを投稿することができます。</p>
+          <p style="font-weight: bold; color: red;">メニューから、ピンを移動させたり、レビューを投稿したりできます。</p>
         </div>
       </div>
     </div>
 
     <div class="explain">
       <div class="explain_title">
-        <h2>FINAL STEP レビューを投稿する</h2>
+        <h2>LAST STEP レビューを投稿</h2>
       </div>
       <div class="explain_text">
         <p>任意の場所にピンを移動させた後、<span style="font-weight: bold; font-size: 16px;">この場所に投稿 </span>をタッチすると、投稿フォームが表示されます。</p>

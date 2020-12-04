@@ -1,10 +1,12 @@
 <%# jqueryを用いてflash messageを表示させる %>
-<!--
-if($("#flash_messages").hasClass("flash")){
-  $("#flash_messages").removeClass()
-}
-<% flash.each do |type, message| %>
-  $("#flash_messages").addClass("flash <%= type %>")
-  $("#flash_messages").html("<%= message.html_safe %>")
+<% if Rails.env.development? %>
+  if($("#flash_messages").hasClass("flash")){
+    $("#flash_messages").removeClass()
+  }
+  <% flash.each do |type, message| %>
+    $("#flash_messages").addClass("flash <%= type %>")
+    $("#flash_messages").html("<%= message.html_safe %>")
+  <% end %>
+  console.log("if true")
 <% end %>
--->
+console.log("new js")

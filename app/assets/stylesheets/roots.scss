@@ -101,7 +101,7 @@
       line-height: 25px;
     }
   }
-  .index {
+  #index {
     width: 320px;
     margin: 20px auto;
     background-color: #EFEFF4;
@@ -155,6 +155,7 @@
       margin-bottom: 30px;
       &_title {
         margin-bottom: 5px;
+        line-height: 25px;
       }
       &_text {
         line-height: 20px;
@@ -179,6 +180,10 @@
         &:hover {
           text-decoration: underline;
         }
+      }
+      .bold {
+        font-weight: bold;
+        font-size: 14px;
       }
     }
   }

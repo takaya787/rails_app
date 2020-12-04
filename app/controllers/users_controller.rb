@@ -2,8 +2,8 @@ class UsersController < ApplicationController
   before_action :current_user
   #admin以外ユーザー一覧見れない
   before_action :admin_user, only: [:index, :search]
-  before_action :set_user, only: [ :edit, :update, :destroy]
-
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  #これは@userと@current_userを使うからその前にactionがいる
   before_action :correct_user_for_users, only: [:show, :edit, :update, :destroy]
   # GET /users
   # GET /users.json
@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
     @reviews = Review.where(user_id: @user.id).includes(:spot)
   end
 

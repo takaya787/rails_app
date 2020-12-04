@@ -95,15 +95,15 @@ class Reviewform extends React.Component {
 
           <label htmlFor="review_food">食生活について(150字以内)</label>
           <textarea className="form textarea" name="review[food]" id="review_food" value={this.state.review_food} onChange={this.handleChange}
-            placeholder="（例）スーパーマーケットの食材は安くて重宝したが、外食とアルコール類が非常に高くて、驚いた。　など" />
+            placeholder="(例)　スーパーマーケットの食材は安くて重宝したが、外食とアルコール類が非常に高くて、驚いた。　など" />
 
           <label htmlFor="review_convenient">利便性について(150字以内)</label>
           <textarea className="form textarea" name="review[convenient]"
-            placeholder="（例）電車、地下鉄、モノレールがあって、交通便はとても便利だった。特にバスは市内の至るところに繋がっているので、市内なら車はいらなかった。　など"
+            placeholder="(例)　電車、地下鉄、モノレールがあって、交通便はとても便利だった。特にバスは市内の至るところに繋がっているので、市内なら車はいらなかった。　など"
             id="review_convenient" value={this.state.review_convenient} onChange={this.handleChange} />
 
           <label htmlFor="review_favorite">お気に入り(150字以内）</label>
-          <textarea className="form textarea" name="review[favorite]" id="review_favorite" placeholder="（例）世界自然遺産のBlue Mountainの景色が素晴らしかった。また、きれいなBeachが多いので、友達とよく行った。　など" value={this.state.review_favorite} onChange={this.handleChange}
+          <textarea className="form textarea" name="review[favorite]" id="review_favorite" placeholder="(例)　世界自然遺産のBlue Mountainの景色が素晴らしかった。また、きれいなBeachが多いので、友達とよく行った。　など" value={this.state.review_favorite} onChange={this.handleChange}
           />
           <label htmlFor="review_advice">次に来る人へのアドバイス(150字以内)</label>
           <textarea className="form textarea" name="review[advice]" id="review_advice" value={this.state.review_advice} onChange={this.handleChange} placeholder="(例) オーストラリアは実は、日本と同じくらい夏と冬で寒暖差が激しいので、長期滞在をするなら気をつけたほうが良い。あとパートタイムで仕事を見つけたいなら、ColesやWoolworthなどのスーパーは見つかりやすい。　など" />

@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_action :current_user
   #admin以外ユーザー一覧見れない
-  before_action :admin_user, only: [:index]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :admin_user, only: [:index, :search]
+  before_action :set_user, only: [ :edit, :update, :destroy]
 
   before_action :correct_user_for_users, only: [:show, :edit, :update, :destroy]
   # GET /users
@@ -75,6 +75,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    if  params[:email].present?
+      @users = User.where(email: "#{params[:email]}")
+      #privateに設定
+      search_response
+    elsif params[:name].present?
+      @users = User.where(' name LIKE ?', "%#{params[:name]}%")
+      search_response
+    else
+      flash.now[:danger]="フォームを入力してください"
+      render "index"
+    end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -84,5 +97,14 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
+
+    def search_response
+      unless @users.empty?
+        flash.now[:success]="ユーザーが見つかりました"
+      else
+        flash.now[:danger]="お探しのユーザーは見つかりませんでした。"
+      end
+      render "index"
     end
 end

@@ -178,6 +178,8 @@ class Map extends React.Component {
       return (
         // Important! Always set the container height explicitly
         <div className="Googlemap">
+          <p className="Googlemap_description">ピンをタッチして、ピンの位置を操作できます。
+            <br className="common__sp-only" /> <span><a href="/beginner#how" className="link">詳しい使い方はこちら</a></span></p>
           <GoogleMapReact
             bootstrapURLKeys={{
               //API_KEYは絶対に直接入力しない　過去のものは変更済み

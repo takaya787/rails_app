@@ -13,7 +13,7 @@
     </ul>
   </div>
   <div id="what">
-    <h2 class="title"><span style="color: darkorange; ">住み心地.com</span>は海外の生活経験のレビューを見て、<br>移住や留学などで出発前の不安を<br>和らげてもらうためのサービスです。</h2>
+    <h2 class="title"><span style="color: darkorange; ">住み心地.com</span>は、<br class="common__sp-only"> 気になる国や地域の<br class="common__sp-only">生活経験のレビューを見て、<br>移住や留学先の選択や、<br class="common__sp-only">出発の準備に役立てもらう<br class="common__sp-only">ためのサービスです。</h2>
     <%= image_tag 'roots/home_photo.png',class:"image"%>
   </div>
   <div id="how">
@@ -57,18 +57,39 @@
         <p>検索フォームに地名や国を入力すると自動で地図が変化します</p>
       </div>
     </div>
+    <div class="explain">
+      <div class="explain_title">
+        <h2>STEP4 メニューを表示する</h2>
+        <div class="explain_text">
+          <p>地図の中心に表示されている赤いピンをクリックしてメニューを表示させてください。</p>
+          <%= image_tag 'roots/click_menu.png', class: "image small"%>
+          <p style="font-weight: bold; color: red;">メニューから、ピンを移動させることと、レビューを投稿することができます。</p>
+        </div>
+      </div>
+    </div>
 
     <div class="explain">
       <div class="explain_title">
-        <h2>STEP４ レビューを投稿する</h2>
+        <h2>FINAL STEP レビューを投稿する</h2>
       </div>
       <div class="explain_text">
-        <p>地図の中心に表示されている赤いピンをクリックしてメニューを表示させてください。</p>
-
-        <p>任意の場所にピンを移動させた後、<span style="font-weight: bold; font-size: 16px;">この場所に投稿 </span>をクリックすると、投稿フォームが表示されます。</p>
-        <p>フォーム内容入力後に<span style="font-weight: bold; font-size: 16px;">投稿を送信</span>をクリックすると、投稿が作成されています。
-        <%= image_tag 'roots/click_menu.png', class: "image small"%>
+        <p>任意の場所にピンを移動させた後、<span style="font-weight: bold; font-size: 16px;">この場所に投稿 </span>をタッチすると、投稿フォームが表示されます。</p>
+        <%= image_tag 'roots/review_form.png', class: "image small"%>
+        <p>フォーム内容入力後に<span style="font-weight: bold; font-size: 16px;">投稿を送信</span>をタッチして、投稿完了です。
       </div>
+      <% if logged_in? %>
+        <a href="/reviews/new"><span class="link">レビューを投稿する</span></a>
+      <% else %>
+      <p  style="
+        margin: 5px 0; font-size: 16px; font-weight: bold;"
+      >ユーザー登録をして、<br>初めての投稿をしてみよう！</p>
+      <%= react_component("Signup", {
+        signup: users_path,
+        login: login_path,
+        authenticityToken: form_authenticity_token,
+        })
+      %>
+    <% end %>
     </div>
   </div>
 </div>

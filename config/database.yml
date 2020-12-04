@@ -19,3 +19,4 @@ production:
   database: rails_app
   username: root
   password: password
+  host: localhost

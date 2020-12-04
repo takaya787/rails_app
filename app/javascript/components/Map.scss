@@ -27,6 +27,15 @@ button {
   height: 90vh;
   width: 90%;
   position: relative;
+  &_description {
+    margin: 0;
+    line-height: 18px;
+    padding-bottom: 10px;
+    .link {
+    color: brown;
+    font-weight: bold;
+    }
+  }
   @media screen and ( max-width: 767px ){
     width: 95%;
   }
@@ -211,7 +220,7 @@ button {
 #check {
   &_form {
     position: absolute;
-    top: 20px;
+    top: 60px;
     left: 5%;
     .check {
       position: relative;

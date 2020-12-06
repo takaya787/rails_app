@@ -58,11 +58,20 @@ RSpec.describe ReviewsController, type: :controller do
           expect(response).to have_http_status(200)
 
         end
-        # #その他のユーザーのreview edit は開けない
-        # it "can open review edit page " do
-        #   get :edit, params: {id: @other_review.id}
-        #   expect(response).to have_http_status(200)
-        # end
+        #その他のユーザーのreview edit は開けない
+        it "can open review edit page " do
+          other_review = @host.reviews.create( reason: "test review",
+            duration: 1,
+            advice: "this is a test advice",
+            food: "this is a test food column",
+            convenient: "this is a test convenient column ",
+            favorite: "this is a test favorite column",
+            score: 2.5,
+          )
+          get :edit, params: {id: other_review.id}
+          expect(response).to have_http_status(302)
+          expect(response).to redirect_to(new_review_path)
+        end
       end
     end
   end

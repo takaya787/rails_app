@@ -6,9 +6,8 @@ RSpec.describe User, type: :model do
     before_counts = User.count
     user = FactoryBot.create(:user)
     after_counts = User.count
-    expect(user.admin?).to be_falsey
-    # expect(after_counts - before_counts).to eq 1
     user.destroy
+    expect(user.admin?).to be_falsey
   end
 
   it "hostのadminテスト" do

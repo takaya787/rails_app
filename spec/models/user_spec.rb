@@ -12,7 +12,7 @@ RSpec.describe User, type: :model do
   end
 
   it "hostが作成されるかテスト" do
-    host = FactoryBot.create(:user, admin: true)#host用
+    host = FactoryBot.create(:host)#host用
     expect(host.admin?).to be_truthy
     host.destroy
   end

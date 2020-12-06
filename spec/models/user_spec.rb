@@ -2,16 +2,16 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   # pending "add some examples to (or delete) #{__FILE__}"
-  it "userが作成されるかテスト" do
+  it "userのadminテスト" do
     before_counts = User.count
     user = FactoryBot.create(:user)
     after_counts = User.count
-    user.destroy
     expect(user.admin?).to be_falsey
-    expect(after_counts - before_counts).to eq 1
+    # expect(after_counts - before_counts).to eq 1
+    user.destroy
   end
 
-  it "hostが作成されるかテスト" do
+  it "hostのadminテスト" do
     host = FactoryBot.create(:host)#host用
     expect(host.admin?).to be_truthy
     host.destroy

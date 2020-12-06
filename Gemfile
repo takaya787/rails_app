@@ -37,7 +37,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails' #test用　
   gem 'factory_bot_rails' #test data用
-
+  gem 'guard-rspec', require: false #testの自動実行用
 end
 
 group :development do

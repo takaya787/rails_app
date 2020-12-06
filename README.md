@@ -13,10 +13,10 @@
 
 ## 使用技術
 * Ruby 2.7.2, Rails 6.0.3
-* nginx
-* node 10.21.0
+* Nginx
 * React.js
 * Webpacker 4.0
+* Rspec, Guard (テストコード作成、実行)
 * Docker, Docker-compose (開発環境)
 * AWS/本番環境 (EC2, EIP, Route53, IAM, ACM, ALB)
 * Mysql (DB)

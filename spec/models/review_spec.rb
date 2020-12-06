@@ -10,7 +10,7 @@ RSpec.describe Review, type: :model do
     #   @current_user = user
     #   @host = User.find_by(email: "testhost@example.com")
     # end
-    it "reviewが作成できるか" do
+    it "loginなしでreviewは作成できない" do
       before_counts = Review.count
       review = Review.create(
         reason: "test review",
@@ -23,7 +23,7 @@ RSpec.describe Review, type: :model do
       )
       after_counts = Review.count
       review.destroy
-      expect(after_counts - before_counts).to eq 1
+      expect(after_counts - before_counts).to eq 0
     end
   end
 end

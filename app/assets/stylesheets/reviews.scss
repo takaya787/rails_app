@@ -23,4 +23,9 @@ header {
   #google-map {
     padding-bottom: 10px;
   }
+  @media screen and (max-width: 767px) {
+    #google-map {
+      padding-bottom: 25px;
+    }
+  }
 }

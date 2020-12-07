@@ -1,0 +1,19 @@
+<% provide(:title, "Guest Map") %>
+<div id="guest">
+  <%= render 'users/top'%>
+  <div class="title">
+    <h1>レビューを閲覧</h1>
+    <h3>レビューを投稿するには、<br class="common__sp-only"><span style="color: red;">ユーザー登録</span>が必要です。</h3>
+    <%= react_component("Signup", {
+              signup: users_path,
+              login: login_path,
+              authenticityToken: form_authenticity_token,})
+    %>
+  </div>
+  <div id="google-map">
+    <%= react_component("GuestMap", {
+      authenticityToken: form_authenticity_token,
+      currentUser: 0,
+    })  %>
+  </div>
+</div>

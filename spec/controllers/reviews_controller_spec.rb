@@ -15,7 +15,7 @@ RSpec.describe ReviewsController, type: :controller do
       describe "#new" do
         # redirectされるか
         it "reject access to the new page" do
-          get :index
+          get :new
           expect(response).to have_http_status(302)
           expect(response).to redirect_to(root_url)
         end

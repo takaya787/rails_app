@@ -114,8 +114,6 @@ class GuestMap extends React.Component {
     //ここまで
     return (
       <div className="Googlemap">
-        <p className="Googlemap_description">ピンをタッチして、ピンの位置を操作できます。
-            <br className="common__sp-only" /> <span><a href="/beginner#index" className="link">詳しい使い方はこちら</a></span></p>
         <GoogleMapReact
           bootstrapURLKeys={{
             //API_KEYは絶対に直接入力しない　過去のものは変更済み

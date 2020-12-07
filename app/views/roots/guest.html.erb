@@ -1,9 +1,9 @@
-<% provide(:title, "Guest map") %>
+<% provide(:title, "Guest Map") %>
 <div id="guest">
   <%= render 'users/top'%>
   <div class="title">
     <h1>レビューを閲覧</h1>
-    <h3>レビューを投稿するには、<br class="common_sp-only"><span style="color: red;">ユーザー登録</span>が必要です。</h3>
+    <h3>レビューを投稿するには、<br class="common__sp-only"><span style="color: red;">ユーザー登録</span>が必要です。</h3>
     <%= react_component("Signup", {
               signup: users_path,
               login: login_path,

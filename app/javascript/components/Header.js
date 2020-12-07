@@ -31,6 +31,7 @@ class Header extends React.Component {
             <ul className="header_menu_lists">
               <a href="/" className="link"><li className="link_part">Home</li></a>
               <a href="/beginner" className="link"><li className="link_part">How to use</li></a>
+              <a href="/guest" className="link"><li className="link_part">Map for Guest</li></a>
               <li className="component">
                 <Signup
                   signup={this.props.signup}

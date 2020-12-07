@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :current_user
-  before_action :back_login
+  before_action :current_user, except: [:index, :check]
+  before_action :back_login, except: [:index, :check]
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :correct_user_for_reviews, only: [:edit, :update, :destroy]
   #skip_before_action:verify_authenticity_token

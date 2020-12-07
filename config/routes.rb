@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post '/reviews/check' => "reviews#check", as:"check_place"
   #roots関連
   get '/beginner' => "roots#beginner"
+  get '/guest' => "roots#guest" #guest用のmap
   root 'roots#root'
  # sns認証用
   get 'auth/:provider/callback', to: "sessions#create"

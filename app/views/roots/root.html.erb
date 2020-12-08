@@ -31,8 +31,8 @@
       <div class="window_title">
         <%= image_tag 'roots/logo.png', class: "image"%>
       </div>
-      <h3 class="window_description">気になる国や街の住み心地を<br>チェック！</h3>
-      <h3 class="window_description">留学や移住の前に<br>レビューを見てみよう！</h3>
+      <h3 class="window_description">気になる国や街の<span class="keyword">住み心地</span>を<br>チェック！</h3>
+      <h3 class="window_description">海外生活経験がある人は、<br>レビューを登録してみよう！</h3>
       <% if logged_in? %>
         <h3>Welcome!<br><%= @current_user.name %></h3>
         <!--<%= link_to "Log out", logout_path , method: :post %> -->
@@ -41,7 +41,8 @@
           <%= react_component("Signup", {
             signup: users_path,
             login: login_path,
-            authenticityToken: form_authenticity_token,})
+            authenticityToken: form_authenticity_token,
+            title: "はじめる",})
           %>
         </div>
       <% end %>
@@ -57,7 +58,7 @@
     <div class="main_explains">
       <div class="explain">
         <h2 class="explain_title">現地の生活経験を<br>場所毎に住み心地などの評価と共に投稿しよう！</h2>
-        <p class="explain_text">ユーザーが自分自身の生活経験を通して、感じたその土地の生活へのレビューを<br><span style="font-weight: bold; color: darkorange; font-size: 18px;">住み心地</span>という評価とともに投稿できるサービスです。</p>
+        <p class="explain_text">ユーザーが自分自身の生活経験を通して、感じたその土地の生活へのレビューを<br><span class="keyword" style=" font-size: 18px;">住み心地</span>という評価とともに投稿できるサービスです。</p>
       </div>
       <div class="explain">
         <h2 class="explain_title">興味のある国や街を<br>検索して投稿を見てみよう！</h2>

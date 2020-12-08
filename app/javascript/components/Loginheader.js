@@ -31,6 +31,7 @@ class Loginheader extends React.Component {
               <ImCross size={16} />
             </button >
             <ul className="header_menu_lists">
+              <a href="/" className="link"><li className="link_part">Top</li></a>
               <a href="/reviews/new" className="link"><li className="link_part">Map</li></a>
               <a href={this.props.Yourpage} className="link"><li className="link_part">Your page</li></a>
               <a href="/beginner" className="link"><li className="link_part">How to use</li></a>

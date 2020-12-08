@@ -19,10 +19,14 @@
 * Webpacker 4.0
 * Rspec, Guard (テストコード作成、実行)
 * Docker, Docker-compose (開発環境)
-* AWS/本番環境 (EC2, EIP, Route53, IAM, ACM, ALB)
+* AWS/本番環境 (EC2, EIP, Route53, ACM, ALB)
 * Mysql (DB)
 * Google-Map API
 * Geocoding API
+
+## インフラ構成図
+![rails_app_diagram](https://user-images.githubusercontent.com/67105080/101494186-59474a80-39aa-11eb-91d5-ee845069b9fb.png)
+
 ## 機能一覧
 **【機能一覧】**
 

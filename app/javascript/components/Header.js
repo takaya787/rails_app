@@ -37,6 +37,7 @@ class Header extends React.Component {
                   signup={this.props.signup}
                   login={this.props.login}
                   authenticityToken={this.props.authenticityToken}
+                  title="はじめる"
                 />
               </li>
             </ul>

@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     @user.email.downcase!
     respond_to do |format|
       if @user.save
-        format.html { redirect_to root_url, notice: 'User was successfully created.' }
+        format.html { redirect_to new_review_url, notice: 'User was successfully created.' }
         format.json { render "roots/root", status: :created, location: @user }
         log_in (@user)
         current_user
@@ -68,9 +68,10 @@ class UsersController < ApplicationController
       log_out (@current_user)
     end
     @user.destroy
-    respond_to do |format|
-      format.html { redirect_to root_url, notice: 'ユーザーが削除されました。' }
-      format.json { head :no_content }
+    if @current_user.admin?
+      redirect_to users_url
+    else
+      redirect_to root_url
     end
   end
 

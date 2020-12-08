@@ -74,7 +74,11 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_to user_path(@current_user)
+    if @current_user.admin?
+      redirect_to users_url
+    else
+      redirect_to user_path(@current_user)
+    end
   end
 
   def check
@@ -85,13 +89,14 @@ class ReviewsController < ApplicationController
         session[:lat] = @center[0]
         session[:lng] = @center[1]
         #@center["lat"], @center["lng"]
-        flash[:success]="検索した場所に移動します"
-        format.html { redirect_to new_review_url}
+        # flash[:success]="検索した場所に移動します"
+        #htmlで送る時はguestのみなので、guest用にredirect
+        format.html { redirect_to guest_path }
         format.json { @center }
         format.js { render "reviews/new"}
       else
-        flash[:danger]="検索した場所が見つかりませんでした"
-        format.html { render :new }
+        # flash[:danger]="検索した場所が見つかりませんでした"
+        format.html { redirect_to guest_path }
         format.json {　@center　}
         format.js { render "reviews/new" }
       end

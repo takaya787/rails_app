@@ -2,18 +2,18 @@
 <%= render 'users/top' %>
 <div id="beginner">
   <div class="title">
-    <h1 class="title_main">初めて<a href="#"><span style="color: darkorange; ">住み心地.com</span></a>を<br class="common__sp-only">ご覧頂く方へ</h1>
-    <h3 class="title_text">ここでは<span style="color: darkorange; ">住み心地.com</span>の<br>ご利用方法を解説させて頂きます。</h3>
+    <h1 class="title_main">初めて<a href="#"><span class="keyword">住み心地.com</span></a>を<br class="common__sp-only">ご覧頂く方へ</h1>
+    <h3 class="title_text">ここでは<span class="keyword">住み心地.com</span>の<br>ご利用方法を解説させて頂きます。</h3>
   </div>
   <div id="index">
     <h3 class="index_title">【目次】</h3>
     <ul class="index_lists">
-      <a class="hover" href="#what"><li class="list">1. <span style="color: darkorange; ">住み心地.com</span>とは?</li></a>
+      <a class="hover" href="#what"><li class="list">1. <span class="keyword">住み心地.com</span>とは?</li></a>
       <a class="hover" href="#how"><li class="list">2. レビューを投稿をしよう！</li></a>
     </ul>
   </div>
   <div id="what">
-    <h2 class="title"><span style="color: darkorange; ">住み心地.com</span>は、<br class="common__sp-only"> 気になる国や地域の<br class="common__sp-only">生活経験のレビューを見て、<br>移住や留学先の選択や、<br class="common__sp-only">出発の準備に役立てもらう<br class="common__sp-only">ためのサービスです。</h2>
+    <h2 class="title"><span class="keyword">住み心地.com</span>は、<br class="common__sp-only"> 気になる国や地域の<br class="common__sp-only">生活経験のレビューを見て、<br>移住や留学先の選択や、<br class="common__sp-only">出発の準備に役立てもらう<br class="common__sp-only">ためのサービスです。</h2>
     <%= image_tag 'roots/home_photo.png',class:"image"%>
   </div>
   <div id="how">
@@ -32,7 +32,8 @@
           <%= react_component("Signup", {
               signup: users_path,
               login: login_path,
-              authenticityToken: form_authenticity_token,})
+              authenticityToken: form_authenticity_token,
+              title: "はじめる"})
           %>
         <% end %>
       </div>
@@ -88,6 +89,7 @@
         signup: users_path,
         login: login_path,
         authenticityToken: form_authenticity_token,
+        title: "レビューを投稿する",
         })
       %>
     <% end %>

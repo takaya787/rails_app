@@ -2,12 +2,13 @@
 <div id="guest">
   <%= render 'users/top'%>
   <div class="title">
-    <h1>レビューを閲覧</h1>
-    <h3>レビューを投稿するには、<br class="common__sp-only"><span style="color: red;">ユーザー登録</span>が必要です。</h3>
+    <h1>レビューをチェック！</h1>
+    <h3><span style="color: red;">ユーザー登録</span>をして、<br class="common__sp-only">レビューを投稿してみよう！</h3>
     <%= react_component("Signup", {
               signup: users_path,
               login: login_path,
-              authenticityToken: form_authenticity_token,})
+              authenticityToken: form_authenticity_token,
+              title: "レビューを投稿する",})
     %>
   </div>
   <div id="google-map">

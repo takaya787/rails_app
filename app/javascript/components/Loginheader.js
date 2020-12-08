@@ -32,9 +32,9 @@ class Loginheader extends React.Component {
             </button >
             <ul className="header_menu_lists">
               <a href="/" className="link"><li className="link_part">Top</li></a>
-              <a href={this.props.Yourpage} className="link"><li className="link_part">Your page</li></a>
               <a href="/reviews/new" className="link"><li className="link_part">Map</li></a>
               <a href="/beginner" className="link"><li className="link_part">How to use</li></a>
+              <a href={this.props.Yourpage} className="link"><li className="link_part">Your page</li></a>
               {/* logoutのpost用 */}
               <li className="logout"><form acceptCharset="UTF-8" method="post" action={this.props.logout} >
                 <input type="hidden" name="authenticity_token"

@@ -3,19 +3,22 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 //root.erb start
 #root {
+  .padding { padding: 5px 0;}
+  .padding-down { padding-bottom: 5px;}
   position: relative;
   .image {
+    text-align: center;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
   .window {
     background-color: white;
-    height: 250px;
+    height: auto;
     width: 250px;
     padding: 20px;
     border-radius: 10px;
     position: absolute;
-    top: 80px;
+    top: 60px;
     right: 10%;
     &_title {
       margin-bottom: 10px;
@@ -26,15 +29,23 @@
       font-size: 18px;
       line-height: 25px;
     }
-    &_signup {
-      margin-top: 20px;
-      text-align: center;
-      height: 40px;
-      .initial {
-        height: 40px;
-        width: 80px;
+    &_link {
+      font-size: 18px;
+      color: red;
+      &:hover {
+        text-decoration: underline;
       }
     }
+  }
+  .guide {
+    background-color: white;
+    height: auto;
+    width: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    position: absolute;
+    top: 300px;
+    right: 10%;
   }
   .main {
     width: 100%;
@@ -204,8 +215,6 @@
       line-height: 20px;
     }
   }
-  #google-map {
-  }
 }
 //guest.erb ends
 
@@ -213,8 +222,11 @@
   //roots.erb repsonsive start
   #root {
     .window {
-      height: 200px;
       width: 200px;
+      height: auto;
+      position: absolute;
+      top: 50px;
+      right: 10%;
       &_title {
         margin-bottom: 10px;
         font-size: 30px;
@@ -229,7 +241,13 @@
         margin-top: 10px;
       }
     }
-
+    .guide {
+      width: 200px;
+      height: 150px;
+      position: absolute;
+      top: 260px;
+      right: 10%;
+    }
     .main {
       &_explains {
         display: flex;

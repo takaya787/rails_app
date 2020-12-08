@@ -29,17 +29,17 @@ class GuestMap extends React.Component {
     this.state = {
       center: { center: { lat: 0, lng: 0 } },
       reviews: [],
-      zoom: 10,
+      zoom: 6.0,
     };
     //bind(this)はthisを固定してどの関数で呼び出しても同じthisになる
     this.fetchCenter = this.fetchCenter.bind(this);
     this.MapfetchReviews = this.MapfetchReviews.bind(this);
     this.zoomin = this.zoomin.bind(this);
   }
-  //checkformで検索後拡大する
+  //reviewを確認専用なので、zoom小さめ
   zoomin() {
     this.setState({
-      zoom: 12,
+      zoom: 7.5,
     });
   };
   //guest.jsonからcenter情報を取得して、stateのcenterを更新する

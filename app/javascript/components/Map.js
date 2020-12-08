@@ -31,7 +31,7 @@ class Map extends React.Component {
     this.state = {
       center: { center: { lat: 0, lng: 0 } },
       reviews: [],
-      zoom: 10,
+      zoom: 6.0,
     };
     //bind(this)はthisを固定してどの関数で呼び出しても同じthisになる
     this.fetchCenter = this.fetchCenter.bind(this);
@@ -42,10 +42,10 @@ class Map extends React.Component {
     this.Goright = this.Goright.bind(this);
     this.Goleft = this.Goleft.bind(this);
   }
-  //checkformで検索後拡大する
+  //reviewを投稿できるので、zoom少し大きめ
   zoomin() {
     this.setState({
-      zoom: 12,
+      zoom: 9.0,
     });
   };
   /*ここからHoverpinを移動させるためのの関数４つ続く*/

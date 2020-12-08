@@ -14,6 +14,7 @@
     </p>
     <% if @user.admin? %>
       <p>このユーザーは管理者ユーザーです</p>　
+      <%= link_to "user一覧", users_path %>
     <% end %>
     <span style="margin-right: 30px;"><%= link_to 'Edit', edit_user_path(@user) %></span>
     <%= link_to 'Destroy', @user, method: :delete, data: { confirm: '登録データは投稿も含め全て失われますが、本当によろしいですか？' } %>

@@ -74,7 +74,11 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_to user_path(@current_user)
+    if @current_user.admin?
+      redirect_to users_url
+    else
+      redirect_to user_path(@current_user)
+    end
   end
 
   def check

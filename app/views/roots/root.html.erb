@@ -10,19 +10,20 @@
       <h3 class="window_description">海外生活経験がある人は、<br>レビューを登録してみよう！</h3>
       <% if logged_in? %>
         <h2 style="margin-bottom: 10px;">Welcome!</h2>
-        <h2> <%= @current_user.name %></h2>
+        <h2 style="margin-bottom: 10px;"> <%= @current_user.name %></h2>
         <!--<%= link_to "Log out", logout_path , method: :post %> -->
+        <%= link_to "レビューを投稿",new_review_path ,class: "window_link"%>
       <% end %>
     </div>
     <% unless logged_in? %>
       <div class="guide">
-        <h3 class="guide_title padding-down">Guestとして<br>レビューをチェック！</h3>
+        <h3 class="guide_title padding-down">ゲストとして<br>レビューをチェック！</h3>
         <%= react_component("GuestButton",{
                 check: check_place_path,
                 authenticityToken: form_authenticity_token,
                 title: "チェック",
         } )%>
-        <h3 class="guide_title padding">user登録して<br>レビューを投稿！</h3>
+        <h3 class="guide_title padding">ユーザー登録して<br>レビューを投稿！</h3>
         <%= react_component("Signup", {
                 signup: users_path,
                 login: login_path,
@@ -42,20 +43,20 @@
       <h3 class="window_description">気になる国や街の<span class="keyword">住み心地</span>を<br>チェック！</h3>
       <h3 class="window_description">海外生活経験がある人は、<br>レビューを登録してみよう！</h3>
       <% if logged_in? %>
-        <h3>Welcome!<br><%= @current_user.name %></h3>
+        <h3 style="margin-bottom: 10px;">Welcome!<br><%= @current_user.name %></h3>
         <!--<%= link_to "Log out", logout_path , method: :post %> -->
-        <%= link_to "レビューを投稿する",new_review_path %>
+        <%= link_to "レビューを投稿",new_review_path ,class: "window_link"%>
       <% end %>
     </div>
     <% unless logged_in? %>
     <div class="guide">
-      <h3 class="guide_title padding-down">Guestとして<br>レビューをチェック！</h3>
+      <h3 class="guide_title padding-down">ゲストとして<br>レビューをチェック！</h3>
       <%= react_component("GuestButton",{
               check: check_place_path,
               authenticityToken: form_authenticity_token,
               title: "チェック",
       } )%>
-      <h3 class="guide_title padding">user登録して<br>レビューを投稿！</h3>
+      <h3 class="guide_title padding">ユーザー登録して<br>レビューを投稿！</h3>
       <%= react_component("Signup", {
               signup: users_path,
               login: login_path,

@@ -121,7 +121,7 @@ class Signup extends React.Component {
     }
     else {
       return (
-        <button className="initial" onClick={this.signupcontroll}>はじめる</button>
+        <button className="initial" onClick={this.signupcontroll}>{this.props.title}</button>
       );
     }
   }
@@ -130,6 +130,7 @@ class Signup extends React.Component {
 Signup.propTypes = {
   signup: PropTypes.string,
   login: PropTypes.string,
-  authenticityToken: PropTypes.string
+  authenticityToken: PropTypes.string,
+  title: PropTypes.string,
 };
 export default Signup

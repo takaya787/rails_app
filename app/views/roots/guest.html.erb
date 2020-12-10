@@ -4,6 +4,7 @@
   <div class="title">
     <h1>レビューをチェック！</h1>
     <h3><span style="color: red;">ユーザー登録</span>をして、<br class="common__sp-only">レビューを投稿してみよう！</h3>
+
     <%= react_component("Signup", {
               signup: users_path,
               login: login_path,
@@ -11,6 +12,9 @@
               title: "レビューを投稿する",})
     %>
   </div>
+  <%#flash messageを表示用%>
+　<div id="flash_message"></div>
+
   <div id="google-map">
     <%= react_component("GuestMap", {
       authenticityToken: form_authenticity_token,

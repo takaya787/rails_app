@@ -91,12 +91,12 @@ class ReviewsController < ApplicationController
         #@center["lat"], @center["lng"]
         flash[:notice]="検索した場所を表示します。"
         #htmlで送る時はguestのみなので、guest用にredirect
-        format.js { render "reviews/new"}
+        format.js
         format.html { redirect_to guest_path }
         format.json { @center }
       else
         flash[:danger]="検索した場所が見つかりません。"
-        format.js { render "reviews/new" }
+        format.js
         format.html { redirect_to guest_path }
         format.json {　@center　}
       end

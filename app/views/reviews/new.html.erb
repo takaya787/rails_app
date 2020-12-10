@@ -5,7 +5,7 @@
     <h1>レビューを投稿してみよう！</h1>
   </div>
 
-  <div id="flash_messages"></div>
+  <div id="flash_message"></div>
 
   <% if @review %>
     <%= render 'errors',  review: @review %>
@@ -18,3 +18,5 @@
     })  %>
   </div>
 </div>
+<% #guestmapのfadeout再利用　%>
+<%= render 'roots/fadeout' %>

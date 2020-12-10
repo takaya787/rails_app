@@ -1,0 +1,11 @@
+var flashTarget = document.getElementById('flash_message');
+if (flashTarget.classList.contains('notice')) {
+  flashTarget.classList.remove('notice');
+}
+if (flashTarget.classList.contains('danger')) {
+  flashTarget.classList.remove('danger');
+}
+<% flash.each do |type, message| %>
+  flashTarget.className = "flash <%= type %>" ;
+  flashTarget.innerHTML = "<%= message %>" ;
+<% end %>

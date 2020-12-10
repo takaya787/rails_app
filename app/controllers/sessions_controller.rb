@@ -28,6 +28,7 @@ class SessionsController < ApplicationController
   def destroy
     current_user
     log_out (@current_user)
+    flash[:danger] = "ログアウトしました。"
     redirect_to root_url
   end
 

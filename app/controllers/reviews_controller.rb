@@ -39,7 +39,7 @@ class ReviewsController < ApplicationController
         # has_manyとhas_oneでコードが変わる(former: has_many, latter: has_one)
         # spot = @review.spot.create(:address => result )
         spot = @review.create_spot(:address => result )
-        flash[:success]="投稿を作成しました。"
+        flash[:notice]="投稿を作成しました。"
         format.html { redirect_to reviews_url }
          #二重送信を防ぐ処理の都合によりflash messageが表示できていない
         format.js { render "reviews/new" }
@@ -89,16 +89,16 @@ class ReviewsController < ApplicationController
         session[:lat] = @center[0]
         session[:lng] = @center[1]
         #@center["lat"], @center["lng"]
-        # flash[:success]="検索した場所に移動します"
+        flash[:notice]="検索した場所を表示します。"
         #htmlで送る時はguestのみなので、guest用にredirect
+        format.js
         format.html { redirect_to guest_path }
         format.json { @center }
-        format.js { render "reviews/new"}
       else
-        # flash[:danger]="検索した場所が見つかりませんでした"
+        flash[:danger]="検索した場所が見つかりません。"
+        format.js
         format.html { redirect_to guest_path }
         format.json {　@center　}
-        format.js { render "reviews/new" }
       end
     end
   end

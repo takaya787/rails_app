@@ -43,6 +43,12 @@ body, h1, h2, h3{
   color: brown;
   padding-left: 10px;
 }
+#flash_message {
+  max-width: 1300px;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
 .flash {
   padding: 5px;
   margin: 10px;
